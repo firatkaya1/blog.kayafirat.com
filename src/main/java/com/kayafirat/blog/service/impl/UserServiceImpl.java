@@ -4,7 +4,9 @@ import com.kayafirat.blog.dto.AuthenticateRequest;
 import com.kayafirat.blog.dto.Register;
 import com.kayafirat.blog.dto.UserProfileDTO;
 import com.kayafirat.blog.entity.*;
+import com.kayafirat.blog.exception.custom.UserEmailAlreadyExistsException;
 import com.kayafirat.blog.exception.custom.UserNotFoundException;
+import com.kayafirat.blog.exception.custom.UsernameAlreadyExistsException;
 import com.kayafirat.blog.repository.UserRepository;
 import com.kayafirat.blog.service.UserService;
 
@@ -94,11 +96,12 @@ public class UserServiceImpl implements UserService {
         user.setEmail(register.getEmailAddress());
         user.setPassword(register.getPassword());
         if (userRepository.existsByUsername(user.getUsername())) {
-            throw new NullPointerException();
+            throw new UsernameAlreadyExistsException("Bu kullanıcı adı alınmış.");
         }
         if(userRepository.existsByEmail(user.getEmail())){
-            throw new NullPointerException();
+            throw new UserEmailAlreadyExistsException("Bu e-posta adresi alınmış.");
         }
+        
 
         userRepository.save(user);
 
