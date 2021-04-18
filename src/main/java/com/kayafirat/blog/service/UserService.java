@@ -34,4 +34,7 @@ public interface UserService extends UserDetailsService {
     NotificationPermission getUserNotificationPermissions(Long id);
 
     void updateUserImage(MultipartFile multipartFile,Long id);
+
+    String linkedinOauth(String code) throws Exception;
+
 }

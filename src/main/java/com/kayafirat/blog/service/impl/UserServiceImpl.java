@@ -14,10 +14,15 @@ import com.kayafirat.blog.util.JwtUtil;
 import com.kayafirat.blog.util.SecurityUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -26,6 +31,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -35,16 +41,28 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 @Service
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class UserServiceImpl implements UserService {
 
+    @Autowired AuthenticationManager authenticationManager;
     private final UserRepository userRepository;
     private final SecurityUtil securityUtil;
-    @Autowired AuthenticationManager authenticationManager;
-    @Autowired private Environment env;
+    private final Environment env;
     private final JwtUtil jwtUtil;
+    private final RestTemplate restTemplate;
+
+    @Autowired
+    public UserServiceImpl(UserRepository userRepository, SecurityUtil securityUtil,
+                           Environment env, JwtUtil jwtUtil,
+                           RestTemplateBuilder restTemplate) {
+        this.userRepository = userRepository;
+        this.securityUtil = securityUtil;
+        this.env = env;
+        this.jwtUtil = jwtUtil;
+        this.restTemplate = restTemplate.build();
+    }
 
     @Override
     @Cacheable(cacheNames = "user", key = "#id")
@@ -178,6 +196,55 @@ public class UserServiceImpl implements UserService {
         return new org.springframework.security.core.userdetails.User(String.valueOf(user.getId()), securityUtil.encode(user.getPassword()),authorities);
     }
 
+    public String linkedinOauth(String code) throws Exception {
+        String url = env.getProperty("oauth2.linkedin.root-uri")+"code="+code+"&client_id="+env.getProperty("oauth2.linkedin.client-id")+"&client_secret="+env.getProperty("oauth2.linkedin.client-secret")+"&redirect_uri="+env.getProperty("oauth2.linkedin.redirect-uri")+"&grant_type=authorization_code";
+        String accessToken = restTemplate.postForEntity(url,null,Map.class).getBody().get("access_token").toString();
+        url = "https://api.linkedin.com/v2/me";
+        Map userMap = restTemplate.exchange(url, HttpMethod.GET,prepareHTTPEntity(accessToken), Map.class).getBody();
+        url = "https://api.linkedin.com/v2/clientAwareMemberHandles?q=members&projection=(elements*(primary,type,handle~))";
+        String val = restTemplate.exchange(url, HttpMethod.GET,prepareHTTPEntity(accessToken), Map.class).getBody().toString();
+        String email = val.substring(val.indexOf("ss=")+3,val.lastIndexOf("}, "));
+        String username = userMap.get("localizedFirstName").toString().toLowerCase() + userMap.get("localizedLastName").toString().toLowerCase() + ((int) (Math.random() * (10000) + 1000));
+        return saveAuthUser(email,username,createRandomPassword());
+    }
+
+    private String createRandomPassword() {
+        String[] alphabet = {"a","b","c","d","e","f","g","h","l","A","B","C","D","E","F","G","L","1","2","3","4","5","6","7","8","9","0"};
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0;i<=15;i++) {
+            sb.append(alphabet[(int) (Math.random() * (25) + 0)]);
+        }
+        return sb.toString();
+    }
+
+    private String saveAuthUser(String email, String username,String password) throws Exception {
+
+        if(userRepository.existsByEmail(email)){
+            User user = userRepository.findByEmail(email);
+            return login(new AuthenticateRequest(user.getEmail(),user.getPassword()));
+        }else {
+            User user = new User();
+            UserPermission userPermission = new UserPermission();
+            UserProfile userProfile = new UserProfile();
+            NotificationPermission notificationPermission = new NotificationPermission();
+            user.setUserPermission(userPermission);
+            user.setUserProfile(userProfile);
+            user.setNotificationPermission(notificationPermission);
+            user.setUsername(username);
+            user.setEmail(email);
+            user.setPassword(password);
+            userRepository.save(user);
+        }
+        return login(new AuthenticateRequest(email,password));
+    }
+
+    private HttpEntity<String> prepareHTTPEntity(String accessToken) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.set("User-Agent","blog.kayafirat.com");
+        headers.setBearerAuth (accessToken);
+        return new HttpEntity<>("parameters", headers);
+    }
 
 
 }

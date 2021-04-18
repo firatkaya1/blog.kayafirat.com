@@ -34,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        List<Security> securities = securityService.getLinks();
+        /*List<Security> securities = securityService.getLinks();
         for (Security security:securities) {
             String[] roles = new String[security.getRole().size()];
             int i = 0;
@@ -46,11 +46,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 http.authorizeRequests().antMatchers(security.getHttpMethod(),security.getLink()).hasAnyRole(roles);
             else
                 http.authorizeRequests().antMatchers(security.getHttpMethod(),security.getLink()).permitAll();
-        }
+        }*/
         http
             .cors().configurationSource(corsConfigurationSource())
             .and()
             .csrf().disable()
+            .authorizeRequests().anyRequest().permitAll()
+            .and()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 

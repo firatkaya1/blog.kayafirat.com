@@ -26,6 +26,9 @@ public class Report extends JdkSerializationRedisSerializer implements Serializa
     private String reportCode;
 
     @Column
+    private String name;
+
+    @Column
     private String email;
 
     @Column

@@ -58,20 +58,6 @@ public class UserController {
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
-    @PostMapping(value = "/login")
-    public ResponseEntity<?> login(@RequestBody AuthenticateRequest authenticateRequest, HttpServletResponse response) throws Exception {
-        String token = userService.login(authenticateRequest);
-        Cookie cookie = new Cookie("authenticate",token);
-        cookie.setMaxAge(36000);
-        cookie.setDomain("localhost");
-        cookie.setPath("/");
-        cookie.setSecure(false);
-        cookie.setHttpOnly(false);
-        response.addCookie(cookie);
-        response.setHeader("Access-Control-Allow-Credentials", "true");
-        return ResponseEntity.ok(HttpStatus.OK);
-    }
-
     @PutMapping
     public ResponseEntity<User> update(@RequestBody User user){
         return ResponseEntity.ok(userService.updateUser(user));
@@ -89,6 +75,20 @@ public class UserController {
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
+    @PostMapping(value = "/login")
+    public ResponseEntity<?> login(@RequestBody AuthenticateRequest authenticateRequest, HttpServletResponse response) throws Exception {
+        String token = userService.login(authenticateRequest);
+        Cookie cookie = new Cookie("authenticate",token);
+        cookie.setMaxAge(36000);
+        cookie.setDomain("localhost");
+        cookie.setPath("/");
+        cookie.setSecure(true);
+        cookie.setHttpOnly(true);
+        response.addCookie(cookie);
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
+
     @PostMapping(value = "logout")
     public ResponseEntity<?> logout(HttpServletResponse response)   {
         Cookie cookie = new Cookie("authenticate","");
@@ -97,6 +97,20 @@ public class UserController {
         cookie.setPath("/");
         cookie.setSecure(false);
         cookie.setHttpOnly(false);
+        response.addCookie(cookie);
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/oauth/linkedin")
+    public ResponseEntity<?> linkedin(@RequestParam String code, HttpServletResponse response) throws Exception {
+        String token = userService.linkedinOauth(code);
+        Cookie cookie = new Cookie("authenticate",token);
+        cookie.setMaxAge(36000);
+        cookie.setDomain("localhost");
+        cookie.setPath("/");
+        cookie.setSecure(true);
+        cookie.setHttpOnly(true);
         response.addCookie(cookie);
         response.setHeader("Access-Control-Allow-Credentials", "true");
         return ResponseEntity.ok(HttpStatus.OK);
