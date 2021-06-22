@@ -137,5 +137,4 @@ public class SenderService {
         mailService.updateStatus(to);
     }
 
-
 }

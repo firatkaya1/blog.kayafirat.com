@@ -1,6 +1,7 @@
 package com.kayafirat.blog.service;
 
 import com.kayafirat.blog.dto.NotificationDTO;
+import com.kayafirat.blog.entity.MailPermission;
 import com.kayafirat.blog.entity.Notification;
 import com.kayafirat.blog.entity.NotificationPermission;
 import org.springframework.data.domain.Page;

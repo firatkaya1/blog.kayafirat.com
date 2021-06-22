@@ -13,6 +13,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,8 +33,8 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public List<CommentDTO> getUserComments() {
-        return commentRepository.findAllByUserId(301l);
+    public List<CommentDTO> getUserComments(Long id) {
+        return commentRepository.findAllByUserId(id);
     }
 
     @Override
@@ -44,7 +45,11 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public Comment addComment(Comment comment) {
-        comment.setUserId(301l);
+        if(SecurityContextHolder.getContext().getAuthentication().isAuthenticated()){
+            comment.setUserId(Long.valueOf(SecurityContextHolder.getContext().getAuthentication().getName()));
+        } else {
+            comment.setUserId(398l);
+        }
         return commentRepository.save(comment);
     }
 
@@ -71,7 +76,11 @@ public class CommentServiceImpl implements CommentService {
     public Comment addVote(Long id) {
         Comment comment = commentRepository.findById(id).orElseThrow(()->new CommentIDNotFoundException(id));
         CommentVote commentVote = new CommentVote();
-        commentVote.setUserId((long)301l);
+        if(SecurityContextHolder.getContext().getAuthentication().isAuthenticated()){
+            commentVote.setUserId(Long.valueOf(SecurityContextHolder.getContext().getAuthentication().getName()));
+        } else {
+            commentVote.setUserId(398l);
+        }
         commentVote.setComment(comment);
         comment.getCommentVotes().add(commentVote);
         return commentRepository.save(comment);

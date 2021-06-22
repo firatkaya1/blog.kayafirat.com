@@ -1,5 +1,6 @@
 package com.kayafirat.blog.util;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.mail.Message;
@@ -10,9 +11,15 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import java.io.UnsupportedEncodingException;
+import java.util.Date;
 
 @Component
 public class Template {
+
+    private static String GLOBAL_URL = "https://localhost:4200";
+    @Autowired private JwtUtil jwtUtil;
+
+
 
     /**
      * This is a verification email address.
@@ -23,6 +30,9 @@ public class Template {
      * @return
      */
     public MimeMessage verificationEmailTemplate(String emailAddress, Session session) {
+        String link = GLOBAL_URL+"/verify?token="+jwtUtil.generateToken(emailAddress,1800000L);
+        String unSubscribeLink = GLOBAL_URL+"/unsubscribe?token="+jwtUtil.generateToken(emailAddress,1800000000L);
+
         String template = "<!DOCTYPE html>" +
                 "<html lang=\"en\"> " +
                 "<head> <meta charset=\"UTF-8\"> " +
@@ -54,9 +64,9 @@ public class Template {
                 "<div style=\"font-size: 18px;\"> <p>Sevgili <b>" + emailAddress + " </b>,</p> <p>Başarılı bir şekilde kayıt işlemin tamamlandı. Lütfen aşağıdaki linke tıklayarak email adresini onaylayabilirsin. </p>" +
                 " <p>Teşekkürler</p> " +
                 "<p class=\"text-14\">Not : Hesabı aktive etme süren 30 dakikadır. Bu link 30 dakika sonra ömrünü tamamlayacaktır.Yeni bir doğrulama maili almak istiyorsan Ayarlar kısmından yeni bir şifre talep edebilirsin.</p> " +
-                "</div> <div class=\"active\"> <a href=\"https://blog.kayafirat.com\"><button>Hesabı Aktive Et</button></a> </div> " +
-                "<div class=\"error\"> Üsteki link çalışmıyorsa lütfen buna tıkla :" + emailAddress + " </div> <div class=\"unsubscribe\">" +
-                " <p class=\"text-muted\"> Bu maili almak istemiyorsanız mail üyeliginizi sonlandırabilirsiniz. <a href=\"#\">Unsubscribe | Mail Üyeliginden çık</a> </p> </div> </div>" +
+                "</div> <div class=\"active\"> <a href=\""+link+"\"><button>Hesabı Aktive Et</button></a> </div> " +
+                "<div class=\"error\"> Üsteki link çalışmıyorsa lütfen buna tıkla :" + link + " </div> <div class=\"unsubscribe\">" +
+                " <p class=\"text-muted\"> Bu maili almak istemiyorsanız mail üyeliginizi sonlandırabilirsiniz. <a href=\""+unSubscribeLink+"\">Unsubscribe | Mail Üyeliginden çık</a> </p> </div> </div>" +
                 " </body>" +
                 "</html>";
 
@@ -89,6 +99,8 @@ public class Template {
      * @return
      */
     public MimeMessage verificationSuccessTemplate(String emailAddress, Session session) {
+        String unSubscribeLink = GLOBAL_URL+"/unsubscribe?token="+jwtUtil.generateToken(emailAddress,1800000000L);
+
         String template = "<!DOCTYPE html>\n" +
                 "<html lang=\"en\">\n" +
                 "<head>\n" +
@@ -123,7 +135,7 @@ public class Template {
                 "            <img src=\"https://image.kayafirat.com/images/1/verify.png\" width=\"150px\" alt=\"verify-account\">\n" +
                 "        </div>\n" +
                 "        <div style=\"font-size: 18px;\">\n" +
-                "            <p>Sevgili <b>\"+emailAddress+\" </b>,</p>\n" +
+                "            <p>Sevgili <b>\""+emailAddress+"\" </b>,</p>\n" +
                 "            <p>Başarılı bir şekilde hesabın onaylandı. Artık benim için tamamen güvenilir bir kullanıcı oldun. Sana bunun için \n" +
                 "                teşekkür ediyorum.  \n" +
                 "            </p>\n" +
@@ -136,7 +148,7 @@ public class Template {
                 "        <div class=\"active\"> <a href=\"https://blog.kayafirat.com\"><button>Siteye Git</button></a> </div>\n" +
                 "        <div class=\"unsubscribe\">\n" +
                 "            <p class=\"text-muted\"> Bu maili almak istemiyorsanız mail üyeliginizi sonlandırabilirsiniz. \n" +
-                "                <a href=\"#\">&nbsp;Unsubscribe &nbsp;|&nbsp; Mail Üyeliginden çık&nbsp;</a> \n" +
+                "                <a href=\""+unSubscribeLink+"\">&nbsp;Unsubscribe &nbsp;|&nbsp; Mail Üyeliginden çık&nbsp;</a> \n" +
                 "            </p>\n" +
                 "        </div>\n" +
                 "    </div>\n" +
@@ -171,6 +183,8 @@ public class Template {
      * @return
      */
     public MimeMessage resetPasswordTemplate(String emailAddress, Session session) {
+        String link = GLOBAL_URL+"/resetpassword?code="+jwtUtil.generateToken(emailAddress,1800000L);
+        String unSubscribeLink = GLOBAL_URL+"/unsubscribe?token="+jwtUtil.generateToken(emailAddress,1800000000L);
         String template = "<!DOCTYPE html>" +
                 "<html lang=\"en\"> " +
                 "<head> " +
@@ -203,9 +217,9 @@ public class Template {
                 "<p>Bizlerden istediğin gibi şifreni sıfırlama bağlantısını getirdik. Aşağıdaki <b>Şifremi Sıfırla </b> bağlantısına tıklayarak açılacak yeni sayfadan kendine yeni bir sayfa oluşturabilirsin.</p> " +
                 "<p>Teşekkürler</p> " +
                 "<p class=\"text-14\">Not : Şifre sıfırlama süren 30 dakikadır. Bu link 30 dakika sonra ömrünü tamamlayacaktır.Yeni bir sıfırlama maili almak istiyorsan şifremi unuttun seçeneğime tıklayarak yeni bir link talep edebilirsin.</p>" +
-                " </div> <div class=\"active\"> <a href=" + emailAddress + "" + "><button>Şifremi Sıfırla</button></a> </div> " +
-                "<div class=\"error\"> Üsteki link çalışmıyorsa lütfen buna tıkla :" + emailAddress + " </div> " +
-                "<div class=\"unsubscribe\"> <p class=\"text-muted\"> Bu maili almak istemiyorsanız mail üyeliginizi sonlandırabilirsiniz. <a href=\"#\">Unsubscribe | Mail Üyeliginden çık</a> </p> </div> </div> " +
+                " </div> <div class=\"active\"> <a href=" +link+"><button>Şifremi Sıfırla</button></a> </div> " +
+                "<div class=\"error\"> Üsteki link çalışmıyorsa lütfen buna tıkla :" + link + " </div> " +
+                "<div class=\"unsubscribe\"> <p class=\"text-muted\"> Bu maili almak istemiyorsanız mail üyeliginizi sonlandırabilirsiniz. <a href=\""+unSubscribeLink+"\">Unsubscribe | Mail Üyeliginden çık</a> </p> </div> </div> " +
                 "</body>" +
                 "</html>";
         MimeMessage message = new MimeMessage(session);
@@ -238,6 +252,9 @@ public class Template {
      * @return
      */
     public MimeMessage passwordChangedTemplate(String emailAddress, Session session) {
+        String link = GLOBAL_URL+"/forgotpassword";
+        String unSubscribeLink = GLOBAL_URL+"/unsubscribe?token="+jwtUtil.generateToken(emailAddress,1800000000L);
+
         String template = "<!DOCTYPE html><html lang=\"en\"> " +
                 "<head> <meta charset=\"UTF-8\"> " +
                 "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"> " +
@@ -262,12 +279,12 @@ public class Template {
                 "</h1> </div> " +
                 "<div class=\"img center\"> <img src=\"https://image.kayafirat.com/images/1/verify.png\" width=\"200\"   title=\"logo\" alt=\"logo\"> </div> " +
                 "<div style=\"font-size: 16px;\"> <p>Sevgili <b>" + emailAddress + "</b>,</p> " +
-                "<p>Hesap şifren <span><b>" + emailAddress + "</b></span> tarihinde değiştirildi. Eğer bu sen değilsen lütfen bizimle iletişime geç ve hesabını güvene al.</p> " +
-                "<p class=\"text-muted\">Ip Address: <span>" + emailAddress + "</span> </p> <p class=\"text-muted\">User-Agent: <span>" + emailAddress + "</span></p> </div> " +
-                "<div class=\"active\"> <a href=\"https://blog.kayafirat.com\"><button>Bunu ben yapmadım.</button></a> </div> " +
-                "<div class=\"error\"> Üsteki link çalışmıyorsa lütfen buna tıkla : </div> " +
+                "<p>Hesap şifren <span><b>" + new Date() + "</b></span> tarihinde değiştirildi. Eğer bu sen değilsen lütfen bizimle iletişime geç ve hesabını güvene al.</p> " +
+                "</div> " +
+                "<div class=\"active\"> <a href=\""+link+"\"><button>Bunu ben yapmadım.</button></a> </div> " +
+                "<div class=\"error\"> Üsteki link çalışmıyorsa lütfen buna tıkla : <a href=\""+link+"\">"+link+"</a></div> " +
                 "<div class=\"unsubscribe\"> <p class=\"text-muted\"> Bu maili almak istemiyorsanız mail üyeliginizi sonlandırabilirsiniz. " +
-                "<a href=\"#\">Unsubscribe | Mail Üyeliginden çık</a> </p> </div> </div> " +
+                "<a href=\""+unSubscribeLink+"\">Unsubscribe | Mail Üyeliginden çık</a> </p> </div> </div> " +
                 "</body></html>";
         MimeMessage message = new MimeMessage(session);
         MimeMultipart multipart = new MimeMultipart();
@@ -300,6 +317,8 @@ public class Template {
      * @return
      */
     public MimeMessage loginSuccessTemplate(String emailAddress, Session session) {
+        String unSubscribeLink = GLOBAL_URL+"/unsubscribe?token="+jwtUtil.generateToken(emailAddress,1800000000L);
+
         String template = "<!DOCTYPE html>\n" +
                 "<html lang=\"en\">\n" +
                 "<head>\n" +
@@ -345,7 +364,7 @@ public class Template {
                 "        <div class=\"active\"> <a href=\"https://blog.kayafirat.com\"><button>Siteye Git</button></a> </div>\n" +
                 "        <div class=\"unsubscribe\">\n" +
                 "            <p class=\"text-muted\"> Bu maili almak istemiyorsanız mail üyeliginizi sonlandırabilirsiniz. \n" +
-                "                <a href=\"#\">&nbsp;Unsubscribe &nbsp;|&nbsp; Mail Üyeliginden çık&nbsp;</a> \n" +
+                "                <a href=\""+unSubscribeLink+"\">&nbsp;Unsubscribe &nbsp;|&nbsp; Mail Üyeliginden çık&nbsp;</a> \n" +
                 "            </p>\n" +
                 "        </div>\n" +
                 "    </div>\n" +
@@ -380,6 +399,8 @@ public class Template {
      * @return
      */
     public MimeMessage loginAttemptTemplate(String emailAddress, Session session) {
+        String unSubscribeLink = GLOBAL_URL+"/unsubscribe?token="+jwtUtil.generateToken(emailAddress,1800000000L);
+
         String template = "<!DOCTYPE html>\n" +
                 "<html lang=\"en\">\n" +
                 "<head>\n" +
@@ -429,7 +450,7 @@ public class Template {
                 "        <div class=\"active\"> <a href=\"https://blog.kayafirat.com\"><button>Bunu ben yapmadım</button></a> </div>\n" +
                 "        <div class=\"unsubscribe\">\n" +
                 "            <p class=\"text-muted\"> Bu maili almak istemiyorsanız mail üyeliginizi sonlandırabilirsiniz. \n" +
-                "                <a href=\"#\">&nbsp;Unsubscribe &nbsp;|&nbsp; Mail Üyeliginden çık&nbsp;</a> \n" +
+                "                <a href=\""+unSubscribeLink+"\">&nbsp;Unsubscribe &nbsp;|&nbsp; Mail Üyeliginden çık&nbsp;</a> \n" +
                 "            </p>\n" +
                 "        </div>\n" +
                 "    </div>\n" +

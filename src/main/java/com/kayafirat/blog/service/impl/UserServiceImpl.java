@@ -4,15 +4,19 @@ import com.kayafirat.blog.dto.AuthenticateRequest;
 import com.kayafirat.blog.dto.Register;
 import com.kayafirat.blog.dto.UserProfileDTO;
 import com.kayafirat.blog.entity.*;
+import com.kayafirat.blog.enums.Type;
+import com.kayafirat.blog.exception.custom.SamePasswordException;
 import com.kayafirat.blog.exception.custom.UserEmailAlreadyExistsException;
 import com.kayafirat.blog.exception.custom.UserNotFoundException;
 import com.kayafirat.blog.exception.custom.UsernameAlreadyExistsException;
 import com.kayafirat.blog.repository.UserRepository;
+import com.kayafirat.blog.service.MailService;
+import com.kayafirat.blog.service.NotificationService;
 import com.kayafirat.blog.service.UserService;
 
 import com.kayafirat.blog.util.JwtUtil;
 import com.kayafirat.blog.util.SecurityUtil;
-import lombok.RequiredArgsConstructor;
+import net.minidev.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cache.annotation.CacheEvict;
@@ -27,7 +31,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -38,10 +41,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -52,15 +52,20 @@ public class UserServiceImpl implements UserService {
     private final Environment env;
     private final JwtUtil jwtUtil;
     private final RestTemplate restTemplate;
+    private final MailService mailService;
+    private final NotificationService notificationService;
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository, SecurityUtil securityUtil,
                            Environment env, JwtUtil jwtUtil,
-                           RestTemplateBuilder restTemplate) {
+                           RestTemplateBuilder restTemplate,
+                           MailService mailService,NotificationService notificationService) {
         this.userRepository = userRepository;
         this.securityUtil = securityUtil;
         this.env = env;
         this.jwtUtil = jwtUtil;
+        this.mailService = mailService;
+        this.notificationService = notificationService;
         this.restTemplate = restTemplate.build();
     }
 
@@ -107,6 +112,12 @@ public class UserServiceImpl implements UserService {
         UserPermission userPermission = new UserPermission();
         UserProfile userProfile = new UserProfile();
         NotificationPermission notificationPermission = new NotificationPermission();
+        MailPermission mailPermission = new MailPermission();
+        mailPermission.setLoginAttempt(true);
+        mailPermission.setPassChange(true);
+        mailPermission.setPostNotification(true);
+
+        user.setMailPermission(mailPermission);
         user.setUserPermission(userPermission);
         user.setUserProfile(userProfile);
         user.setNotificationPermission(notificationPermission);
@@ -119,10 +130,19 @@ public class UserServiceImpl implements UserService {
         if(userRepository.existsByEmail(user.getEmail())){
             throw new UserEmailAlreadyExistsException("Bu e-posta adresi alınmış.");
         }
-        
-
-        userRepository.save(user);
-
+        // send verification message
+        MailQueue mailQueue = new MailQueue();
+        mailQueue.setMailType(Type.Verification);
+        mailQueue.setEmailAddress(user.getEmail());
+        mailService.save(mailQueue);
+        User _user = userRepository.save(user);
+        // add a notification
+        Notification notification = new Notification();
+        notification.setUser(_user);
+        notification.setTitle("Aramıza hoşgeldin.");
+        notification.setMessage("Kayıt olduğun için teşekkürler, şimdi rahatlıkla yazıları okuyabilir, yorum yapabilir ve beğenebilirsin. Sana iyi okumalar :)");
+        notification.setLink("http://localhost:4200");
+        notificationService.addNotification(notification);
     }
 
     @Override
@@ -131,6 +151,22 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() ->  new UserNotFoundException());
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(String.valueOf(user.getId()),user.getPassword()));
+
+            if(user.getNotificationPermission().isLoginNotification()) {
+                Notification notification = new Notification();
+                notification.setUser(user);
+                notification.setTitle("Giriş yapıldı.");
+                notification.setMessage(new Date()+" tarihinde hesabına giriş yaptın.");
+                notificationService.addNotification(notification);
+            }
+
+            if(user.getMailPermission().isLoginNotification()) {
+                MailQueue mailQueue = new MailQueue();
+                mailQueue.setEmailAddress(user.getEmail());
+                mailQueue.setMailType(Type.LoginSuccess);
+                mailService.save(mailQueue);
+            }
+
         } catch (BadCredentialsException e) {
             throw new Exception("Incorrect username or password.", e);
         } 
@@ -171,6 +207,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Cacheable(cacheNames = "mailPermissions", key = "#id")
+    public MailPermission getUserMailPermissions(Long id) {
+        return userRepository.findById(id).get().getMailPermission();
+    }
+
+    @Override
+    @CachePut(value = "mailPermissions", key = "#id")
+    public MailPermission updateMailPermissions(MailPermission mailPermission, Long id) {
+        User user = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException());
+        mailPermission.setId(user.getMailPermission().getId());
+        user.setMailPermission(mailPermission);
+        return userRepository.save(user).getMailPermission();
+    }
+
+    @Override
     public void updateUserImage(MultipartFile multipartFile, Long id) {
         byte[] bytes;
         User user = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException());
@@ -178,6 +229,7 @@ public class UserServiceImpl implements UserService {
             String pathURI = env.getProperty("user.default.profile-photo") +  user.getId()+ "." + multipartFile.getOriginalFilename().split("\\.")[1];
             bytes = multipartFile.getBytes();
             Path path = Paths.get(pathURI);
+            user.setPhoto(pathURI);
             Files.write(path, bytes);
             userRepository.save(user);
         } catch (IOException e) {
@@ -205,7 +257,101 @@ public class UserServiceImpl implements UserService {
         String val = restTemplate.exchange(url, HttpMethod.GET,prepareHTTPEntity(accessToken), Map.class).getBody().toString();
         String email = val.substring(val.indexOf("ss=")+3,val.lastIndexOf("}, "));
         String username = userMap.get("localizedFirstName").toString().toLowerCase() + userMap.get("localizedLastName").toString().toLowerCase() + ((int) (Math.random() * (10000) + 1000));
-        return saveAuthUser(email,username,createRandomPassword());
+        return saveAuthUser("Github",email,username,createRandomPassword());
+    }
+
+    public String githubOauth(String code) throws Exception {
+        String url = env.getProperty("oauth2.github.root-uri")+"access_token?client_id="+env.getProperty("oauth2.github.client-id")+"&client_secret="+env.getProperty("oauth2.github.client-secret")+"&code="+code;
+        String accessToken =  restTemplate.postForEntity(url,null,String.class).getBody().substring(13,53);
+        JSONObject jsonObject = new JSONObject(restTemplate.exchange(env.getProperty("oauth2.github.user-root-uri"), HttpMethod.GET,prepareHTTPEntity(accessToken), Map.class).getBody());
+        return saveAuthUser("Github",jsonObject.get("email").toString(),jsonObject.get("login").toString(),createRandomPassword());
+    }
+
+    @Override
+    public void forgotPassword(String email) {
+        User user = userRepository.findByEmail(email);
+        if(user != null) {
+            MailQueue mailQueue = new MailQueue();
+            mailQueue.setEmailAddress(user.getEmail());
+            mailQueue.setMailType(Type.PasswordChanged);
+            mailService.save(mailQueue);
+        }
+    }
+
+    @Override
+    public void resetPassword(String password, String token) {
+        String email = jwtUtil.extractUserEmail(token);
+        User user = userRepository.findByEmail(email);
+        if(user != null ) {
+            if(!user.getPassword().equals(password)) {
+                user.setPassword(password);
+                // send notification
+                Notification notification = new Notification();
+                notification.setCreatedDate(new Date());
+                notification.setMessage("Hey, Şifren "+notification.getCreatedDate()+" tarihinde değiştirildi. Eğer bunu sen yapmadıysan lütfen tıkla ve yeni bir şifre talep et!");
+                notification.setTitle("Şifre Değişikliği");
+                notification.setLink("https://localhost:4200/forgotpassword");
+                notification.setUser(user);
+                notificationService.addNotification(notification);
+                // send mail
+                MailQueue mailQueue = new MailQueue();
+                mailQueue.setEmailAddress(user.getEmail());
+                mailQueue.setMailType(Type.PasswordChangedSuccess);
+                mailService.save(mailQueue);
+                userRepository.save(user);
+            } else {
+                // old password and new password cannot be same !
+                throw new SamePasswordException();
+            }
+        } else {
+            throw new UserNotFoundException();
+        }
+    }
+
+    @Override
+    public void unsubscribe(String token) {
+        String email = jwtUtil.extractUserEmail(token);
+        User user = userRepository.findByEmail(email);
+        if(user != null){
+            MailPermission mailPermission = user.getMailPermission();
+            mailPermission.setPostNotification(false);
+            user.setMailPermission(mailPermission);
+            userRepository.save(user);
+
+            Notification notification = new Notification();
+            notification.setUser(user);
+            notification.setTitle("Mail üyeliğin sonlandırıldı");
+            notification.setMessage("Hey, kısa süre önce mail üyeliğin sonlandırıldı. Eğer seni rahatsız ettiysek özür dileriz, tekrar görüşmek dileğiyle...");
+            notificationService.addNotification(notification);
+        } else {
+            throw new UserNotFoundException();
+        }
+
+    }
+
+    @Override
+    public void verifyAccount(String token) {
+        String email = jwtUtil.extractUserEmail(token);
+        User user = userRepository.findByEmail(email);
+        if(user != null){
+            UserProfile userProfile = user.getUserProfile();
+            userProfile.setAccountStatus(true);
+            userRepository.save(user);
+
+            Notification notification = new Notification();
+            notification.setUser(user);
+            notification.setTitle("Hesabın onaylandı.");
+            notification.setMessage("Hesabını onayladığın için teşekkürler "+user.getUsername()+", artık tamamen özgürsün.");
+            notificationService.addNotification(notification);
+
+            MailQueue mailQueue = new MailQueue();
+            mailQueue.setEmailAddress(user.getEmail());
+            mailQueue.setMailType(Type.VerificationSuccess);
+            mailService.save(mailQueue);
+
+        } else {
+            throw new UserNotFoundException();
+        }
     }
 
     private String createRandomPassword() {
@@ -217,15 +363,24 @@ public class UserServiceImpl implements UserService {
         return sb.toString();
     }
 
-    private String saveAuthUser(String email, String username,String password) throws Exception {
+    private String saveAuthUser(String socialAccount,String email, String username,String password) throws Exception {
 
         if(userRepository.existsByEmail(email)){
             User user = userRepository.findByEmail(email);
+
+            Notification notification = new Notification();
+            notification.setUser(user);
+            notification.setTitle(socialAccount+" hesabın aracılığıyla giriş yapıldı");
+            notification.setMessage(new Date()+" tarihinde "+socialAccount+" hesabını kullanarak giriş yaptın.");
+            notificationService.addNotification(notification);
+
             return login(new AuthenticateRequest(user.getEmail(),user.getPassword()));
         }else {
             User user = new User();
             UserPermission userPermission = new UserPermission();
             UserProfile userProfile = new UserProfile();
+            userProfile.setAccountStatus(true);
+            userProfile.setRegisterDate(new Date());
             NotificationPermission notificationPermission = new NotificationPermission();
             user.setUserPermission(userPermission);
             user.setUserProfile(userProfile);
@@ -233,7 +388,13 @@ public class UserServiceImpl implements UserService {
             user.setUsername(username);
             user.setEmail(email);
             user.setPassword(password);
-            userRepository.save(user);
+            User _user = userRepository.save(user);
+
+            Notification notification = new Notification();
+            notification.setUser(_user);
+            notification.setTitle(socialAccount+" hesabın aracılığıyla kayıt oldun.");
+            notification.setMessage(new Date()+" tarihinde "+socialAccount+" hesabını kullanarak sisteme kayıt oldun.");
+            notificationService.addNotification(notification);
         }
         return login(new AuthenticateRequest(email,password));
     }
@@ -241,8 +402,15 @@ public class UserServiceImpl implements UserService {
     private HttpEntity<String> prepareHTTPEntity(String accessToken) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.set("User-Agent","blog.kayafirat.com");
+        headers.set("User-Agent","kayafirat.com");
         headers.setBearerAuth (accessToken);
+        try {
+
+        } catch (Exception e){
+
+        }
+
+
         return new HttpEntity<>("parameters", headers);
     }
 

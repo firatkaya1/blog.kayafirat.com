@@ -1,9 +1,11 @@
 package com.kayafirat.blog.service.impl;
 
 import com.kayafirat.blog.dto.NotificationDTO;
+import com.kayafirat.blog.entity.MailPermission;
 import com.kayafirat.blog.entity.Notification;
 import com.kayafirat.blog.entity.NotificationPermission;
 import com.kayafirat.blog.entity.User;
+import com.kayafirat.blog.exception.custom.UserNotFoundException;
 import com.kayafirat.blog.repository.UserRepository;
 import com.kayafirat.blog.service.NotificationService;
 import lombok.RequiredArgsConstructor;
@@ -50,7 +52,7 @@ public class NotificationServiceImpl implements NotificationService {
 
     @Override
     public void addNotification(Notification notification) {
-        User user = userRepository.findById(notification.getUser().getId()).orElseThrow(()->new NullPointerException());
+        User user = userRepository.findById(notification.getUser().getId()).orElseThrow(()->new UserNotFoundException());
         notification.setUser(user);
         Set<Notification> notifications = user.getNotifications();
         notifications.add(notification);
@@ -61,7 +63,7 @@ public class NotificationServiceImpl implements NotificationService {
     @Override
     @CachePut(value = "notificationPermissions", key = "#id")
     public NotificationPermission updateNotificationPermissions(NotificationPermission notificationPermission,Long id) {
-        User user = userRepository.findById(id).orElseThrow(() -> new NullPointerException());
+        User user = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException());
         notificationPermission.setId(user.getNotificationPermission().getId());
         user.setNotificationPermission(notificationPermission);
         return userRepository.save(user).getNotificationPermission();

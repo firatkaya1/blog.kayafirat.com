@@ -11,7 +11,7 @@ public interface CommentService {
 
     Page<CommentDTO> getComments(Long id, int pageNumber, int pageSize, String sortedBy, String orderBy);
 
-    List<CommentDTO> getUserComments();
+    List<CommentDTO> getUserComments(Long id);
 
     Comment get(Long id);
 

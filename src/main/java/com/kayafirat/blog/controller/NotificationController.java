@@ -1,6 +1,7 @@
 package com.kayafirat.blog.controller;
 
 
+import com.kayafirat.blog.entity.MailPermission;
 import com.kayafirat.blog.entity.Notification;
 import com.kayafirat.blog.entity.NotificationPermission;
 import com.kayafirat.blog.service.NotificationService;

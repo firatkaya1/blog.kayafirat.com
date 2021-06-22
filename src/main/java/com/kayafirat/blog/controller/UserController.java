@@ -3,6 +3,7 @@ package com.kayafirat.blog.controller;
 import com.kayafirat.blog.dto.AuthenticateRequest;
 import com.kayafirat.blog.dto.Register;
 import com.kayafirat.blog.dto.UserProfileDTO;
+import com.kayafirat.blog.entity.MailPermission;
 import com.kayafirat.blog.entity.User;
 import com.kayafirat.blog.entity.UserPermission;
 import com.kayafirat.blog.exception.custom.UnAuthorizedUserException;
@@ -17,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 
 @RestController
 @RequestMapping("/user")
@@ -52,6 +54,16 @@ public class UserController {
         return ResponseEntity.ok(userService.setUserPermissions(userPermission,Long.valueOf(SecurityContextHolder.getContext().getAuthentication().getName())));
     }
 
+    @GetMapping(value = "/permissions/mail")
+    public ResponseEntity<?> getUserMailPermissions(){
+        return ResponseEntity.ok(userService.getUserMailPermissions(Long.valueOf(SecurityContextHolder.getContext().getAuthentication().getName())));
+    }
+
+    @PostMapping(value = "/permissions/mail")
+    public ResponseEntity<?> setUserMailPermissions(@RequestBody MailPermission mailPermission){
+        return ResponseEntity.ok(userService.updateMailPermissions(mailPermission,Long.valueOf(SecurityContextHolder.getContext().getAuthentication().getName())));
+    }
+
     @PostMapping
     public ResponseEntity<?> save(@RequestBody Register register){
         userService.saveUser(register);
@@ -82,8 +94,8 @@ public class UserController {
         cookie.setMaxAge(36000);
         cookie.setDomain("localhost");
         cookie.setPath("/");
-        cookie.setSecure(true);
-        cookie.setHttpOnly(true);
+        cookie.setSecure(false);
+        cookie.setHttpOnly(false);
         response.addCookie(cookie);
         response.setHeader("Access-Control-Allow-Credentials", "true");
         return ResponseEntity.ok(HttpStatus.OK);
@@ -113,6 +125,44 @@ public class UserController {
         cookie.setHttpOnly(true);
         response.addCookie(cookie);
         response.setHeader("Access-Control-Allow-Credentials", "true");
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/oauth/github")
+    public ResponseEntity<?> github(@RequestParam String code, HttpServletResponse response) throws Exception {
+        String token = userService.githubOauth(code);
+        Cookie cookie = new Cookie("authenticate",token);
+        cookie.setMaxAge(36000);
+        cookie.setDomain("localhost");
+        cookie.setPath("/");
+        cookie.setSecure(true);
+        cookie.setHttpOnly(true);
+        response.addCookie(cookie);
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/forgot")
+    public ResponseEntity<?> forgotPassword(@RequestBody HashMap<String,String> body) {
+        userService.forgotPassword(body.get("email"));
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/reset")
+    public ResponseEntity<?> resetPassword(@RequestBody HashMap<String,String> body) {
+        userService.resetPassword(body.get("email"),body.get("token"));
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/unsubscribe")
+    public ResponseEntity<?> unsubscribe(@RequestBody HashMap<String,String> body) {
+        userService.unsubscribe(body.get("token"));
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/verify")
+    public ResponseEntity<?> verifyAccount(@RequestBody HashMap<String,String> body) {
+        userService.verifyAccount(body.get("token"));
         return ResponseEntity.ok(HttpStatus.OK);
     }
 

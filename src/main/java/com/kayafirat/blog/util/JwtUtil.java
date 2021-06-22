@@ -23,6 +23,10 @@ public class JwtUtil {
         return Long.valueOf(extractClaim(token, Claims::getSubject));
     }
 
+    public String extractUserEmail(String token) {
+        return extractClaim(token, Claims::getSubject);
+    }
+
     public Date extractExpiration(String token) {
         return extractClaim(token, Claims::getExpiration);
     }
@@ -45,6 +49,20 @@ public class JwtUtil {
         claims.put("role",userDetails.getAuthorities());
         return createToken(claims, user.getId());
     }
+
+    public String generateToken(String email,Long time) {
+        Map<String, Object> claims = new HashMap<>();
+        return createToken(claims,email,time);
+    }
+    private String createToken(Map<String, Object> claims, String email,Long time)  {
+        return Jwts.builder().setClaims(claims)
+                .setSubject(email)
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + time )) // 30 min
+                .setAudience("kayafirat.com")
+                .signWith(SignatureAlgorithm.HS256, SECRET_KEY).compact();
+    }
+
 
     private String createToken(Map<String, Object> claims, Long id)  {
         return Jwts.builder().setClaims(claims)

@@ -368,4 +368,14 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return buildResponseEntity(apiError);
     }
 
+    @ExceptionHandler(SamePasswordException.class)
+    protected ResponseEntity<Object> handleConstraintViolation(SamePasswordException ex) {
+        APIError apiError = new APIError.Builder()
+                .httpStatus(HttpStatus.CONFLICT)
+                .errorCode(3)
+                .message(ex.getMessage())
+                .build();
+        return buildResponseEntity(apiError);
+    }
+
 }

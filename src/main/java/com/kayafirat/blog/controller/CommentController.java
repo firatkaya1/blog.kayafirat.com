@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -67,6 +68,6 @@ public class CommentController {
 
     @GetMapping(value = "/user")
     public ResponseEntity<?> getUserComments(){
-        return ResponseEntity.ok(commentService.getUserComments());
+        return ResponseEntity.ok(commentService.getUserComments(Long.valueOf(SecurityContextHolder.getContext().getAuthentication().getName())));
     }
 }

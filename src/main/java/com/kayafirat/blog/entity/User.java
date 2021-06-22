@@ -65,6 +65,10 @@ public class User extends JdkSerializationRedisSerializer implements  Serializab
     @JoinColumn(name = "n_permission_id", referencedColumnName = "id")
     private NotificationPermission notificationPermission;
 
+    @OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "e_permission_id", referencedColumnName = "id")
+    private MailPermission mailPermission;
+
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user", orphanRemoval = true)
     private Set<Notification> notifications = new HashSet<>();
