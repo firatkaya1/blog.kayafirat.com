@@ -20,6 +20,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Service
@@ -75,6 +77,12 @@ public class PostServiceImpl implements PostService {
         post.setHeader(postDTO.getHeader());
         post.setHide(postDTO.isPublish());
 
+        if(postDTO.getTagId() != null && postDTO.getTagId().length > 0){
+            Set<Category> categorySet = new HashSet<>();
+
+
+        }
+
         PostDetail postDetail = new PostDetail();
         postDetail.setBody(postDTO.getBody());
         postDetail.setPost(post);
@@ -85,6 +93,8 @@ public class PostServiceImpl implements PostService {
 
         Meta meta = new Meta(googleSEO,twitterSEO,facebookSEO);
         postDetail.setMeta(meta);
+
+
 
         postDetail = postDetailRepository.save(postDetail);
         return postDetail;
