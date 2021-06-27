@@ -2,6 +2,7 @@ package com.kayafirat.blog.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.kayafirat.blog.dto.PostDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,4 +27,12 @@ public class TwitterSEO extends SEO {
 
     @Column
     private String card;
+
+    public TwitterSEO(PostDTO postDTO){
+        this.setTitle(postDTO.getTwitterTitle());
+        this.setDescription(postDTO.getTwitterDescription());
+        this.setImage(postDTO.getTwitterImagepath());
+        this.creator = postDTO.getTwitterCreator();
+        this.card = postDTO.getTwitterCard();
+    }
 }

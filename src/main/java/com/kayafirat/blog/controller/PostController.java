@@ -1,5 +1,6 @@
 package com.kayafirat.blog.controller;
 
+import com.kayafirat.blog.dto.PostDTO;
 import com.kayafirat.blog.entity.PostDetail;
 import com.kayafirat.blog.service.PostService;
 import lombok.RequiredArgsConstructor;
@@ -51,8 +52,8 @@ public class PostController {
     }
 
     @PostMapping
-    public ResponseEntity<?> save(@RequestBody PostDetail postDetail){
-        return ResponseEntity.ok(postService.addPost(postDetail));
+    public ResponseEntity<?> save(@RequestBody PostDTO postDTO){
+        return ResponseEntity.ok(postService.addPost(postDTO));
     }
 
     @PutMapping

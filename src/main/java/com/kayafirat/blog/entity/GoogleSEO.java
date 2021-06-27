@@ -2,6 +2,7 @@ package com.kayafirat.blog.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.kayafirat.blog.dto.PostDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,5 +24,12 @@ public class GoogleSEO extends SEO {
 
     @Column
     private String keywords;
+
+    public GoogleSEO(PostDTO postDTO){
+        this.setImage(postDTO.getGooglePath());
+        this.setKeywords(postDTO.getKeywords());
+        this.setDescription(postDTO.getGoogleDescription());
+        this.setTitle(postDTO.getTitle());
+    }
 
 }

@@ -1,7 +1,7 @@
 package com.kayafirat.blog.service.impl;
 
-import com.kayafirat.blog.entity.Post;
-import com.kayafirat.blog.entity.PostDetail;
+import com.kayafirat.blog.dto.PostDTO;
+import com.kayafirat.blog.entity.*;
 import com.kayafirat.blog.exception.custom.PostIDNotFoundException;
 import com.kayafirat.blog.repository.CommentRepository;
 import com.kayafirat.blog.repository.PostDetailRepository;
@@ -18,6 +18,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
 
 
 @Service
@@ -65,8 +67,26 @@ public class PostServiceImpl implements PostService {
     @Override
     @Cacheable(cacheNames = "detailID", key = "#postDetail.id")
     @CacheEvict(cacheNames = {"pageable","pageableCategory","pageableCategory"}, allEntries = true)
-    public PostDetail addPost(PostDetail _postDetail) {
-        PostDetail postDetail = postDetailRepository.save(_postDetail);
+    public PostDetail addPost(PostDTO postDTO) {
+        Post post = new Post();
+
+        post.setCreatedDate(new Date());
+        post.setTitle(postDTO.getTitle());
+        post.setHeader(postDTO.getHeader());
+        post.setHide(postDTO.isPublish());
+
+        PostDetail postDetail = new PostDetail();
+        postDetail.setBody(postDTO.getBody());
+        postDetail.setPost(post);
+
+        GoogleSEO googleSEO = new GoogleSEO(postDTO);
+        FacebookSEO facebookSEO = new FacebookSEO(postDTO);
+        TwitterSEO twitterSEO = new TwitterSEO(postDTO);
+
+        Meta meta = new Meta(googleSEO,twitterSEO,facebookSEO);
+        postDetail.setMeta(meta);
+
+        postDetail = postDetailRepository.save(postDetail);
         return postDetail;
     }
 

@@ -1,5 +1,6 @@
 package com.kayafirat.blog.service;
 
+import com.kayafirat.blog.dto.PostDTO;
 import com.kayafirat.blog.entity.Post;
 import com.kayafirat.blog.entity.PostDetail;
 import org.springframework.data.domain.Page;
@@ -15,7 +16,7 @@ public interface PostService {
 
     PostDetail getDetail(Long id);
 
-    PostDetail addPost(PostDetail postDetail);
+    PostDetail addPost(PostDTO postDTO);
 
     PostDetail updatePost(PostDetail post);
 
