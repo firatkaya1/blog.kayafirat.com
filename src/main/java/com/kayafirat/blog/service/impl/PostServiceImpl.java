@@ -83,6 +83,7 @@ public class PostServiceImpl implements PostService {
 
         }
 
+
         PostDetail postDetail = new PostDetail();
         postDetail.setBody(postDTO.getBody());
         postDetail.setPost(post);
