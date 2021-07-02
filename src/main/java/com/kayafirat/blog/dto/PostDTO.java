@@ -12,7 +12,7 @@ import lombok.Setter;
 public class PostDTO {
     private String title;
     private String header;
-    private Long[] tagId;
+    private Long[] categories;
     private String body;
     private boolean isPublish;
 

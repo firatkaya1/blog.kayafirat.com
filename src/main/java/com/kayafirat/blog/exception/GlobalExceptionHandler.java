@@ -378,4 +378,14 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return buildResponseEntity(apiError);
     }
 
+    @ExceptionHandler(EntityNotFoundException.class)
+    protected ResponseEntity<Object> handleConstraintViolation(EntityNotFoundException ex) {
+        APIError apiError = new APIError.Builder()
+                .httpStatus(HttpStatus.NOT_FOUND)
+                .errorCode(3)
+                .message(ex.getMessage())
+                .build();
+        return buildResponseEntity(apiError);
+    }
+
 }

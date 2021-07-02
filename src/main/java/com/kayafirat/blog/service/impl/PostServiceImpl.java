@@ -2,7 +2,9 @@ package com.kayafirat.blog.service.impl;
 
 import com.kayafirat.blog.dto.PostDTO;
 import com.kayafirat.blog.entity.*;
+import com.kayafirat.blog.exception.custom.EntityNotFoundException;
 import com.kayafirat.blog.exception.custom.PostIDNotFoundException;
+import com.kayafirat.blog.repository.CategoryRepository;
 import com.kayafirat.blog.repository.CommentRepository;
 import com.kayafirat.blog.repository.PostDetailRepository;
 import com.kayafirat.blog.repository.PostRepository;
@@ -31,6 +33,7 @@ public class PostServiceImpl implements PostService {
     private final PostRepository postRepository;
     private final PostDetailRepository postDetailRepository;
     private final CommentRepository commentRepository;
+    private final CategoryRepository categoryRepository;
 
     @Override
     @Cacheable(cacheNames ="pageable", key = "#pageNumber",unless = "#result?.getNumberOfElements() == 0 " )
@@ -77,10 +80,13 @@ public class PostServiceImpl implements PostService {
         post.setHeader(postDTO.getHeader());
         post.setHide(postDTO.isPublish());
 
-        if(postDTO.getTagId() != null && postDTO.getTagId().length > 0){
+        if(postDTO.getCategories() != null && postDTO.getCategories().length > 0){
             Set<Category> categorySet = new HashSet<>();
-
-
+            for (Long categoryId:postDTO.getCategories()) {
+                Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new EntityNotFoundException("Category bulunamadı"));
+                categorySet.add(category);
+            }
+            post.setCategory(categorySet);
         }
 
 
@@ -94,8 +100,6 @@ public class PostServiceImpl implements PostService {
 
         Meta meta = new Meta(googleSEO,twitterSEO,facebookSEO);
         postDetail.setMeta(meta);
-
-
 
         postDetail = postDetailRepository.save(postDetail);
         return postDetail;
