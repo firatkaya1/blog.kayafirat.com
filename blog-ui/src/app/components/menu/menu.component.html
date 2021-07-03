@@ -1,0 +1,116 @@
+<div class="flag">
+    <img src="/assets/img/tr.svg" width="25px" height="25px" alt="turkish" [ngClass]="isTurkish ? 'lang':'' " (click)="changeLanguage('tr')">
+    <img src="/assets/img/uk.svg" width="25px" height="25px" alt="" [ngClass]="isTurkish ? '':'lang' "  (click)="changeLanguage('en')">
+    <div class="lang-info">
+        <span *ngIf="!isTurkish">TR</span>
+        <span *ngIf="isTurkish">EN</span>
+    </div>
+</div> 
+<div class="panel">
+    <div class="dropdown" *ngIf="!isAuthenticate" >
+        <a class="btn-panel" routerLink="/" routerLinkActive="active" [translate]="'menu.home'">Home</a>
+        <div class="dropdown-content mt-50">
+            <a routerLink="/join" routerLinkActive="active" [translate]="'menu.login'">Login</a>
+        </div>
+        <div class="dropdown-content mt-10">
+            <a routerLink="/join" routerLinkActive="active" [translate]="'menu.register'">Register</a>
+        </div>
+        <div class="dropdown-content mt-10">
+            <a target="_blank" href="https://kayafirat.com/" [translate]="'menu.aboutme'">About me</a>
+        </div>
+    </div>
+    <div class="dropdown" *ngIf="isAuthenticate">
+        <a class="btn-panel" routerLink="/" routerLinkActive="active" [translate]="'menu.home'">Home<div class="dot" *ngIf="hasNotification!=-1 && hasNotification!=0"></div></a>
+        <div class="dropdown-content mt-50">
+            <a routerLink="/user/profile" routerLinkActive="active" [translate]="'menu.profile'">Profile</a>
+        </div>
+        <div class="dropdown-content mt-10">
+            <a routerLink="/user/settings" routerLinkActive="active" [translate]="'menu.settings'">Settings</a>
+        </div>
+        <div class="dropdown-content mt-10">
+            <a routerLink="/user/notification" routerLinkActive="active" [translate]="'menu.notification'">Notifications 
+                <div class="dot" *ngIf="hasNotification!=-1 && hasNotification!=0"></div></a>
+        </div>
+        <div class="dropdown-content mt-10">
+            <a routerLink="/" (click)="logout()" routerLinkActive="active" [translate]="'menu.exit'">Exit</a>
+        </div>
+        
+    </div>
+</div>
+<div class="mobile" [ngClass]="height==100 ? 'change' : '' " (click)="openMenu()" >
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+</div>
+<div class="box-menu" id="box-menu" [style.height.%]="height">
+    <div class="menu" *ngIf="isAuthenticate" > 
+        <ul>
+            <li>
+                <a routerLink="/" routerLinkActive="active" [translate]="'menu.home'">Home</a>
+            </li>
+            <li>
+                <a  routerLink="/user/profile" routerLinkActive="active" [translate]="'menu.profile'">Profile</a>
+            </li>
+            <li>
+                <a routerLink="/user/profile" routerLinkActive="active" [translate]="'menu.settings'">Settings</a>
+            </li>
+            <li>
+                <a routerLink="/user/notification" routerLinkActive="active" [translate]="'menu.notification'">
+                    <div class="dot" *ngIf="hasNotification!=-1 && hasNotification!=0"></div> Notifications </a>
+            </li>
+            <li>
+                <a routerLink="/" (click)="logout()" routerLinkActive="active" [translate]="'menu.exit'">Exit</a>
+            </li>
+        </ul>
+        <div class="social" style="text-align: center;margin-top: 50px;">
+            <a href="https://github.com/firatkaya1" >
+                <img src="/assets/img/github.svg" alt="github" width="30px" height="30px">
+            </a>
+            <a href="https://twitter.com/1firatkaya">
+                <img src="/assets/img/twitterl.svg" alt="twitter" width="30px" height="30px">
+            </a>
+            <a href="https://linkedin.com/in/firatkaya1" >
+                <img src="/assets/img/linkedin.svg" alt="linkedin" width="30px" height="30px">
+            </a><br>
+            <a (click)="changeLanguage('tr')">
+                <img src="/assets/img/tr.svg" alt="linkedin" width="30px" height="30px">
+            </a>
+            <a (click)="changeLanguage('en')" >
+                <img src="/assets/img/uk.svg" alt="linkedin" width="30px" height="30px">
+            </a>
+        </div>
+    </div>
+    <div class="menu" *ngIf="!isAuthenticate" > 
+        <ul>
+            <li>
+                <a routerLink="/" routerLinkActive="active" [translate]="'menu.home'">Home</a>
+            </li>
+            <li>
+                <a routerLink="/join" routerLinkActive="active" [translate]="'menu.login'">Login</a>
+            </li>
+            <li>
+                <a routerLink="/join" routerLinkActive="active" [translate]="'menu.register'">Register</a>
+            </li>
+            <li>
+                <a target="_blank" href="https://kayafirat.com/" [translate]="'menu.aboutme'">About me</a>
+            </li>
+        </ul>
+        <div class="social" style="text-align: center;margin-top: 50px;">
+            <a href="https://github.com/firatkaya1" >
+                <img src="/assets/img/github.svg" alt="github" width="30px" height="30px">
+            </a>
+            <a href="https://twitter.com/1firatkaya">
+                <img src="/assets/img/twitterl.svg" alt="twitter" width="30px" height="30px">
+            </a>
+            <a href="https://linkedin.com/in/firatkaya1" >
+                <img src="/assets/img/linkedin.svg" alt="linkedin" width="30px" height="30px">
+            </a><br>
+            <a (click)="changeLanguage('tr')">
+                <img src="/assets/img/tr.svg" alt="linkedin" width="30px" height="30px">
+            </a>
+            <a (click)="changeLanguage('en')" >
+                <img src="/assets/img/uk.svg" alt="linkedin" width="30px" height="30px">
+            </a>
+        </div>
+    </div>
+</div>

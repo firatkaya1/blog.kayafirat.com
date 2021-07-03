@@ -1,0 +1,23 @@
+<form class="inside" [formGroup]="userVisibility" >
+    <h3 [translate]="'visibility.title'" >Visibility Settings</h3>
+    <hr class="border">
+    <div>
+        <input type="checkbox" id="contact" name="contact" formControlName="contact">
+        <label for="contact" [translate]="'visibility.span1'">İletişim adresimin görünmesini istemiyorum.</label>
+    </div>
+    <div>
+        <input type="checkbox" id="birthdate" name="birthdate" formControlName="birthdate">
+        <label for="birthdate" [translate]="'visibility.span2'">Doğum tarihimin görünmesini istemiyorum.</label>
+    </div>
+    <div>
+        <input type="checkbox" id="github" name="github" formControlName="github">
+        <label for="github" [translate]="'visibility.span3'">Github adresimin görünmesini istemiyorum.</label>
+    </div> 
+    <div>
+        <input type="checkbox" id="linkedin" name="linkedin" formControlName="linkedin">
+        <label for="linkedin" [translate]="'visibility.span4'">Linkedin adresimin görünmesini istemiyorum.</label>
+    </div>
+    <div>
+        <button (click)="ngSubmit()" class="btn-panel" style="margin-right: 40px;" [translate]="'visibility.save'">Değişiklikleri Kaydet</button>
+    </div>
+</form>

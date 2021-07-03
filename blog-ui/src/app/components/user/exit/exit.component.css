@@ -1,0 +1,31 @@
+.inside {
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    font-size: 19px;
+}
+.inside > div {
+    margin: 15px;
+}
+.border {
+    text-align: left;
+    width: 90%;
+    height: 2px;
+    background-color: #000;
+    transform: rotate(-1deg);
+    margin: 0;
+}
+@media only screen and (max-width: 600px) {
+    .inside {
+        padding: 5px;
+        width: auto;
+    }
+    .inside div {
+        margin: 10px; 
+    }
+    .inside p {
+        padding: 5px;
+    }
+
+}

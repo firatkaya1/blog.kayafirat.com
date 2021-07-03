@@ -1,0 +1,56 @@
+<div class="pageable mt-20"  *ngIf="isHide" >
+    <ul *ngIf="isFavourite">
+        <li *ngFor="let pagesN of totalPages;let i = index">
+            <a [ngClass]="i+1===pageNumber ? 'active':''" (click)="updatePage(i+1)" style="cursor: pointer;">{{i+1}}</a>
+        </li>
+    </ul>
+</div>
+<div class="comments mt-50" *ngIf="isHide">
+    <h2 class="left" *ngIf="isFavourite" [translate]="'comment.title'">Comments</h2>
+    
+    <div class="comment mt-20" *ngFor="let comment of comments;let i = index;">
+        <div class="row" >
+            <div class="f-10">
+                <div class="user-info" >
+                    <div>
+                        <img class="user-img" src="{{comment.profile_photo}}" (error)="comment.profile_photo='/assets/img/me.jpeg'" width="60x" height="60px"  alt="user-profile-photo">
+                    </div>
+                    <div class="ml-20">
+                        <h2>{{comment.user_name}} 	&nbsp;</h2>
+                        <span>07 January 2018</span>
+                    </div>
+                    <div class="clap">
+                        <div class="clap-img" [ngClass]="isVoted(comment.id) ? 'is-clapped':''" (click)="increaseVote(comment.id,i)"></div>
+                        <a (click)="commentDetail(comment.id)">{{comment.total_vote}}</a>
+                    </div>
+                </div>
+                <hr style="width: 98%;float: left;">
+                <div class="comment-detail mt-20">
+                    {{comment.body}}
+                </div>
+                <div>
+                    <span class="date">
+                        <span>{{comment.created_date | date}}</span>&nbsp;
+                        <span>{{comment.update_date | date}}</span>
+                        <a target="_blank" *ngIf="!isFavourite" [routerLink]="['/a/',comment.post_id]"> &nbsp;&nbsp;konuya git</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <div class="pageable mt-20" *ngIf="isFavourite">
+        <ul>
+            <li *ngFor="let pagesN of totalPages;let i = index">
+                <a [ngClass]="i+1===pageNumber ? 'active':''" (click)="updatePage(i+1)" style="cursor: pointer;">{{i+1}}</a>
+            </li>
+        </ul>
+    </div>
+    <div *ngIf="isFavourite">
+        <h4 [translate]="'comment.info'">Yorum eklemek için aşağıdaki alanı doldurunuz.</h4>
+    </div>
+    <div class="mt-50" *ngIf="isFavourite">
+        <textarea name="comment" id="addcomment" #message cols="30" rows="10" placeholder="{{ 'comment.placeholder' | translate }}"></textarea>
+        <button class="btn-panel" (click)="sendComment(message.value)" [translate]="'comment.send'">Send</button>
+    </div>
+</div>

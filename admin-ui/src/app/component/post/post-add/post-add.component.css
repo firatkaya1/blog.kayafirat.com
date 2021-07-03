@@ -1,0 +1,10 @@
+.x-icon {
+    color: rgb(75, 73, 73);
+    font-weight: bold;
+    transition: .5s;
+    cursor: pointer;
+    margin-left: 2px;
+}
+.x-icon:hover {
+    color: #848181;
+}

@@ -1,0 +1,106 @@
+<div class="user-img">
+    <img src="/assets/img/profile.svg" width="60%" height="40%" alt="">
+</div>
+<div class="menu mt-10">
+    <ul>
+        <li>
+            <a data-bs-toggle="collapse" href="#statics" role="button" aria-expanded="false" aria-controls="statics"> <i class="bi bi-arrow-right"></i> İstatistikler</a>
+            <div class="collapse" id="statics">
+                <ul>
+                    <li>
+                        <a routerLink="/home/statics" routerLinkActive="active"><i class="bi bi-arrow-return-right"></i>  Genel</a>
+                    </li>
+                    <li>
+                        <a routerLink="/home/statics/views" routerLinkActive="active"> <i class="bi bi-arrow-return-right"></i> Sayfa Görüntüleme</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a data-bs-toggle="collapse" href="#user" role="button" aria-expanded="false" aria-controls="statics"><i class="bi bi-arrow-right"></i>  Üyeler</a>
+            <div class="collapse" id="user">
+                <ul>
+                    <li>
+                        <a routerLink="/home/users" routerLinkActive="active"><i class="bi bi-arrow-return-right"></i> Genel</a>
+                    </li>
+                    <li>
+                        <a routerLink="/home/users/add" routerLinkActive="active"> <i class="bi bi-arrow-return-right"></i> Üye Ekle</a>
+                    </li>
+                    <li>
+                        <a routerLink="/home/users/update" routerLinkActive="active"> <i class="bi bi-arrow-return-right"></i> Üye Güncelle</a>
+                    </li>
+                    <li>
+                        <a routerLink="/home/users/info" routerLinkActive="active"> <i class="bi bi-arrow-return-right"></i> Üye Detay</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a data-bs-toggle="collapse" href="#notification" role="button" aria-expanded="false" aria-controls="notification"><i class="bi bi-arrow-right"></i>
+                <div class="dot"></div> Bildirimler 
+            </a>
+            <div class="collapse" id="notification">
+                <ul>
+                    <li>
+                        <a routerLink="/home/notification" routerLinkActive="active"><i class="bi bi-arrow-return-right"></i> Genel</a>
+                    </li>
+                    <li>
+                        <a routerLink="/home/notification/add" routerLinkActive="active"> <i class="bi bi-arrow-return-right"></i> Bildirim Gönder</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a data-bs-toggle="collapse" href="#comments" role="button" aria-expanded="false" aria-controls="comments"><i class="bi bi-arrow-right"></i>
+                Yorumlar</a>
+            <div class="collapse" id="comments">
+                <ul>
+                    <li>
+                        <a routerLink="/home/comments" routerLinkActive="active"><i class="bi bi-arrow-return-right"></i> Genel</a>
+                    </li>
+                    <li>
+                        <a routerLink="/home/comments/add" routerLinkActive="active"> <i class="bi bi-arrow-return-right"></i> Yorum Ekle</a>
+                    </li>
+                    <li>
+                        <a routerLink="/home/comments/update" routerLinkActive="active"> <i class="bi bi-arrow-return-right"></i> Yorum Güncelle</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a data-bs-toggle="collapse" href="#post" role="button" aria-expanded="false" aria-controls="post"><i class="bi bi-arrow-right"></i>Konular</a>
+            <div class="collapse" id="post">
+                <ul>
+                    <li>
+                        <a routerLink="/home/post" routerLinkActive="active"><i class="bi bi-arrow-return-right"></i> Genel</a>
+                    </li>
+                    <li>
+                        <a routerLink="/home/post/add" routerLinkActive="active"> <i class="bi bi-arrow-return-right"></i> Konu Ekle</a>
+                    </li>
+                    <li>
+                        <a routerLink="/home/post/update" routerLinkActive="active"> <i class="bi bi-arrow-return-right"></i> Konu Güncelle</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a data-bs-toggle="collapse" href="#mail" role="button" aria-expanded="false" aria-controls="mail"><i class="bi bi-arrow-right"></i>Bülten</a>
+            <div class="collapse" id="mail">
+                <ul>
+                    <li>
+                        <a routerLink="/home/mail" routerLinkActive="active"><i class="bi bi-arrow-return-right"></i> Genel</a>
+                    </li>
+                    <li>
+                        <a routerLink="/home/mail/add" routerLinkActive="active"> <i class="bi bi-arrow-return-right"></i> Mail Gönder</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a routerLink="/home/settings" routerLinkActive="active">Ayarlar</a>
+        </li>
+        <li>
+            <a routerLink="/home/exit" routerLinkActive="active" >Çıkış</a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,112 @@
+.container {
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    height: 100%;
+}
+.col-12 {
+    width: 100%;
+    height: auto;
+}
+.col-12 h3 {
+    color: #0866D6;
+    margin-bottom: 8px;
+}
+.col-12 p {
+    color: #6C737B;
+    font-size: 16px;
+}
+.col-12 a {
+    float:right;
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+.col-12 a:hover {
+    color: #0dfd8d;
+}
+.col-12 span {
+    margin-right: 10px;
+}
+.blog .tag { 
+    font-size: 15px;
+    padding: 6px;
+    border-radius: 30px;
+}
+.blog h3 {
+    display: inline-block;
+    margin-right: 20px;
+    transition: 0.3s;
+
+}
+.blog h3:hover {
+    color: #0dfd8d;
+}
+.blog h3:focus {
+    outline: none;
+}
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+   ::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+.border {
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+    transform: rotate(-1deg);
+}
+.f-19 {
+    font-size: 19px;
+}
+.red {
+    color: #e01515!important;
+}
+.dark {
+    color: #000;
+}
+.info {
+    text-align: center;
+    transform: rotate(-5deg);
+}
+.arrow {
+    position: absolute;
+    margin-top: 10px;
+    right: -75px;
+}
+.f-19 {
+    font-size: 19px!important;
+}
+.hr {
+    border-top: 1px solid #F0F1F3;
+}
+.pageable {
+    width: 100%;
+}
+@media only screen and (max-width: 600px) {
+    .container{
+        left: 0;
+        right: 0;
+        padding: 10px;
+    }
+    .arrow {
+        display: none;
+    }
+    .search {
+        text-align: none;
+    }
+    .search input {
+        float:left;
+        width: auto;
+    }
+    .search button {
+        float:right;
+    }
+}

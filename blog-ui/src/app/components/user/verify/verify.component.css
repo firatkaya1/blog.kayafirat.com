@@ -1,0 +1,52 @@
+.container {
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    height: 100%;
+}
+.btn-panel { 
+    cursor: pointer;
+    padding: 10px 30px;
+    font-size: 20px;
+    background-color: #FFDD00;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inconsolata', monospace;
+}
+.btn-panel:hover { 
+    background-color: #FFD000;
+    color: #4f65dd;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.btn-panel:focus
+{
+    outline: 0;
+}
+.box {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+}
+.mt-30 {
+    margin-top: 30px;
+}
+.custom-font {
+    font-size: 50px;
+    text-align: center;
+}
+.custom-p {
+    font-size:20px;
+    line-height:1.6;
+}
+.mt-50 {
+    margin-top: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        left: 0;
+        right: 0;
+        padding: 10px;
+    }
+    
+}

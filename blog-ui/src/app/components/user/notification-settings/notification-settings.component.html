@@ -1,0 +1,23 @@
+<form class="inside" [formGroup]="userNotificationPermission">
+    <h3 [translate]="'notification.title'">Notification Settings</h3>
+    <hr class="border">
+    <div>
+        <input type="checkbox" id="login-attempt-permission" name="login-attempt-permission" formControlName="loginAttempt">
+        <label for="login-attempt-permission" [translate]="'notification.span1'">Hesabıma 3'den fazla deneme yapıldığında bana bildirilmesini istiyorum.</label>
+    </div>
+    <div>
+        <input type="checkbox" id="login-permission" name="login-permission" formControlName="loginNotification">
+        <label for="login-permission" [translate]="'notification.span2'">Her giriş yapıldığında bildirim almak istiyorum.</label>
+    </div>
+    <div>
+        <input type="checkbox" id="post-permission" name="post-permission" formControlName="postNotification">
+        <label for="post-permission" [translate]="'notification.span3'">Yeni bir yazı eklendiğinde bildirim almak istiyorum.</label>
+    </div> 
+    <div>
+        <input type="checkbox" id="passChange-permission" name="passChange-permission" formControlName="passChange">
+        <label for="passChange-permission" [translate]="'notification.span4'">Şifre değişikliğinde bildirim almak istiyorum.</label>
+    </div>
+    <div>
+        <button (click)="ngSubmit()" class="btn-panel" style="margin-right: 40px;" [translate]="'notification.save'">Değişiklikleri Kaydet</button>
+    </div>
+</form>

@@ -1,0 +1,36 @@
+<div class="user-img">
+    <label class="btn-panel" style="position: absolute;padding:5px;left: 14%;top: 180px;">
+        <input type="file" max-size="1024" enctype="multipart/form-data" accept="image/*" (change)="onFileChanged($event)"/>+
+    </label>
+    <img src="{{user?.photo}}" (error)="user.photo='/assets/img/profile.svg'"  width="60%" height="40%" alt="">
+</div>
+<div class="menu mt-10">
+    <ul>
+        <li>
+            <a routerLink="/user/profile" routerLinkActive="active" [translate]="'menu.profile'">Profile</a>
+        </li>
+        <li>
+            <a routerLink="/user/settings" routerLinkActive="active" [translate]="'menu.settings'" >Settings</a>
+        </li>
+        <li>
+            <a routerLink="/user/notification" routerLinkActive="active" [translate]="'menu.notification'">
+                <div class="dot" *ngIf="hasNotification!=-1 && hasNotification!=0"></div> Notification 
+            </a>
+        </li>
+        <li>
+            <a routerLink="/user/favourites" routerLinkActive="active" [translate]="'favourites.title'">Favourites</a>
+        </li>
+        <li>
+            <a routerLink="/user/comments" routerLinkActive="active" [translate]="'comment.title'">Comments</a>
+        </li>
+        <li>
+            <a routerLink="/user/account" routerLinkActive="active" [translate]="'menu.account'">Account</a>
+        </li>
+        <li>
+            <a routerLink="/user/terms" routerLinkActive="active" [translate]="'menu.terms'">Terms of policy</a>
+        </li>
+        <li>
+            <a routerLink="/user/exit" routerLinkActive="active" [translate]="'menu.exit'">Exit</a>
+        </li>
+    </ul>
+</div>

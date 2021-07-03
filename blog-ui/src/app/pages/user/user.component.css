@@ -1,0 +1,54 @@
+.container {
+    position: absolute;
+    left: 15%;
+    right: 15%;
+    height: 100%;
+}
+.row{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 80%;
+    border: 1px solid rgb(168, 166, 166);
+
+} 
+.left {
+    flex-direction: column;
+    flex-basis: 20%;
+    border-right: 1px solid #000;
+}
+
+.right {
+    flex-basis: 80%;
+}
+@media only screen and (max-width: 600px) {
+    .container{
+        left: 0;
+        right: 0;
+    }
+    .row {
+        flex-direction: column;
+        border:none;
+    }
+    .left {
+        flex-direction: column;
+        border:none;
+    }
+    .right {
+        flex-direction: column;
+        border:none;
+    }
+    .mr-20 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .container {
+        left: 20%;
+        right: 20%;
+    }
+  }

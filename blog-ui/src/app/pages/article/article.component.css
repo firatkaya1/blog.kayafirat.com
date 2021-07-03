@@ -1,0 +1,43 @@
+.container {
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    height: 100%;
+}
+.mt-50 {
+    margin-top: 50px;
+}
+button { 
+    margin: 30px auto 0 auto;
+    cursor: pointer;
+    padding: 10px 30px;
+    font-size: 20px;
+    background-color: #FFDD00;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inconsolata', monospace;
+    display: block;
+}
+button:hover { 
+
+    background-color: #FFD000;
+    color: #4f65dd;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+button:focus{
+    outline: 0;
+}
+@media only screen and (max-width: 600px) {
+    .container{
+        left: 0;
+        right: 0;
+        padding: 10px;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .container {
+        left: 30%;
+        right: 30%;
+    }
+}

@@ -1,0 +1,115 @@
+a {
+    text-decoration: none;
+    color: #000;
+}
+div  {
+    margin-top: 30px;
+}
+input {
+    margin-top: 10px;
+    display: inline-block;
+    height: 25px;
+    width: 60%;
+    font: 19px 'Inconsolata', monospace;
+    border:1px solid #9A9A9A;
+    border-radius: 5px;
+    padding: 5px;
+}
+input:focus,button:focus {
+    outline: 0;
+}
+.green {
+    color:#34c222;
+    display: none;
+}
+.red {
+    color: red;
+    display: none;
+}
+.btn-github {
+    width: 60%;
+    margin-top: 15px;
+    cursor: pointer;
+    padding: 10px 30px;
+    font-size: 20px;
+    background-color: #1B1817;
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    font-family: 'Inconsolata', monospace;
+}
+.btn-github:hover {
+    background-color: #1e1e1e;
+    color: #4f65dd;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.btn-linkedin {
+    width: 60%;
+    margin-top: 15px;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #056093;
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    font-family: 'Inconsolata', monospace;
+}
+.btn-linkedin:hover {
+    background-color: #0077B5;
+}
+input[type="checkbox"]{
+    width: 30px;
+}
+.forgot-pass {
+    margin: 0 0 0 0;
+    float:right;
+    width: 60%;
+}
+.forgot-pass a:hover {
+    color: #4f65dd;
+}
+.is-invalid {
+    border:1px solid rgb(226, 29, 29)!important;
+    box-shadow: 0 4px 6px 0 rgba(255, 0, 0, 0.2), 0 6px 10px 0 rgba(255, 0, 0, 0.19);
+}
+.is-valid {
+    border:1px solid #34c222;
+    box-shadow: 0 4px 6px 0 rgba(42, 255, 95, 0.2), 0 6px 10px 0 rgba(72, 255, 0, 0.19);
+}
+.custom-panel {
+    width: 60%;
+    float: none;
+}
+.ml-70 {
+    margin-left: 70px;
+}
+.btn-panel { 
+    cursor: pointer;
+    padding: 10px 30px;
+    font-size: 20px;
+    background-color: #FFDD00;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inconsolata', monospace;
+}
+.btn-panel:hover { 
+    background-color: #FFD000;
+    color: #4f65dd;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: block;
+}
+
+@media only screen and (max-width: 600px) {
+    input[type="text"],input[type="email"],input[type="password"] {
+        min-width: 95%;
+    }
+    .btn-github ,
+    .btn-linkedin ,
+    .custom-panel {
+        width: 100%;
+    }
+    .ml-70 {
+        margin-left: 0;
+    }
+}

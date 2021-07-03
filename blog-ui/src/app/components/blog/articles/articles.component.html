@@ -1,0 +1,32 @@
+<div class="col-12 ">
+    <h2>{{postDetail?.post?.title}}</h2>
+    <span *ngFor="let category of postDetail?.post.category">
+        <span class="tag"  [ngStyle]="{'background-color':category.color }" >{{category.name}}</span>
+    </span>
+    <hr class="border">
+    <p class="kayafirat-font">
+       {{postDetail?.body}}
+    </p>
+    
+</div>
+<div class="tags mt-50">
+    Tags :
+    <span>Java</span>,
+    <span>Redis</span>,
+    <span>Cache</span>
+</div>
+<hr class="mt-10">
+<div class="info-stats">
+    <span>{{postDetail?.post.view}} View </span>|
+    <span>{{totalComment}} Comments </span>|
+    <span>{{postDetail?.post.createdDate | date}}</span>
+    <a href="#" >
+        <img src="/assets/img/linkedin.svg" width="30px" height="30px" alt="">
+    </a>
+    <a href="#" >
+        <img src="/assets/img/twitterl.svg" width="30px" height="30px" alt="">
+    </a>
+    <a href="#">
+        <img src="/assets/img/github.svg" width="30px" height="30px" alt="">
+    </a>
+</div>

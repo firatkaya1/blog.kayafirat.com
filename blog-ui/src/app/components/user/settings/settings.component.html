@@ -1,0 +1,46 @@
+<form class="inside scrolling" [formGroup]="userProfile">
+    <h3 [translate]="'settings.title'">Settings</h3>
+    <hr class="border">
+    <div>
+        <span [translate]="'profile.username'">Kullanıcı adı</span> : <input type="text" formControlName="username" [placeholder]="user?.username" >
+    </div>
+    <div>
+        <span [translate]="'profile.emailAddress'">Email addresi</span> : <input type="text" formControlName="email" [placeholder]="user?.email" >
+    </div>
+    <div>
+        <span [translate]="'profile.birthdate'">Doğum Tarihi</span> :<input type="text" onfocus="(this.type='date')" value="{{ user?.birthDate | date:'yyyy-MM-dd' }}" formControlName="birthDate"  [placeholder]="user?.birthDate | date" >
+    </div>
+    <div>
+        <span [translate]="'profile.registerDate'">Üyelik Tarihi</span> : <span>{{user?.registerDate | date}}</span>
+        <span style="color:red;font-size:12px;"> (Üyelik tarihi değiştirilemez.)</span>
+    </div>
+    <div>
+        <span [translate]="'profile.contact'">İletişim Adresi</span> :<input type="email" formControlName="contactAddress" [placeholder]="user?.contactAddress" >
+    </div>
+    <div >
+        <span [translate]="'profile.status'">Hesap Durumu</span> :<span [ngClass]="{'red':user?.accountStatus,'green':user?.accountStatus}">
+            <span *ngIf="user?.accountStatus" style="color: green;">
+                Onaylandı.
+            </span>
+            <span *ngIf="!user?.accountStatus" style="color: red;">
+                Onaylanmadı.
+            </span>
+        </span>
+    </div>
+    <div>
+        <span [translate]="'profile.github'">Github Adresi</span> :<input type="text" formControlName="githubAddress" [placeholder]="user?.githubAddress" >
+    </div>
+    <div>
+        <span [translate]="'profile.linkedin'">Linkedin Adresi</span> : <input type="text" formControlName="linkedinAddress" [placeholder]="user?.linkedinAddress" >
+    </div>
+    <div>
+        <img src="/assets/img/arrow3.svg" width="60px" height="60px" alt="arrow-down" class="arrow-down" >
+        <button class="btn-panel mr-20" [translate]="'settings.save'" (click)="ngOnSubmit()">Değişiklikleri Kaydet</button>
+        <button class="btn-panel mr-20" [translate]="'settings.verify'" *ngIf="!user?.accountStatus">
+            Doğrulama Linki Yolla
+        </button>
+    </div>
+    <app-notification-settings></app-notification-settings>
+    <app-mail-settings></app-mail-settings>
+    <app-visibility></app-visibility>
+</form>

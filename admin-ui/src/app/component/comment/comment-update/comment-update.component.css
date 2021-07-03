@@ -1,0 +1,101 @@
+
+.f-10 {
+    flex-basis: 100%;
+}
+.user-info { 
+    display: flex;
+    flex-direction: row;
+    height: auto;
+}
+.user-img {
+    border-radius: 50%;
+}
+.comment {
+    border: 1px solid #9A9A9A;
+    padding: 20px;
+    border-radius: 15px;
+    min-height: 80px;
+}
+.comment-detail {
+    height: auto;
+    line-height: 1.5;
+}
+.ml-20 {
+    margin-left: 20px;
+}
+.mt-20 {
+    margin-top: 20px;
+}
+.mb-20 {
+    margin-bottom: 20px;
+}
+.user-info h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.user-info span {
+    font-size: 15px;
+    color: #524f4f;
+}
+.arrow-up {
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 40px solid #9A9A9A;
+    transition: .3s;
+}
+.rotate {
+    transform: rotate(180deg);
+}
+.arrow-up:hover {
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 40px solid #FFDD00;
+}
+.date {
+    float:right;
+    font-size: 14px;
+    margin-right: 20px;
+    margin-top: 20px;
+    color: #524f4f;
+}
+.active {
+    color: white;
+    background-color: #000; 
+}
+.mt-50 {
+    margin-top: 50px;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+.clap {
+    margin-left:auto;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+}
+.clap .clap-img {
+    background-image: url(/assets/img/clap.svg);
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+.clap .clap-img:hover {
+    background-image: url(/assets/img/clap-hover.svg);
+}
+.is-clapped {
+    background-image: url(/assets/img/clapped.svg)!important;
+}
+.clap a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

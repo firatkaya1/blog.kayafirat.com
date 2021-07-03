@@ -1,0 +1,89 @@
+<h2 [translate]="'register.title'">Register</h2>
+<p >Aramıza katıl ! </p>
+<form [formGroup]="register">
+    <div>
+        <label [translate]="'register.username'">Username</label><br>
+        <input type="text" placeholder="Tony Stark"
+        formControlName = "userName"
+        [class.is-valid]="register.get('userName').valid" 
+        [class.is-invalid]="register.get('userName').invalid && (register.get('userName').dirty || register.get('userName').touched)">
+        <div *ngIf="register.get('userName').invalid && (register.get('userName').dirty || register.get('userName').touched)" class="red">
+            <div *ngIf="register.get('userName').errors.required" [translate]="'register.notEmpty'" >
+                Bu alan boş bırakılamaz.
+            </div>
+            <div *ngIf="register.get('userName').errors.minlength" [translate]="'register.minLength5'">
+                Kullanıcı adınız en az 5 karakter olmalıdır.
+            </div>
+            <div *ngIf="register.get('userName').errors.maxlength" [translate]="'register.maxLength20'">
+                Kullanıcı adınız en fazla 20 karakter olmalıdır.
+            </div>
+            <div *ngIf="register.get('userName').errors.pattern" [translate]="'register.specialCharacter'">
+                Kullanıcı adınız da özel karakter içeremez.
+            </div>
+        </div>
+    </div>
+    <div>
+        <label [translate]="'register.emailAddress'">Email Address</label><br>
+        <input type="email" placeholder="tonystart@example.com"
+        formControlName = "emailAddress"
+        [class.is-valid]="register.get('emailAddress').valid" 
+        [class.is-invalid]="register.get('emailAddress').invalid && (register.get('emailAddress').dirty || register.get('emailAddress').touched)">  
+        <div *ngIf="register.get('emailAddress').invalid && (register.get('emailAddress').dirty || register.get('emailAddress').touched)" class="red">
+            <div *ngIf="register.get('emailAddress').errors.required" [translate]="'register.notEmpty'">
+                Bu alan boş bırakılamaz.
+            </div>
+            <div *ngIf="register.get('emailAddress').errors.email" [translate]="'register.requiredEmail'">
+                Bu alana sadece email adresi girebilirsiniz.
+            </div>
+        </div>
+    </div>
+    <div>
+        <label [translate]="'register.password'">Password</label><br>
+        <input type="password"
+        autocomplete="on"
+        formControlName = "password"
+        [class.is-valid]="register.get('password').valid" 
+        [class.is-invalid]="register.get('password').invalid && (register.get('password').dirty || register.get('password').touched)">  
+        <div *ngIf="register.get('password').invalid && (register.get('password').dirty || register.get('password').touched)" class="red">
+            <div *ngIf="!register.hasError('isMatch')" [translate]="'register.notMatch'">
+                Girdiğiniz şifreler eşleşmiyor.
+            </div>
+            <div *ngIf="register.get('password').errors.required" [translate]="'register.notEmpty'">
+                Bu alan boş bırakılamaz.
+            </div>
+            <div *ngIf="register.get('password').errors.minlength" [translate]="'register.minLength8'">
+                Şifreniz en az 8 karakter olmalıdır.
+            </div>
+            <div *ngIf="register.get('password').errors.maxlength" [translate]="'register.maxLength20Pass'">
+                Şifreniz en fazla 20 karakter olmalıdır.
+            </div>
+        </div>
+    </div>
+    <div>
+        <label [translate]="'register.rePassword'">Re-Password</label><br>
+        <input type="password"
+        autocomplete="on"
+        formControlName = "confirmPassword"
+        [class.is-valid]="register.get('confirmPassword').valid && !register.hasError('isMatch')" 
+        [class.is-invalid]="(register.hasError('isMatch')) && (register.get('confirmPassword').dirty || register.get('confirmPassword').touched)"> 
+        <div *ngIf="(register.get('confirmPassword').invalid && register.hasError('isMatch')) && (register.get('confirmPassword').dirty || register.get('confirmPassword').touched)" class="red">
+            <div *ngIf="register.hasError('isMatch')" [translate]="'register.notMatch'">
+                Girdiğiniz şifreler eşleşmiyor.
+            </div>
+            <div *ngIf="register.get('confirmPassword').errors.required" [translate]="'register.notEmpty'">
+                Bu alan boş bırakılamaz.
+            </div>
+        </div>    
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" checked> 
+            <span [translate]="'register.term'">Kullanıcı Sözleşmesini kabul ediyorum.</span>
+        </label>
+    </div>
+    <div>
+        <button class="btn-panel custom-panel"  (click)="registerUser()" [disabled]="register.invalid" [translate]="'register.signup'">Sign Up</button>
+        <button class="btn-github" [translate]="'register.github'"><img src="/assets/img/github.svg" width="25px" height="25px" alt=""> Sign Up With GitHub</button>
+        <button class="btn-linkedin" (click)="registerLinkedin()"><img src="/assets/img/linkedin.svg" width="25px" height="25px" alt=""> Sign Up With Linkedin</button>
+    </div>
+</form>

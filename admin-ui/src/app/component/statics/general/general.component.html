@@ -1,0 +1,85 @@
+<div class="row">
+         
+    <ngx-charts-line-chart
+        class="col-6"
+        [view]="view2"
+        [roundDomains]="false"
+        [scheme]="'picnic'"
+        [legend]="legend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxis]="xAxis"
+        [yAxis]="yAxis"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel"
+        [timeline]="timeline"
+        [results]="multi"
+        (select)="onSelect($event)"
+        (activate)="onActivate($event)"
+        (deactivate)="onDeactivate($event)">
+    </ngx-charts-line-chart>
+            
+    <ngx-charts-number-card
+        class="col-6"
+        [view]="view"
+        [scheme]="colorScheme"
+        [results]="single"
+        [cardColor]="cardColor"
+        (select)="onSelect($event)">    
+    </ngx-charts-number-card>
+
+    <ngx-charts-pie-grid 
+        class="col-3"
+        [view]="[500,250]"
+        [scheme]="colorScheme"
+        [results]="mobile"
+        (select)="onSelect($event)">
+    </ngx-charts-pie-grid>
+    <div class="col-3"></div>
+ 
+    <div class="col-3 mx-auto">
+        <table class="table table-dark table-hover">
+            <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Sayfa</th>
+            <th scope="col">Görüntülenme Sayısı</th>
+            <th scope="col">Sayfa Değeri</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>/register</td>
+            <td>136</td>
+            <td>$0.00</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>/login</td>
+            <td>36</td>
+            <td>$0.00</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>/login</td>
+            <td>36</td>
+            <td>$0.00</td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>/login</td>
+            <td>36</td>
+            <td>$0.00</td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td>/login</td>
+            <td>36</td>
+            <td>$0.00</td>
+          </tr>
+        </tbody>
+      
+        </table>
+    </div>
+</div>

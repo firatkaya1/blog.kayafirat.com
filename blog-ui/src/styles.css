@@ -1,0 +1,22 @@
+html,body { 
+    transition: .5s;
+    font-family: 'Inconsolata', monospace;
+}
+.kayafirat-font {
+    font-family: 'kayafirat', monospace;
+    font-size: 20px!important;
+    line-height: 1.7!important;
+    color: #000;
+    font-weight: 200;
+}
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+@font-face {
+    font-family:"kayafirat";
+    src: url("/assets/fonts/KayaRegular.ttf") format("truetype");
+  }

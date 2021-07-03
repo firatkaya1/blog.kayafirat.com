@@ -1,0 +1,11 @@
+<ngx-spinner bdColor="rgba(255,255,255, 255)" size="medium" color="#000" type="ball-pulse" >
+    <p style="font-size: 18px;" >İçerikler yükleniyor...</p>
+</ngx-spinner>
+<div class="container">
+    <app-articles [postDetail]="postDetail" [totalComment]="totalComment"></app-articles>
+    <button (click)="getComments()" *ngIf="!isHide">Yorumları Getir ({{totalComment}})</button>
+    <button (click)="hideComments()" *ngIf="isHide">Yorumları Gizle </button>
+    <app-commentbar [isOpen]="isOpen" [commentID]="commentID" (isClose)="closedCommentBar($event)"></app-commentbar>
+    <app-comment [isFavourite]="true" [comments]="comments" [pageNumber]="pageNumber" [isHide]="isHide" [totalPage]="totalPage" (pageNumberChange)="changePage($event)" (commentDetailID)="commentDetails($event)"></app-comment>
+    <div style="width: 100%;height: 100px;"></div>
+</div>

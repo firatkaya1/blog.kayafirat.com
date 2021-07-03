@@ -1,0 +1,104 @@
+{
+    "search": {
+        "message":"Boş zamanlarımda (yeni) meslektaşlarımla paylaşmak için bazı makaleler yazıyorum.Çoğunlukla Türkçe dilinde yazılmıştır.",
+        "button":"Arama yap",
+        "placeholder":"Başlıklarda ve kategorilerde ara..."
+    },
+    "menu":{
+        "home":"Anasayfa",
+        "login":"Giriş Yap",
+        "register":"Kayıt Ol",
+        "aboutme":"Hakkımda",
+        "profile":"Hesabım",
+        "settings":"Ayarlar",
+        "notification":"Bildirimler",
+        "account":"Hesap",
+        "terms":"Kullanım Sözleşmesi",
+        "exit":"Çıkış",
+        "delete":"Hesabımı Sil"
+    },
+    "post":{
+        "click":"Okumak için tıklayınız."
+    },
+    "register":{
+        "title":"Kayıt Ol",
+        "paragh1":"Biliyorum biraz saçma ama bir kullanıcı servisi yapmak istedim.",
+        "paragh2":"Burada servise katılabilirsin, endişelenmene gerek yok, hesabını istediğin zaman silme hakkına sahipsin.",
+        "username":"Kullanıcı Adı",
+        "notEmpty":"Bu alan boş bırakılamaz.",
+        "minLength5":"Kullanıcı adınız en az 5 karakter olmalıdır.",
+        "maxLength20":"Kullanıcı adınız en fazla 20 karakter olmalıdır.",
+        "specialCharacter":"Kullanıcı adınız da özel karakter içeremez.",
+        "emailAddress":"E-posta Adresi",
+        "requiredEmail":"Bu alana sadece email adresi girebilirsiniz.",
+        "password":"Şifre",
+        "notMatch":"Girdiğiniz şifreler eşleşmiyor.",
+        "minLength8":"Şifreniz en az 8 karakter olmalıdır.",
+        "maxLength20Pass":"Şifreniz en fazla 20 karakter olmalıdır.",
+        "rePassword":"Şifrenizi tekrar girin",
+        "term":"Kullanıcı Sözleşmesini kabul ediyorum.",
+        "github":"Github ile kayıt ol",
+        "signup":"Kayıt Ol"
+    },
+    "login":{
+        "title":"Giriş Yap",
+        "paragh1":"Tekrar hoşgeldin, Girin yap ve kolaycana okumaya başla.",
+        "error":"Kullanıcı adı veya şifre hatalı.",
+        "label1":"Kullanıcı adı veya E-posta Adresin",
+        "label2":"Şifre",
+        "forgot":"Şifremi unuttum",
+        "rememberme":"Beni Hatırla",
+        "signin":"Giriş Yap",
+        "github":"Github ile giriş yap"
+    },
+    "profile":{
+        "title":"Hesabım",
+        "username":"Kullanıcı Adı",
+        "emailAddress":"Email Address",
+        "birthdate":"Doğum Tarihi",
+        "registerDate":"Üyelik Tarihi",
+        "contact":"İletişim Adresi",
+        "status":"Hesap Durumu",
+        "github":"Github Adresi",
+        "linkedin":"Linkedin Adresi"
+    },
+    "settings":{
+        "title":"Ayarlar",
+        "save":"Değişiklikleri Kaydet",
+        "verify":"Doğrulama Linki Yolla"
+    },
+    "notification":{
+        "title":"Bildirim Ayarları",
+        "span1":"Hesabıma 3'den fazla deneme yapıldığında bana bildirilmesini istiyorum.",
+        "span2":"Her giriş yapıldığında bildirim almak istiyorum.",
+        "span3":"Yeni bir yazı eklendiğinde bildirim almak istiyorum.",
+        "span4":"Şifre değişikliğinde bildirim almak istiyorum.",
+        "save":"Değişiklikleri Kaydet"
+    },
+    "visibility":{
+        "title":"Görünürlük Ayarları",
+        "span1":"İletişim adresimin görünmesini istemiyorum.",
+        "span2":"Doğum tarihimin görünmesini istemiyorum.",
+        "span3":"Github adresimin görünmesini istemiyorum.",
+        "span4":"Linkedin adresimin görünmesini istemiyorum.",
+        "save":"Değişiklikleri Kaydet"
+    },
+    "favourites":{
+        "title":"Favoriler"
+    },
+    "comment":{
+        "title":"Yorumlar",
+        "info":"Yorum eklemek için aşağıdaki alanı doldurunuz.",
+        "send":"Gönder",
+        "placeholder":"Yorumunuzu buraya yazınız."
+    },
+    "error":{
+        "message":"Hey! Aradığınız şey için üzgünüz. Bunun gerçek bir sorun olduğunu düşünüyorsanız, lütfen bana mesaj atın. En kısa zamanda düzelteceğim.",
+        "name":"İsminiz",
+        "emailAddress":"Email Adresiniz",
+        "problem":"Sorununuzdan bahsedin",
+        "back":"Geri Dön",
+        "send":"Gönder",
+        "placeholder":"Sorununuzu buraya yazınız..."
+    }
+}

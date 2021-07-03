@@ -1,0 +1,22 @@
+<div class="custom-rightbar" *ngIf="isOpen" [ngClass]="isOpen ? 'open':''" >
+    <div class="header" >
+        <img src="/assets/img/x.svg" width="30px" height="30px" style="margin-left: 10px;" (click)="close()" />
+        <h2 style="text-align: center;width: 100%;">Yorumu Beğenenler</h2>
+    </div>
+    <div class="p-1">
+        <p>
+            Bu yorumu {{totalElements}} kişi beğendi.
+        </p>
+    </div>
+    <div class="header-info" *ngFor="let vote of votes;">
+        <img [src]="vote.profile_photo" width="50x" height="50px" alt="">
+        <div class="mr-1">
+            <div>{{vote.user_name}}</div>
+            <div class="date">{{vote.date | date}}</div>
+        </div>
+    </div>
+    <div style="text-align: center;" *ngIf="totalPages != pageNumber && totalElements!=0">
+        <button class="btn-panel" (click)="increasePageNumber()">daha fazla yükle</button>
+    </div>
+    <div style="height: 50x;width: 100%;"></div>
+</div>

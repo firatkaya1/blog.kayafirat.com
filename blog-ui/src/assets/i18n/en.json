@@ -1,0 +1,106 @@
+{
+    "search": {
+        "message":"I write some articles to share with my (fresh) colleagues in my spare time. But most of them written by Turkish language.",
+        "button":"Search",
+        "placeholder":"Search by title,category"
+    },
+    "menu":{
+        "home":"Home",
+        "login":"Login",
+        "register":"Register",
+        "aboutme":"About me",
+        "profile":"Profile",
+        "settings":"Settings",
+        "notification":"Notification",
+        "account":"Account",
+        "terms":"Terms of Policy",
+        "exit":"Exit",
+        "delete":"Delete My Account"
+
+    },
+    "post":{
+        "click":"Click to read."
+    },
+    "register":{
+        "title":"Register",
+        "paragh1":"I know, it's ridiculous but I wanted to make an user service.",
+        "paragh2":"You can join here to my service, don't worry also you have an option for delete every own information.",
+        "username":"Username",
+        "notEmpty":"This place can not be empty.",
+        "minLength5":"Username length cannot be less than 5",
+        "maxLength20":"Username length cannot be greater than 20",
+        "specialCharacter":"Username cannot contains special characters.",
+        "emailAddress":"Email Address",
+        "requiredEmail":"This place is for email only.",
+        "password":"Password",
+        "notMatch":"The passwords you entered do not match.",
+        "minLength8":"Password length cannot be less than 5",
+        "maxLength20Pass":"Password length cannot be greater than 20",
+        "rePassword":"Re-Password",
+        "term":"I accept the User Agreement.",
+        "github":"Sign Up With GitHub",
+        "signup":"Sign Up"
+    },
+    "login":{
+        "title":"Login",
+        "paragh1":"Welcome again, Login and read easily.",
+        "error":"Username or Email Address or password is wrong.",
+        "label1":"Username or Email Address",
+        "label2":"Password",
+        "forgot":"Forgot Password?",
+        "rememberme":"Remember me",
+        "signin":"Sign In",
+        "github":"Sign In With GitHub"
+    },
+    "profile":{
+        "title":"Profile",
+        "username":"User name",
+        "emailAddress":"Email Address",
+        "birthdate":"Birth Date",
+        "registerDate":"Register Date",
+        "contact":"Contact Address",
+        "status":"Account Status",
+        "github":"Github Address",
+        "linkedin":"Linkedin Address"
+    },
+    "settings":{
+        "title":"Settings",
+        "save":"Save Changes",
+        "verify":"Send verify link"
+    },
+    "notification":{
+        "title":"Notification Settings",
+        "span1":"If someone tries to sign in more than 3 times, send me a notification.",
+        "span2":"I want to be notified every time I log in.",
+        "span3":"I want to be notified when new article added.",
+        "span4":"I want to be notified when change my password.",
+        "save":"Save Changes"
+    },
+    "visibility":{
+        "title":"Visibility Settings",
+        "span1":"Do not show my contact address.",
+        "span2":"Do not show my birth date.",
+        "span3":"Do not show my github address",
+        "span4":"Do not show my linkedin address",
+        "save":"Save Changes"
+    },
+    "favourites":{
+        "title":"Favourites"
+    },
+    "comment":{
+        "title":"Comments",
+        "info":"Please fill the text if you send a comment.",
+        "send":"Send",
+        "placeholder":"Write your comment..."
+    },
+    "error":{
+        "message":"Hey! We are sorry for what you are looking for. If you think this is a real problem, please message me. I will fix it as soon as possible.",
+        "name":"Name",
+        "emailAddress":"Email Address",
+        "problem":"Tell me about your problem",
+        "back":"Back",
+        "send":"Send",
+        "placeholder":"Write your problem..."
+    }
+    
+}

@@ -1,0 +1,19 @@
+<ngx-spinner bdColor="rgba(255,255,255, 255)" size="medium" color="#000" type="ball-pulse" >
+    <p style="font-size: 18px;" >Giriş yapılıyor...</p>
+</ngx-spinner>
+<div class="container">
+    <div class="box">
+        <div class="panel">
+            <button class="btn-panel" (click)="show(true)">Login</button>
+            <button class="btn-panel" (click)="show(false)">Register</button>
+        </div>
+        <div class="flex-50" [ngClass]="isLoginOpen ? '' : 'd-none' ">
+            <app-register ></app-register>
+        </div>
+        <div class="flex-5 vertical-border"></div>
+        <div class="flex-50 ml-70" [ngClass]="isLoginOpen ? 'd-none' : '' ">
+           <app-login ></app-login>
+        </div>
+    </div>
+
+</div>

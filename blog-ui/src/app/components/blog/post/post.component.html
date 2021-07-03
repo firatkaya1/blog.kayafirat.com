@@ -1,0 +1,18 @@
+<div class="blog f-19">
+
+    <div class="col-12" *ngFor="let post of posts;index as i">
+        <h3 [routerLink]="['/a/', post.id]" routerLinkActive="active" style="cursor: pointer;">{{ post.title }}</h3>
+        <span *ngFor="let category of post.category">
+            <span class="tag" (click)="search(category.name)" style="cursor: pointer;" [ngStyle]="{'background-color':category.color }" >{{category.name}}</span>
+        </span>
+        <p>
+            {{post.header}}
+        </p>
+        <a [routerLink]="['/a/', post.id]" routerLinkActive="active" [translate]="'post.click'">Click to read.</a>
+        <img src="/assets/img/arrow2.svg" class="arrow" width="70px" height="70px" alt="" *ngIf="i==0">
+        <br>    
+        <hr class="hr"> 
+    </div>
+</div>
+
+

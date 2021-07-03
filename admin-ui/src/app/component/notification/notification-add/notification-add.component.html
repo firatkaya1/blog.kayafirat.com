@@ -1,0 +1,108 @@
+<div class="row p-4">
+    <div class="col-md-3">
+        <div class="row">
+            <div class="col-md-12 mb-4">
+                <label class="form-label">Hazır Bildirim Template</label>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Bildirim Seç</option>
+                    <option value="1">Hoşgeldin Bildirimi</option>
+                    <option value="2">Test</option>
+                    <option value="3">Test2</option>
+                  </select>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-md-12">
+                <label class="form-label">Bildirim Resmi Seçiniz</label>
+                <input type="file" class="form-control" >
+            </div>
+            <div class="w-100"></div>
+            <div class="col-md-12">
+                <label class="form-label">Bildirim Başlığı</label>
+                <input type="text" class="form-control" placeholder="Bildirim Başlığı" >
+            </div>
+            <div class="w-100"></div>
+            <div class="col-md-12">
+                <label class="form-label">Bildirim Mesajınız</label>
+                <textarea  class="form-control" placeholder="Bildirim Başlığı" style="height: 200px;"></textarea>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-md-6 mt-4">
+                <input class="form-check-input" type="checkbox" id="flexCheckDefault" checked >
+                <label class="form-check-label" for="flexCheckDefault">
+                    Herkese yolla
+                </label>
+            </div>
+            <div class="col-md-6 mt-4">
+                <button class="btn float-end btn-success">
+                    Gönder
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <label class="form-label">Kullanıcı Seç</label>
+        <input type="text" class="form-control mb-4" placeholder="Kullanıcı Seç">
+        <div class="list-group">
+            <div class="list-group-item list-group-item-action">
+              firat.kaya
+              <a (click)="deleteUser()" class="float-end"><i class="bi bi-x custom-icon"></i></a>
+            </div>
+            <div class="list-group-item list-group-item-action">
+                test.account
+                <a (click)="deleteUser()" class="float-end"><i class="bi bi-x custom-icon"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <h3>Önizleme - Okunmadı</h3>
+        <div class="notification is-read mb-5" >
+            <div class="f-10" >
+                <img src="/assets/img/profile.svg" width="50px" height="50px" alt="">
+            </div>
+            <div class="f-80" >
+                <div>
+                    <b>Test başlık</b>
+                </div>
+                <div style="font-size: 16px; margin:5px 0 5px 0;">
+                    Bu bir test mesajıdır.
+                </div>
+                <div style="font-size: 14px;float: right;color: #1e1e1e;">
+                    <span>2021/12/12 21:04:11</span>
+                    <span > - </span>
+                    <span>2021/12/12 21:04:11</span>
+                </div>
+            </div>
+            
+            <div class="f-5">
+                <i class="bi bi-x custom-icon"></i>
+                <div class="dot"></div>
+            </div>
+        </div>
+        <h3>Önizleme - Okundu</h3>
+        <div class="notification " >
+            <div class="f-10" >
+                <img src="/assets/img/profile.svg" width="50px" height="50px" alt="">
+            </div>
+            <div class="f-80" >
+                <div>
+                    <b>Test başlık</b>
+                </div>
+                <div style="font-size: 16px; margin:5px 0 5px 0;">
+                    Bu bir test mesajıdır.
+                </div>
+                <div style="font-size: 14px;float: right;color: #1e1e1e;">
+                    <span>2021/12/12 21:04:11</span>
+                    <span > - </span>
+                    <span>2021/12/12 21:04:11</span>
+                </div>
+            </div>
+            
+            <div class="f-5">
+                <i class="bi bi-x custom-icon"></i>
+                <div class="dot"></div>
+            </div>
+        </div>
+    </div>
+</div>

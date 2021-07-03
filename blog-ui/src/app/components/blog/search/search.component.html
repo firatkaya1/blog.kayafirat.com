@@ -1,0 +1,7 @@
+<h2 style="font-size: 1.8em;">Blog</h2>
+<hr class="border"/>
+<span class="f-19" [translate]="'search.message'"></span> 
+<div class="search">
+    <input type="text" #val placeholder="{{ 'search.placeholder' | translate }}">
+    <button (click)="search(val.value)" [translate]="'search.button'">Search</button>
+</div>

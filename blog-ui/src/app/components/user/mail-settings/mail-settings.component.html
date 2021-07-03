@@ -1,0 +1,23 @@
+<form class="inside" [formGroup]="userMailPermission">
+    <h3>Mail Settings</h3>
+    <hr class="border">
+    <div>
+        <input type="checkbox" id="email-login-attempt-permission" name="email-login-attempt-permission" formControlName="loginAttempt">
+        <label for="email-login-attempt-permission">Hesabıma 3'den fazla deneme yapıldığında email bildirimi istiyorum.</label>
+    </div>
+    <div>
+        <input type="checkbox" id="email-login-permission" name="email-login-permission" formControlName="loginNotification">
+        <label for="email-login-permission">Her giriş yapıldığında email bildirimi almak istiyorum.</label>
+    </div>
+    <div>
+        <input type="checkbox" id="email-post-permission" name="email-post-permission" formControlName="postNotification">
+        <label for="email-post-permission">Yeni bir yazı eklendiğinde email bildirimi almak istiyorum.</label>
+    </div> 
+    <div>
+        <input type="checkbox" id="email-passChange-permission" name="email-passChange-permission" formControlName="passChange">
+        <label for="email-passChange-permission">Şifre değişikliğinde email bildirimi almak istiyorum.</label>
+    </div>
+    <div>
+        <button (click)="ngSubmit()" class="btn-panel" style="margin-right: 40px;" >Değişiklikleri Kaydet</button>
+    </div>
+</form>

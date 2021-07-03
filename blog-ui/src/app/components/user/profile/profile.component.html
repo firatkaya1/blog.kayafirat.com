@@ -1,0 +1,35 @@
+<div class="inside">
+    <h3 [translate]="'profile.title'">Profile</h3>
+    <hr class="border">
+    <div>
+        <span [translate]="'profile.username'">Kullanıcı adı</span> : <span>{{user?.username}}</span>
+    </div>
+    <div>
+        <span [translate]="'profile.emailAddress'">Email addresi</span> : <span>{{user?.email}}</span>
+    </div>
+    <div>
+        <span [translate]="'profile.birthdate'">Doğum Tarihi</span> : <span>{{user?.birthDate}}</span>
+    </div>
+    <div>
+        <span [translate]="'profile.registerDate'">Üyelik Tarihi</span> : <span>{{user?.registerDate}}</span>
+    </div>
+    <div>
+        <span [translate]="'profile.contact'">İletişim Adresi</span> :<span>{{user?.contactAddress}}</span>
+    </div>
+    <div>
+        <span [translate]="'profile.status'">Hesap Durumu</span> :<span [ngClass]="{'red':user?.accountStatus,'green':user?.accountStatus }">
+            <span *ngIf="user?.accountStatus" style="color: green;">
+                Onaylandı.
+            </span>
+            <span *ngIf="!user?.accountStatus" style="color: red;">
+                Onaylanmadı.
+            </span>
+        </span>
+    </div>
+    <div>
+        <span [translate]="'profile.github'">Github Adresi</span> : <a href="https://github.com/firatkaya1">{{user?.githubAddress}}</a>
+    </div>
+    <div>
+        <span [translate]="'profile.linkedin'">Linkedin Adresi</span> : <a href="https://linkedin.com/in/firatkaya1">{{user?.linkedinAddress}}</a>
+    </div>
+</div>

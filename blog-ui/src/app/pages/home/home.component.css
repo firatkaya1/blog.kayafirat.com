@@ -1,0 +1,42 @@
+.container {
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    height: 100%;
+}
+.pageable {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+button {
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px 30px;
+    font: 19px 'Inconsolata', monospace;
+    background-color: #FFDD00;
+    border: none;
+    border-radius: 10px;
+}
+button:hover { 
+    background-color: #FFD000;
+    color: #4f65dd;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+button:focus {
+    outline: 0;
+}
+@media only screen and (max-width: 600px) {
+    .container{
+        left: 0;
+        right: 0;
+        padding: 10px;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .container {
+        left: 30%;
+        right: 30%;
+    }
+  }

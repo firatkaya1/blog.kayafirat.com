@@ -1,0 +1,9 @@
+<div class="box">
+    <div *ngFor="let alert of alerts" [ngClass]="alert.isSuccess ? 'bg-yellow' : 'bg-red' ">
+        <p>
+           {{alert.message}}  
+        </p>
+        <img src="/assets/img/x.svg" width="15px" height="15px" (click)="closeNotify(alert.id)" alt="">
+    </div>
+</div>
+

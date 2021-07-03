@@ -1,0 +1,37 @@
+<h2 [translate]="'login.title'">Login</h2>
+<p [translate]="'login.paragh1'">Welcome again, Login and read easily.</p>
+<form [formGroup]="login">
+    <div style="margin-top: 50px;">
+        <label [translate]="'login.label1'">Username or Email Address</label><br>
+        <input type="text"  formControlName = "username" placeholder="tony@stark.com" autocomplete="on">
+    </div>
+    <div>
+        <label [translate]="'login.label2'">Password</label><br>
+        <input type="password" formControlName = "password" autocomplete="on" 
+        [class.is-valid]="login.get('password').valid" 
+        [class.is-invalid]="login.get('password').invalid && (login.get('password').dirty || login.get('password').touched)">    
+        <div *ngIf="login.get('password').invalid && (login.get('password').dirty || login.get('password').touched)" class="red">
+            <div *ngIf="login.get('password').errors.required" [translate]="'login.notEmpty'">
+                Bu alan boş bırakılamaz.
+            </div>
+            <div *ngIf="login.get('password').errors.minlength" [translate]="'login.minLength8'">
+                Şifreniz en az 8 karakter olmalıdır.
+            </div>
+        </div>
+    </div>
+    <div class="forgot-pass">
+        <a routerLink="/forgotpassword" routerLinkActive="active" [translate]="'login.forgot'">Şifremi unuttum</a>
+    </div>
+    <div style="margin-top: 10px;">
+        <label >
+            <input type="checkbox"> 
+            <span [translate]="'login.rememberme'">Remember me</span>
+        </label>
+    </div>
+    <div>
+        <button class="btn-panel custom-panel"  (click)="loginUser()" [translate]="'login.signin'" [disabled]="login.invalid">Sign In</button>
+        <button class="btn-github" [translate]="'login.github'" (click)="loginGithub()"><img src="/assets/img/github.svg" width="25px" height="25px" alt=""> Sign In With GitHub</button>
+        <button class="btn-linkedin" (click)="loginLinkedin()"><img src="/assets/img/linkedin.svg" width="25px" height="25px" alt=""> Sign In With Linkedin</button>
+
+    </div>
+</form>

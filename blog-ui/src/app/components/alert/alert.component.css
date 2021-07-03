@@ -1,0 +1,61 @@
+.box {
+    position: fixed;
+    width: 400px;
+    height: auto;
+    z-index: 5;
+    font-size: 16px;
+    bottom: 10px;
+    right: 10px;
+}
+.box div {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    animation-name: alert;
+    animation-duration: .4s;
+    opacity: 1;
+}
+@keyframes alert {
+    from {opacity: 0;top:-100px;}
+    to {opacity: 1;top:8px;}
+}
+.bg-red {
+    background-color: rgb(226, 84, 84);
+    color: #fff;
+}
+.bg-yellow {
+    background-color: #ffdd00d7;
+}
+p {
+    margin-right: 30px;
+    padding: 5px;
+    display: inline-block;
+    width: 80%;
+}
+img {
+    display: block;
+    cursor: pointer;
+    margin: 20px 20px 0 0;
+    float:right;
+}
+@media only screen and (max-width: 600px) {
+    .box {
+        margin:0 10px 0 10px;
+        max-width: 100%;
+        min-width: 90%;
+    }
+    @keyframes alert {
+        from {opacity: 0;top:-100px;}
+        to {opacity: 1;top:45px;}
+    }
+    p {
+        margin: 5px 0 15px 15px;
+        width: 80%;
+    }
+    img {
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+
+}

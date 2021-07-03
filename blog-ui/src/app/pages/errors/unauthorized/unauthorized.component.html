@@ -1,0 +1,53 @@
+<div class="container">
+    <form class="box mt-50" [formGroup]="customForm">
+        <div style="font-size: 120px;text-align: center;">403</div>
+        <p style="font-size:20px;line-height:1.6;" [translate]="'error.message'">
+            Hey ! We are sorry to about what you search. If you are considering it's a real problem, please send me as a error. I will fixed as soon as possible.
+        </p>
+        <div class="mt-30">
+            <label [translate]="'error.name'">Name</label><br>
+            <input type="text" formControlName = "name" placeholder="Tony Stark"
+            [class.is-valid]="customForm.get('name').valid" 
+            [class.is-invalid]="customForm.get('name').invalid && (customForm.get('name').dirty || customForm.get('name').touched)">    
+            <div *ngIf="customForm.get('name').invalid && (customForm.get('name').dirty || customForm.get('name').touched)" class="red mt-2">
+                <div *ngIf="customForm.get('name').errors.required" >
+                    Bu alan boş bırakılamaz.
+                </div>
+            </div>
+        </div>
+        <div class="mt-30">
+            <label [translate]="'error.emailAddress'">Email Address</label><br>
+            <input type="email" formControlName = "email" placeholder="tonystart@example.com"
+            [class.is-valid]="customForm.get('email').valid" 
+            [class.is-invalid]="customForm.get('email').invalid && (customForm.get('email').dirty || customForm.get('email').touched)">    
+            <div *ngIf="customForm.get('email').invalid && (customForm.get('email').dirty || customForm.get('email').touched)" class="red mt-2">
+                <div *ngIf="customForm.get('email').errors.required" >
+                    Bu alan boş bırakılamaz.
+                </div>
+                <div *ngIf="customForm.get('email').errors.email" >
+                    Bu alana email adresi girmek zorundasınız.
+                </div>
+            </div>
+        </div>
+        <div class="mt-30">
+            <label [translate]="'error.problem'">Tell me about your problem</label><br>
+            <textarea name="message" formControlName = "message" cols="30" rows="10" style="height: 100px;" placeholder="{{ 'error.placeholder' | translate }}"
+            [class.is-valid]="customForm.get('message').valid" 
+            [class.is-invalid]="customForm.get('message').invalid && (customForm.get('message').dirty || customForm.get('message').touched)"></textarea>
+            <div *ngIf="customForm.get('message').invalid && (customForm.get('message').dirty || customForm.get('message').touched)" class="red mt-2">
+                <div *ngIf="customForm.get('message').errors.required" >
+                    Bu alan boş bırakılamaz.
+                </div>
+            </div>
+        </div>
+        <div class="mt-30 m-50">
+            <a routerLink="/" routerLinkActive="active" class="btn-panel custom-panel" [translate]="'error.back'">
+                Back
+            </a>
+            <button class="btn-panel custom-panel" [translate]="'error.send'" (click)="send()" [disabled]="customForm.invalid">
+                Send
+            </button>
+        </div>
+        <div style="height: 50px;width: 100%;"></div>
+    </form>
+</div>

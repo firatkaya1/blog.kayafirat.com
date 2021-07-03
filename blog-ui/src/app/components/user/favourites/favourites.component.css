@@ -1,0 +1,90 @@
+.inside {
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    font-size: 19px;
+}
+.inside > div {
+    margin: 15px;
+}
+.border {
+    text-align: left;
+    width: 90%;
+    min-height: 2px;
+    background-color: #000;
+    transform: rotate(-1deg);
+    margin: 0;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+.scrolling {
+    width: 100%; 
+    height: 93%;
+    overflow-y: scroll!important;
+}
+.col-12 {
+    width: 100%;
+    height: auto;
+}
+.col-12 h3 {
+    color: #0866D6;
+    margin-bottom: 8px;
+    display: inline-block;
+
+}
+.col-12 p {
+    color: #6C737B;
+    font-size: 16px;
+}
+.col-12 a {
+    float:right;
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+.col-12 a:hover {
+    color: #0dfd8d;
+}
+.java {
+    background-color: #B07219;
+}
+.spring {
+    background-color: #80EA6E;
+}
+.tag { 
+    margin-left: 20px;
+    font-size: 15px;
+    padding: 6px;
+    border-radius: 30px;
+}
+.mr-50 {
+    margin-right: 50px;
+}
+@media only screen and (max-width: 600px) {
+    .inside {
+        padding: 5px;
+        width: auto;
+    }
+    .inside div {
+        margin: 10px; 
+    }
+    .inside p {
+        padding: 5px;
+    }
+    .col-12 {
+        width: auto;
+    }
+    .custom-panel,.mr-20 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    input,input[type="text"] {
+        width: 95%;
+        height: 20px;
+    }
+}
