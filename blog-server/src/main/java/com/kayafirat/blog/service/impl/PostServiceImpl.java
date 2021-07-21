@@ -1,6 +1,7 @@
 package com.kayafirat.blog.service.impl;
 
 import com.kayafirat.blog.dto.PostDTO;
+import com.kayafirat.blog.dto.PostViewDTO;
 import com.kayafirat.blog.entity.*;
 import com.kayafirat.blog.exception.custom.EntityNotFoundException;
 import com.kayafirat.blog.exception.custom.PostIDNotFoundException;
@@ -23,6 +24,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -34,6 +36,10 @@ public class PostServiceImpl implements PostService {
     private final PostDetailRepository postDetailRepository;
     private final CommentRepository commentRepository;
     private final CategoryRepository categoryRepository;
+
+    public List<PostViewDTO> getPosts(){
+        return postRepository.findAllPosts();
+    }
 
     @Override
     @Cacheable(cacheNames ="pageable", key = "#pageNumber",unless = "#result?.getNumberOfElements() == 0 " )

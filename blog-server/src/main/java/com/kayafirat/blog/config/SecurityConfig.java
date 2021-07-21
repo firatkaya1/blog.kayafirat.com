@@ -1,14 +1,12 @@
 package com.kayafirat.blog.config;
 
-import com.kayafirat.blog.entity.Role;
-import com.kayafirat.blog.entity.Security;
 import com.kayafirat.blog.security.JwtRequestFilter;
 import com.kayafirat.blog.service.impl.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -20,10 +18,10 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
-import java.util.List;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true,securedEnabled = true )
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -48,9 +46,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 http.authorizeRequests().antMatchers(security.getHttpMethod(),security.getLink()).permitAll();
         }*/
         http
+            .csrf().disable()
             .cors().configurationSource(corsConfigurationSource())
             .and()
-            .csrf().disable()
             .authorizeRequests().anyRequest().permitAll()
             .and()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
@@ -60,6 +58,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
+       // configuration.setAllowedOrigins(Arrays.asList("https://blog.kayafirat.com","https://admin.kayafirat.com"));
         configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
         configuration.setAllowedMethods(Arrays.asList("*"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
@@ -68,6 +67,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
+
 
     @Override
     @Bean

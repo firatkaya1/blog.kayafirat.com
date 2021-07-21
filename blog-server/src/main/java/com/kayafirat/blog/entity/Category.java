@@ -2,7 +2,6 @@ package com.kayafirat.blog.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.kayafirat.blog.dto.CategoryDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,6 +32,9 @@ public class Category extends JdkSerializationRedisSerializer implements Seriali
 
     @Column
     private String color;
+
+    @Column
+    private String textColor;
 
     @ManyToMany(mappedBy = "category")
     private Set<Post> post = new HashSet<>();

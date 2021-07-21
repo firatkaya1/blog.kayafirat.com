@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 export class CommentService {
 
   private BASE_URL:string = "http://localhost:8081/comment";
-
+  // private BASE_URL:string = "https://api.kayafirat.com/blog/comment";
   constructor(private http:HttpClient) { }
 
   public getCommentsByPostId(id:any,pageNumber:any){

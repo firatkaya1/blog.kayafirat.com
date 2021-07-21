@@ -1,7 +1,6 @@
 package com.kayafirat.blog.service.impl;
 
 import com.kayafirat.blog.dto.NotificationDTO;
-import com.kayafirat.blog.entity.MailPermission;
 import com.kayafirat.blog.entity.Notification;
 import com.kayafirat.blog.entity.NotificationPermission;
 import com.kayafirat.blog.entity.User;
@@ -10,9 +9,7 @@ import com.kayafirat.blog.repository.UserRepository;
 import com.kayafirat.blog.service.NotificationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

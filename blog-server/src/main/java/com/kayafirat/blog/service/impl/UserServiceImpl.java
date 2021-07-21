@@ -1,5 +1,6 @@
 package com.kayafirat.blog.service.impl;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.kayafirat.blog.dto.AuthenticateRequest;
 import com.kayafirat.blog.dto.Register;
 import com.kayafirat.blog.dto.UserProfileDTO;
@@ -13,11 +14,10 @@ import com.kayafirat.blog.repository.UserRepository;
 import com.kayafirat.blog.service.MailService;
 import com.kayafirat.blog.service.NotificationService;
 import com.kayafirat.blog.service.UserService;
-
 import com.kayafirat.blog.util.JwtUtil;
 import com.kayafirat.blog.util.SecurityUtil;
-import net.minidev.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
@@ -41,7 +41,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class UserServiceImpl implements UserService {

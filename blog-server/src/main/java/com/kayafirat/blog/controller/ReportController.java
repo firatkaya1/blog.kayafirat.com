@@ -1,7 +1,7 @@
 package com.kayafirat.blog.controller;
 
-import com.kayafirat.blog.service.ReportService;
 import com.kayafirat.blog.entity.Report;
+import com.kayafirat.blog.service.ReportService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

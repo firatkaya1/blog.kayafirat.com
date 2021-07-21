@@ -45,7 +45,7 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public Comment addComment(Comment comment) {
-        if(SecurityContextHolder.getContext().getAuthentication().isAuthenticated()){
+        if(!SecurityContextHolder.getContext().getAuthentication().getName().equals("anonymousUser")){
             comment.setUserId(Long.valueOf(SecurityContextHolder.getContext().getAuthentication().getName()));
         } else {
             comment.setUserId(398l);
@@ -76,7 +76,7 @@ public class CommentServiceImpl implements CommentService {
     public Comment addVote(Long id) {
         Comment comment = commentRepository.findById(id).orElseThrow(()->new CommentIDNotFoundException(id));
         CommentVote commentVote = new CommentVote();
-        if(SecurityContextHolder.getContext().getAuthentication().isAuthenticated()){
+        if(!SecurityContextHolder.getContext().getAuthentication().getName().equals("anonymousUser")){
             commentVote.setUserId(Long.valueOf(SecurityContextHolder.getContext().getAuthentication().getName()));
         } else {
             commentVote.setUserId(398l);

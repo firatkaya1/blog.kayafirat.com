@@ -17,6 +17,11 @@ public class PostController {
 
     private final PostService postService;
 
+    @GetMapping("all")
+    public ResponseEntity<?> getAll(){
+        return ResponseEntity.ok(postService.getPosts());
+    }
+
     @GetMapping
     public ResponseEntity<?> getAll(
             @RequestParam(defaultValue = "1",required = false) int page,

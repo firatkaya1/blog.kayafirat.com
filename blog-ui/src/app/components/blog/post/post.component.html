@@ -3,7 +3,7 @@
     <div class="col-12" *ngFor="let post of posts;index as i">
         <h3 [routerLink]="['/a/', post.id]" routerLinkActive="active" style="cursor: pointer;">{{ post.title }}</h3>
         <span *ngFor="let category of post.category">
-            <span class="tag" (click)="search(category.name)" style="cursor: pointer;" [ngStyle]="{'background-color':category.color }" >{{category.name}}</span>
+            <span class="tag" (click)="search(category.name)" style="cursor: pointer;" [ngStyle]="{'background-color':category.color,'color':category.textColor}" >{{category.name}}</span>
         </span>
         <p>
             {{post.header}}

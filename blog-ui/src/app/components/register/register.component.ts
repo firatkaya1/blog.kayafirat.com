@@ -53,7 +53,9 @@ export class RegisterComponent implements OnInit {
   }
 
   public registerLinkedin(){
-    window.location.href="https://www.linkedin.com/oauth/v2/authorization?client_id=77s8v0hceim00y&redirect_uri=https://localhost:4200/join&response_type=code&scope=r_liteprofile%20r_emailaddress";
+    var address = "https://localhost:4200"
+    //var address = "https://blog.kayafirat.com"
+    window.location.href="https://www.linkedin.com/oauth/v2/authorization?client_id=77s8v0hceim00y&redirect_uri="+address+"/join&response_type=code&scope=r_liteprofile%20r_emailaddress";
   }
 
 

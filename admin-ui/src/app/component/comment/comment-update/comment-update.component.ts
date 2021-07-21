@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-comment-update',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommentUpdateComponent implements OnInit {
 
-  constructor() { }
+  public posts:any[] = []
 
-  ngOnInit(): void {
-  }
+  constructor(private postService:PostService) { 
+    this.postService.getPosts().subscribe(data => {
+      this.posts = data
+      console.log(data)
+    })
+   }
+
+  ngOnInit(): void { }
 
 }

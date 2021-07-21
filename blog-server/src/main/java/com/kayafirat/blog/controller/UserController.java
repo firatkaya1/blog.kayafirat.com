@@ -6,7 +6,6 @@ import com.kayafirat.blog.dto.UserProfileDTO;
 import com.kayafirat.blog.entity.MailPermission;
 import com.kayafirat.blog.entity.User;
 import com.kayafirat.blog.entity.UserPermission;
-import com.kayafirat.blog.exception.custom.UnAuthorizedUserException;
 import com.kayafirat.blog.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

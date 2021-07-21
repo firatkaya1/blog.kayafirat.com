@@ -26,6 +26,7 @@ public class CategoryService implements com.kayafirat.blog.service.CategoryServi
         Category category = new Category();
         category.setName(_category.getName());
         category.setColor(_category.getColor());
+        category.setTextColor(_category.getTextColor());
 
         return categoryRepository.save(category);
     }
@@ -36,6 +37,7 @@ public class CategoryService implements com.kayafirat.blog.service.CategoryServi
 
         category.setName(_category.getName());
         category.setColor(_category.getColor());
+        category.setTextColor(_category.getTextColor());
         return category;
     }
 

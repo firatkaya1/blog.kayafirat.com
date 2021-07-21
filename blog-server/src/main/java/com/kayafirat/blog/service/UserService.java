@@ -4,7 +4,10 @@ package com.kayafirat.blog.service;
 import com.kayafirat.blog.dto.AuthenticateRequest;
 import com.kayafirat.blog.dto.Register;
 import com.kayafirat.blog.dto.UserProfileDTO;
-import com.kayafirat.blog.entity.*;
+import com.kayafirat.blog.entity.MailPermission;
+import com.kayafirat.blog.entity.NotificationPermission;
+import com.kayafirat.blog.entity.User;
+import com.kayafirat.blog.entity.UserPermission;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.multipart.MultipartFile;
 
