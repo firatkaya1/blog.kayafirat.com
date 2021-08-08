@@ -100,6 +100,13 @@ public class UserController {
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
+
+    @GetMapping(value = "current")
+    public ResponseEntity<?> currentUser() {
+        User user = userService.getUser(Long.valueOf(SecurityContextHolder.getContext().getAuthentication().getName()));
+        return ResponseEntity.ok(user);
+    }
+
     @PostMapping(value = "logout")
     public ResponseEntity<?> logout(HttpServletResponse response)   {
         Cookie cookie = new Cookie("authenticate","");

@@ -1,8 +1,8 @@
 package com.kayafirat.blog.service.impl;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.kayafirat.blog.dto.AuthenticateRequest;
 import com.kayafirat.blog.dto.Register;
+import com.kayafirat.blog.dto.UserDTO;
 import com.kayafirat.blog.dto.UserProfileDTO;
 import com.kayafirat.blog.entity.*;
 import com.kayafirat.blog.enums.Type;
@@ -33,6 +33,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
@@ -41,10 +42,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -57,12 +55,13 @@ public class UserServiceImpl implements UserService {
     private final RestTemplate restTemplate;
     private final MailService mailService;
     private final NotificationService notificationService;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository, SecurityUtil securityUtil,
                            Environment env, JwtUtil jwtUtil,
                            RestTemplateBuilder restTemplate,
-                           MailService mailService,NotificationService notificationService) {
+                           MailService mailService, NotificationService notificationService, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
         this.securityUtil = securityUtil;
         this.env = env;
@@ -70,6 +69,7 @@ public class UserServiceImpl implements UserService {
         this.mailService = mailService;
         this.notificationService = notificationService;
         this.restTemplate = restTemplate.build();
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     @Override
@@ -110,7 +110,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void saveUser(Register register) {
+    public void saveUser(Register register)  {
         User user = new User();
         UserPermission userPermission = new UserPermission();
         UserProfile userProfile = new UserProfile();
@@ -126,7 +126,8 @@ public class UserServiceImpl implements UserService {
         user.setNotificationPermission(notificationPermission);
         user.setUsername(register.getUsername());
         user.setEmail(register.getEmailAddress());
-        user.setPassword(register.getPassword());
+        user.setPassword(bCryptPasswordEncoder.encode(register.getPassword()));
+
         if (userRepository.existsByUsername(user.getUsername())) {
             throw new UsernameAlreadyExistsException("Bu kullanıcı adı alınmış.");
         }
@@ -152,6 +153,10 @@ public class UserServiceImpl implements UserService {
     public String login(AuthenticateRequest authRequest) throws Exception {
         User user = userRepository.findByUsernameOrEmail(authRequest.getUsername(), authRequest.getUsername())
                 .orElseThrow(() ->  new UserNotFoundException());
+
+        if (!bCryptPasswordEncoder.matches(authRequest.getPassword(), user.getPassword()) || user == null)
+            throw new UserNotFoundException();
+
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(String.valueOf(user.getId()),user.getPassword()));
 
@@ -417,5 +422,11 @@ public class UserServiceImpl implements UserService {
         return new HttpEntity<>("parameters", headers);
     }
 
+    public List<UserDTO> getUserList(){
+        List<User> users = userRepository.findAll();
+        List<UserDTO> userDTOList = new ArrayList<>();
+        users.forEach(user -> userDTOList.add(new UserDTO(user))  );
+        return userDTOList;
 
+    }
 }

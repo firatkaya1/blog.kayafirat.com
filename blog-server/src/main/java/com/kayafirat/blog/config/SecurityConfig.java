@@ -49,7 +49,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .csrf().disable()
             .cors().configurationSource(corsConfigurationSource())
             .and()
-            .authorizeRequests().anyRequest().permitAll()
+            .authorizeRequests()
+            .antMatchers("/user/current").authenticated()
+            .anyRequest().permitAll()
             .and()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
@@ -59,7 +61,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
        // configuration.setAllowedOrigins(Arrays.asList("https://blog.kayafirat.com","https://admin.kayafirat.com"));
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200","http://localhost:8080"));
         configuration.setAllowedMethods(Arrays.asList("*"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);
