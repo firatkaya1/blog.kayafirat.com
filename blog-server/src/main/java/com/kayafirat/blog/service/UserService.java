@@ -55,4 +55,7 @@ public interface UserService extends UserDetailsService {
     void verifyAccount(String token);
 
     List<UserDTO> getUserList();
+
+    User saveUser(User user);
+
 }

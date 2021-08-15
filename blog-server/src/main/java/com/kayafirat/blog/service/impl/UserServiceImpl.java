@@ -422,6 +422,9 @@ public class UserServiceImpl implements UserService {
         return new HttpEntity<>("parameters", headers);
     }
 
+    /** Admin **/
+
+    @Override
     public List<UserDTO> getUserList(){
         List<User> users = userRepository.findAll();
         List<UserDTO> userDTOList = new ArrayList<>();
@@ -429,4 +432,15 @@ public class UserServiceImpl implements UserService {
         return userDTOList;
 
     }
+
+    @Override
+    @CachePut(cacheNames = "user", key = "#_user.id")
+    public User saveUser(User _user){
+
+        if(!_user.getPassword().startsWith("$2a")){
+            _user.setPassword(bCryptPasswordEncoder.encode(_user.getPassword()));
+        }
+        return userRepository.save(_user);
+    }
+
 }

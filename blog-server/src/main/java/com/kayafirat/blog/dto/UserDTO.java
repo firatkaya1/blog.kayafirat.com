@@ -27,8 +27,8 @@ public class UserDTO {
         this.userId = user.getId();
         this.username = user.getUsername();
         this.email = user.getEmail();
-        this.createdDate = user.getUserProfile().getRegisterDate();
-        this.accountStatus = user.getUserProfile().isAccountStatus();
+        this.createdDate = (user.getUserProfile() != null) ? user.getUserProfile().getRegisterDate() : null;
+        this.accountStatus =  (user.getUserProfile() != null) ? user.getUserProfile().isAccountStatus() : null;
         if(user.getRole() != null){
             role = new HashSet<>();
             user.getRole().forEach(r -> this.role.add(new RoleDTO(r)));
