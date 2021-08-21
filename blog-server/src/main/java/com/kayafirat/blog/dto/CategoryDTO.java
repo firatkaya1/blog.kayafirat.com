@@ -5,5 +5,6 @@ public interface CategoryDTO {
     Long getCategoryId();
     String getCategoryName();
     String getCategoryColor();
+    String getCategoryTextColor();
 
 }

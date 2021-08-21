@@ -11,6 +11,6 @@ import java.util.List;
 @Repository
 public interface CategoryRepository extends JpaRepository<Category,Long> {
 
-    @Query(value = "SELECT id as categoryId, name as categoryName,color as categoryColor from category",nativeQuery = true)
+    @Query(value = "SELECT id as categoryId, name as categoryName,color as categoryColor, text_color as categoryTextColor from category",nativeQuery = true)
     List<CategoryDTO> findAllCategories();
 }

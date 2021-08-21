@@ -8,6 +8,8 @@ import BaseInput from '@/components/Util/BaseInput.vue'
 import BaseCheckbox from '@/components/Util/BaseCheckbox.vue' 
 import BaseTextarea from '@/components/Util/BaseTextarea.vue' 
 import Pagination from '@/components/Util/Pagination.vue' 
+import BaseEditor from '@/components/Util/BaseEditor.vue' 
+
 
 createApp(App)
     .use(router)
@@ -17,4 +19,5 @@ createApp(App)
     .component('BaseCheckbox',BaseCheckbox)
     .component('BaseTextarea',BaseTextarea)
     .component('Pagination',Pagination)
+    .component('BaseEditor',BaseEditor)
     .mount('#app')
