@@ -40,7 +40,6 @@
         <ListItem/>
         <ListItem/>
         <ListItem/>
-
         </tbody>
     </table>
   </div>

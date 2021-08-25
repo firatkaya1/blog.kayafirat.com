@@ -35,6 +35,13 @@ const actions = {
 
         })
     },
+    saveTopic:({commit},body) => {
+        console.log(body)
+        service.save("post",body)
+        .then(() =>  {
+            commit('SET_TOPICS',{})
+        })
+    }
 
 };
 

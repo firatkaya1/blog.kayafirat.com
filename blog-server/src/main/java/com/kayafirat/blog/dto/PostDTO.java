@@ -16,6 +16,7 @@ public class PostDTO {
     private String body;
     private boolean isPublish;
 
+    private String googleTitle;
     private String googleDescription;
     private String googlePath;
     private String googleTag;

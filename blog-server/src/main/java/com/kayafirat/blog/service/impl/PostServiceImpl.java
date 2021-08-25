@@ -76,7 +76,6 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    @Cacheable(cacheNames = "detailID", key = "#postDetail.id")
     @CacheEvict(cacheNames = {"pageable","pageableCategory","pageableCategory"}, allEntries = true)
     public PostDetail addPost(PostDTO postDTO) {
         Post post = new Post();

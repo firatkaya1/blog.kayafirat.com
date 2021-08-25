@@ -7,9 +7,9 @@
         <option :value="null" selected>Konu Seç</option>
         <option  v-for="topic in topics" :key="topic" :value="topic.id"> {{topic.id}} </option>
       </select>
-      <BaseInput id="postTitle" label="Konu Başlığı" placeholder="Bir başlık gir" v-model="selectedTopic.post.title" />
-      <BaseInput id="postHeader" label="Konu Headeri" placeholder="Bir header gir" v-model="selectedTopic.post.header"/>
-      <BaseCheckbox id="9" label="Konuyu gizle" v-model="selectedTopic.post.hide" :checked="selectedTopic.post.hide"/>
+      <BaseInput id="postTitle" label="Konu Başlığı" placeholder="Bir başlık gir" v-model="post.title" />
+      <BaseInput id="postHeader" label="Konu Headeri" placeholder="Bir header gir" v-model="post.header"/>
+      <BaseCheckbox id="9" label="Konuyu gizle" v-model="post.isPublish" :checked="post.isPublish"/>
     </div>
     <div class="flex flex-col">
       <h1 class="font-bold text-xl mb-4">Mevcut Kategoriler</h1>
@@ -40,39 +40,41 @@
   <div class="flex flex-row space-x-24 my-6">
     <div class="flex flex-col space-y-2">
       <h1 class="font-bold text-lg">Google SEO</h1>
-      <BaseInput id="googleTitle" label="Title" placeholder="Title" v-model="selectedTopic.meta.googleSEO.title"/>
-      <BaseInput id="googleDescription" label="Description" placeholder="Description" v-model="selectedTopic.meta.googleSEO.description"/>
-      <BaseInput id="googleImage" label="Image Path" placeholder="Image Path" v-model="selectedTopic.meta.googleSEO.image"/>
-      <BaseInput id="googleKeywords" label="Keywords" placeholder="Keywords" v-model="selectedTopic.meta.googleSEO.keywords"/>
+      <BaseInput id="googleTitle" label="Title" placeholder="Title" v-model="post.googleTitle"/>
+      <BaseInput id="googleDescription" label="Description" placeholder="Description" v-model="post.googleDescription"/>
+      <BaseInput id="googleImage" label="Image Path" placeholder="Image Path" v-model="post.googlePath"/>
+      <BaseInput id="googleKeywords" label="Keywords" placeholder="Keywords" v-model="post.keywords"/>
+      <BaseInput id="googleTags" label="Tags" placeholder="Tags" v-model="post.googleTag"/>
+
     </div>
     <div class="flex flex-col space-y-2">
       <h1 class="font-bold text-lg">Twitter SEO</h1>
-      <BaseInput id="twitterTitle" label="Title" placeholder="Title" v-model="selectedTopic.meta.twitterSEO.title"/>
-      <BaseInput id="twitterDescription" label="Description" placeholder="Description" v-model="selectedTopic.meta.twitterSEO.description"/>
-      <BaseInput id="twitterImage" label="Image Path" placeholder="Image Path" v-model="selectedTopic.meta.twitterSEO.image"/>
-      <BaseInput id="twitterCreator" label="Creator" placeholder="Creator" v-model="selectedTopic.meta.twitterSEO.creator"/>
-      <BaseInput id="twitterCard" label="Card" placeholder="Card" v-model="selectedTopic.meta.twitterSEO.card"/>
+      <BaseInput id="twitterTitle" label="Title" placeholder="Title" v-model="post.twitterTitle"/>
+      <BaseInput id="twitterDescription" label="Description" placeholder="Description" v-model="post.twitterDescription"/>
+      <BaseInput id="twitterImage" label="Image Path" placeholder="Image Path" v-model="post.twitterImagepath"/>
+      <BaseInput id="twitterCreator" label="Creator" placeholder="Creator" v-model="post.twitterCreator"/>
+      <BaseInput id="twitterCard" label="Card" placeholder="Card" v-model="post.twitterCard"/>
 
     </div>
     <div class="flex flex-col space-y-2">
       <h1 class="font-bold text-lg">Facebook SEO</h1>
-      <BaseInput id="facebookTitle" label="Title" placeholder="Title" v-model="selectedTopic.meta.facebookSEO.title"/>
-      <BaseInput id="facebookDescription" label="Description" placeholder="Description" v-model="selectedTopic.meta.facebookSEO.description"/>
-      <BaseInput id="facebookImage" label="Image Path" placeholder="Image Path" v-model="selectedTopic.meta.facebookSEO.image"/>
-      <BaseInput id="facebookAuthor" label="Author" placeholder="Author" v-model="selectedTopic.meta.facebookSEO.author"/>
-      <BaseInput id="facebookSitename" label="Sitename" placeholder="Sitename" v-model="selectedTopic.meta.facebookSEO.siteName"/>
-      <BaseInput id="facebookURL" label="URL" placeholder="URL" v-model="selectedTopic.meta.facebookSEO.url"/>
-      <BaseInput id="facebookType" label="Type" placeholder="Type" v-model="selectedTopic.meta.facebookSEO.type"/>
+      <BaseInput id="facebookTitle" label="Title" placeholder="Title" v-model="post.facebookTitle"/>
+      <BaseInput id="facebookDescription" label="Description" placeholder="Description" v-model="post.facebookDescription"/>
+      <BaseInput id="facebookImage" label="Image Path" placeholder="Image Path" v-model="post.facebookImagepath"/>
+      <BaseInput id="facebookAuthor" label="Author" placeholder="Author" v-model="post.facebookAuthor"/>
+      <BaseInput id="facebookSitename" label="Sitename" placeholder="Sitename" v-model="post.facebookSitename"/>
+      <BaseInput id="facebookURL" label="URL" placeholder="URL" v-model="post.facebookUrl"/>
+      <BaseInput id="facebookType" label="Type" placeholder="Type" v-model="post.facebookType"/>
+      <BaseInput id="facebookTag" label="Facebook Tags" placeholder="Facebook Tags" v-model="post.facebookTag"/>
 
     </div>
   </div>
     <div class="flex flex-row space-x-12 justify-center">
-      <button class="bg-green-500 px-2 py-2 text-sm rounded-md border hover:bg-green-600 focus:ring-2 transition duration-300 mt-4 text-white"> Yeni Konu Kaydet </button>
+      <button class="bg-green-500 px-2 py-2 text-sm rounded-md border hover:bg-green-600 focus:ring-2 transition duration-300 mt-4 text-white" @click="savePost"> Yeni Konu Kaydet </button>
       <button class="bg-blue-500 px-2 py-2 text-sm rounded-md border hover:bg-blue-600 focus:ring-2 transition duration-300 mt-4 text-white"> Değişiklikleri Kaydet </button>
       <button class="bg-red-600 px-2 py-2 text-sm rounded-md border hover:bg-red-700 focus:ring-2 transition duration-300 mt-4 text-white"> Seçili Konuyu Sil </button>
   </div>
   <div class="flex flex-col w-full mt-12">
-    {{body}}
       <BaseEditor @setValue="setValue"></BaseEditor>
   </div>
 
@@ -82,20 +84,38 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 
-
 export default {
   name:'PostAdd',
   data(){
     return {
-      body:'',
       selectedTopicId:null,
-      selectedTopic:{
-        post:{},
-        meta:{
-          googleSEO:{},
-          twitterSEO:{},
-          facebookSEO:{}
-        }
+      post:{
+        title:null,
+        header:null,
+        categories:null,
+        body:null,
+        isPublish:false,
+        googleTitle:null,
+        googleDescription:null,
+        googlePath:null,
+        googleTag:null,
+        keywords:null,
+
+        twitterDescription:null,
+        twitterImagepath:null,
+        twitterTitle:null,
+        twitterTag:null,
+        twitterCard:null,
+        twitterCreator:null,
+
+        facebookDescription:null,
+        facebookImagepath:null,
+        facebookTitle:null,
+        facebookTag:null,
+        facebookAuthor:null,
+        facebookSitename:null,
+        facebookUrl:null,
+        facebookType:null,
       },
       selectedCategories:[],
       selectedCategory:{},
@@ -108,7 +128,7 @@ export default {
     }
   },
   methods:{
-    ...mapActions('topic',['getTopics','getTopicById']),
+    ...mapActions('topic',['getTopics','getTopicById','saveTopic']),
     ...mapActions('category',['saveCategory','getCategories']),
     ...mapGetters('topic',['getAllTopic','getTopic']),
     ...mapGetters('category',['getAllCategories']),
@@ -122,7 +142,11 @@ export default {
       this.saveCategory(this.category);
     },
     setValue(val){
-      this.body = val
+      this.post.body = val
+    },
+    savePost(){
+      this.post.categories = this.selectedCategories 
+      this.saveTopic(this.post);
     }
   },
   computed:{
