@@ -7,37 +7,23 @@
         <thead class="bg-gray-50">
         <tr>
             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-            Resmi
+            Kullanıcı Adı
             </th>
             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-            Notification Başlığı ve Tarih
+              Bildirim Başlığı
             </th>
             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Tip
+              Oluşturulma Tarihi
             </th>
             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-            Kısa Metin
+            Detay
             </th>
         </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200">
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-
+        <tr v-for="notification in notifications" :key="notification">
+          <ListItem v-bind:notification="notification"/>
+        </tr>
         </tbody>
     </table>
   </div>
@@ -48,9 +34,23 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 import ListItem from './ListItem.vue'
 export default {
+  name:'NotificationList',
   components: { ListItem },
+  methods:{
+    ...mapGetters('notification',['getAllNotification']),
+    ...mapActions('notification',['getNotifications'])
+  },
+  computed:{
+    notifications(){
+      return this.getAllNotification()?.content;
+    }
+  },
+  created(){
+    this.getNotifications();
+  }
 
 }
 </script>

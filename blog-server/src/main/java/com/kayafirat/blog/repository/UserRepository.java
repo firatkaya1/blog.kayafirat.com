@@ -11,6 +11,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -52,4 +53,7 @@ public interface UserRepository extends JpaRepository<User,Long> {
 
     User findByEmail(String email);
 
+
+    @Query(value = "SELECT * FROM user where id in :users ",nativeQuery = true)
+    List<User> findUsers(@Param("users") Long[] users);
 }

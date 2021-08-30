@@ -44,6 +44,8 @@ export default {
   methods:{
     ...mapGetters('user',['getAllUsers','getUser']),
     ...mapActions('user',['getUsers']),
+    ...mapActions('notification',['saveNotification']),
+
     removeUser(userId){
       this.selectedUsers = this.selectedUsers.filter(u => u.userId != userId)
     },
@@ -56,7 +58,16 @@ export default {
       this.sendAll = false
     },
     sendNotification(){
-
+      const body = {
+        notificationIcon:this.notificationIcon,
+        notificationTitle:this.notificationTitle,
+        notificationBody:this.notificationBody,
+        notificationLink:this.notificationLink,
+        sendAll:this.sendAll,
+        userIds:this.selectedUsers.map(u => u.userId)
+      }
+      this.saveNotification(body);
+      this.clear();
     }
   },
   computed:{

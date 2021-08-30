@@ -8,6 +8,7 @@ public interface NotificationDTO {
      String getTitle();
      String getMessage();
      String getLink();
+     String getUsername();
      Date getCreated_Date();
      Date getModified_Date();
      Boolean getIs_Read();

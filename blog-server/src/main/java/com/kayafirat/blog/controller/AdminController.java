@@ -1,9 +1,11 @@
 package com.kayafirat.blog.controller;
 
+import com.kayafirat.blog.dto.NotificationSaveDTO;
 import com.kayafirat.blog.dto.PostDTO;
 import com.kayafirat.blog.dto.Register;
 import com.kayafirat.blog.entity.PostDetail;
 import com.kayafirat.blog.entity.User;
+import com.kayafirat.blog.service.NotificationService;
 import com.kayafirat.blog.service.PostService;
 import com.kayafirat.blog.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +21,7 @@ public class AdminController {
 
     private final UserService userService;
     private final PostService postService;
+    private final NotificationService notificationService;
 
     @GetMapping(value = "user/list")
     public ResponseEntity<?> getUserList(){
@@ -73,6 +76,20 @@ public class AdminController {
     @DeleteMapping(value = "topic/{postId}")
     public ResponseEntity<?> deleteTopic(@PathVariable Long postId){
         postService.deletePost(postId);
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
+
+    @GetMapping(value = "notification/list")
+    public ResponseEntity<?> getNotificationList(@RequestParam(defaultValue = "1",required = false) int page,
+                                                 @RequestParam(defaultValue = "100",required = false) int size,
+                                                 @RequestParam(defaultValue = "id",required = false) String sort,
+                                                 @RequestParam(defaultValue = "asc",required = false) String order){
+        return ResponseEntity.ok(notificationService.getAllNotification(page,size,sort,order));
+    }
+
+    @PostMapping(value = "notification")
+    public ResponseEntity<?> saveNotification(@RequestBody NotificationSaveDTO notificationSaveDTO){
+        notificationService.addNotification(notificationSaveDTO);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 

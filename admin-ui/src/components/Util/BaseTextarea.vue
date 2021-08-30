@@ -50,6 +50,10 @@ export default {
             type:String,
             default:""
         },
+        id:{
+            type:String,
+            default:""
+        },
         rows:{
             type:Number,
             default:10

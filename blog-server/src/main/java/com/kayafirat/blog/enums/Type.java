@@ -7,5 +7,6 @@ public enum Type {
     PasswordChanged,
     PasswordChangedSuccess,
     LoginSuccess,
-    LoginAttempt
+    LoginAttempt,
+    Other
 }

@@ -35,6 +35,9 @@ public class Notification extends JdkSerializationRedisSerializer implements Ser
     @Column
     private String link;
 
+    @Column
+    private String icon;
+
     @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Date createdDate;
 
