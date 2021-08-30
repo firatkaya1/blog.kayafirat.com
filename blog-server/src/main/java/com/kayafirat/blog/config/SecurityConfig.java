@@ -5,6 +5,7 @@ import com.kayafirat.blog.service.impl.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -30,6 +31,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private SecurityService securityService;
 
+    @Autowired
+    private Environment environment;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         /*List<Security> securities = securityService.getLinks();
@@ -45,10 +49,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             else
                 http.authorizeRequests().antMatchers(security.getHttpMethod(),security.getLink()).permitAll();
         }*/
-        http
-            .csrf().disable()
-            .cors().configurationSource(corsConfigurationSource())
-            .and()
+        http.csrf().disable()
+            .cors().configurationSource(corsConfigurationSource()).and()
             .authorizeRequests()
             .antMatchers("/user/current").authenticated()
             .anyRequest().permitAll()
@@ -60,9 +62,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("*"));
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200","http://localhost:8080"));
-        configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT","DELETE"));
+        configuration.setAllowedOrigins(Arrays.asList(environment.getProperty("cors.allowed.origins")));
+        configuration.setAllowedMethods(Arrays.asList("*"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
