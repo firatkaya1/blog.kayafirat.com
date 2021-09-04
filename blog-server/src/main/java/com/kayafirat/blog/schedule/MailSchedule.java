@@ -30,6 +30,7 @@ public class MailSchedule {
         senderService.sendMail(Type.PasswordChangedSuccess, queueList.stream().filter(q -> q.getMailType().equals(Type.PasswordChangedSuccess)).collect(Collectors.toList()));
         senderService.sendMail(Type.LoginSuccess, queueList.stream().filter(q -> q.getMailType().equals(Type.LoginSuccess)).collect(Collectors.toList()));
         senderService.sendMail(Type.LoginAttempt, queueList.stream().filter(q -> q.getMailType().equals(Type.LoginAttempt)).collect(Collectors.toList()));
+        senderService.sendMail(Type.Other, queueList.stream().filter(q -> q.getMailType().equals(Type.Other)).collect(Collectors.toList()));
     }
 
     @Scheduled(cron = "0 0 23 * * ?")

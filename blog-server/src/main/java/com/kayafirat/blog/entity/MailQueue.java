@@ -1,6 +1,7 @@
 package com.kayafirat.blog.entity;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.kayafirat.blog.dto.MailDTO;
 import com.kayafirat.blog.enums.Type;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,5 +38,11 @@ public class MailQueue {
 
     @Column
     private Type mailType;
+
+    private String mailTitle;
+    private String mailSubtitle;
+    private String body;
+
+
 
 }

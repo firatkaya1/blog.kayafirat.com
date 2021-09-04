@@ -7,6 +7,7 @@ import com.kayafirat.blog.entity.MailPermission;
 import com.kayafirat.blog.entity.User;
 import com.kayafirat.blog.entity.UserPermission;
 import com.kayafirat.blog.service.UserService;
+import com.kayafirat.blog.util.CookieUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,6 +26,7 @@ import java.util.HashMap;
 public class UserController {
 
     private final UserService userService;
+    private final CookieUtil cookieUtil;
 
     @GetMapping(value = "/auth")
     public ResponseEntity<?> isAuthenticate(){
@@ -89,17 +91,10 @@ public class UserController {
     @PostMapping(value = "/login")
     public ResponseEntity<?> login(@RequestBody AuthenticateRequest authenticateRequest, HttpServletResponse response) throws Exception {
         String token = userService.login(authenticateRequest);
-        Cookie cookie = new Cookie("authenticate",token);
-        cookie.setMaxAge(36000);
-        cookie.setDomain("localhost");
-        cookie.setPath("/");
-        cookie.setSecure(false);
-        cookie.setHttpOnly(false);
-        response.addCookie(cookie);
+        response.addCookie(cookieUtil.create(token));
         response.setHeader("Access-Control-Allow-Credentials", "true");
         return ResponseEntity.ok(HttpStatus.OK);
     }
-
 
     @GetMapping(value = "current")
     public ResponseEntity<?> currentUser() {
@@ -109,13 +104,7 @@ public class UserController {
 
     @PostMapping(value = "logout")
     public ResponseEntity<?> logout(HttpServletResponse response)   {
-        Cookie cookie = new Cookie("authenticate","");
-        cookie.setMaxAge(0);
-        cookie.setDomain("localhost");
-        cookie.setPath("/");
-        cookie.setSecure(false);
-        cookie.setHttpOnly(false);
-        response.addCookie(cookie);
+        response.addCookie(cookieUtil.delete("authenticate"));
         response.setHeader("Access-Control-Allow-Credentials", "true");
         return ResponseEntity.ok(HttpStatus.OK);
     }
@@ -123,13 +112,7 @@ public class UserController {
     @PostMapping(value = "/oauth/linkedin")
     public ResponseEntity<?> linkedin(@RequestParam String code, HttpServletResponse response) throws Exception {
         String token = userService.linkedinOauth(code);
-        Cookie cookie = new Cookie("authenticate",token);
-        cookie.setMaxAge(36000);
-        cookie.setDomain("localhost");
-        cookie.setPath("/");
-        cookie.setSecure(true);
-        cookie.setHttpOnly(true);
-        response.addCookie(cookie);
+        response.addCookie(cookieUtil.create(token));
         response.setHeader("Access-Control-Allow-Credentials", "true");
         return ResponseEntity.ok(HttpStatus.OK);
     }
@@ -137,13 +120,7 @@ public class UserController {
     @PostMapping(value = "/oauth/github")
     public ResponseEntity<?> github(@RequestParam String code, HttpServletResponse response) throws Exception {
         String token = userService.githubOauth(code);
-        Cookie cookie = new Cookie("authenticate",token);
-        cookie.setMaxAge(36000);
-        cookie.setDomain("localhost");
-        cookie.setPath("/");
-        cookie.setSecure(true);
-        cookie.setHttpOnly(true);
-        response.addCookie(cookie);
+        response.addCookie(cookieUtil.create(token));
         response.setHeader("Access-Control-Allow-Credentials", "true");
         return ResponseEntity.ok(HttpStatus.OK);
     }

@@ -1,10 +1,12 @@
 package com.kayafirat.blog.controller;
 
+import com.kayafirat.blog.dto.MailDTO;
 import com.kayafirat.blog.dto.NotificationSaveDTO;
 import com.kayafirat.blog.dto.PostDTO;
 import com.kayafirat.blog.dto.Register;
 import com.kayafirat.blog.entity.PostDetail;
 import com.kayafirat.blog.entity.User;
+import com.kayafirat.blog.service.MailService;
 import com.kayafirat.blog.service.NotificationService;
 import com.kayafirat.blog.service.PostService;
 import com.kayafirat.blog.service.UserService;
@@ -22,6 +24,7 @@ public class AdminController {
     private final UserService userService;
     private final PostService postService;
     private final NotificationService notificationService;
+    private final MailService mailService;
 
     @GetMapping(value = "user/list")
     public ResponseEntity<?> getUserList(){
@@ -93,6 +96,15 @@ public class AdminController {
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
+    @PostMapping(value = "mail")
+    public ResponseEntity<?> saveMail(@RequestBody MailDTO mailDTO){
+        mailService.save(mailDTO);
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
 
+    @GetMapping(value = "mail/list")
+    public ResponseEntity<?> getMailList(){
+        return ResponseEntity.ok(mailService.getAll());
+    }
 
 }

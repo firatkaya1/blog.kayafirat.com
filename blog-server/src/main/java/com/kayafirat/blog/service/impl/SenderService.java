@@ -42,6 +42,9 @@ public class SenderService {
             case LoginAttempt:
                 sendLoginAttempt(to);
                 break;
+            case Other:
+                sendOther(to);
+                break;
             default:
                 System.out.println("başarısız");
         }
@@ -129,6 +132,20 @@ public class SenderService {
         transport.connect("smtp.yandex.com", "noreply@kayafirat.com", "bE99321605848");
         for (int i = 0; i < to.size(); i++) {
             MimeMessage message = template.loginAttemptTemplate(to.get(i).getEmailAddress(), session);
+            transport.sendMessage(message, message.getAllRecipients());
+            to.get(i).setSend(true);
+            to.get(i).setSendDate(new Date());
+        }
+        transport.close();
+        mailService.updateStatus(to);
+    }
+
+    public void sendOther(List<MailQueue> to) throws  MessagingException {
+        Session session = Auth.getSession();
+        Transport transport = session.getTransport("smtp");
+        transport.connect("smtp.yandex.com", "noreply@kayafirat.com", "bE99321605848");
+        for (int i = 0; i < to.size(); i++) {
+            MimeMessage message = template.other(to.get(i).getEmailAddress(), session,to.get(i).getMailTitle(),to.get(i).getMailSubtitle(),to.get(i).getBody());
             transport.sendMessage(message, message.getAllRecipients());
             to.get(i).setSend(true);
             to.get(i).setSendDate(new Date());

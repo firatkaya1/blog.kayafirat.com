@@ -1,5 +1,6 @@
 package com.kayafirat.blog.service;
 
+import com.kayafirat.blog.dto.MailDTO;
 import com.kayafirat.blog.entity.MailQueue;
 
 import java.util.List;
@@ -11,6 +12,8 @@ public interface MailService {
     MailQueue getOne(Long id);
 
     MailQueue save(MailQueue mailQueue);
+
+    void save(MailDTO MailDTO);
 
     List<MailQueue> save(List<MailQueue> mailQueue);
 

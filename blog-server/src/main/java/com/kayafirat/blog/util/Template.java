@@ -477,5 +477,28 @@ public class Template {
         return message;
     }
 
+    public MimeMessage other(String emailAddress, Session session,String title,String subtitle,String body) {
+
+        MimeMessage message = new MimeMessage(session);
+        MimeMultipart multipart = new MimeMultipart();
+        MimeBodyPart mimeBodyPart = new MimeBodyPart();
+        MimeBodyPart mimeBodyPart2 = new MimeBodyPart();
+        try {
+            mimeBodyPart2.setContent("<p style=\"visibility:hidden;display:none;\"> kayafirat.com  </p>", "text/html; charset=utf-8");
+            mimeBodyPart.setContent(body, "text/html; charset=utf-8");
+            multipart.addBodyPart(mimeBodyPart2);
+            multipart.addBodyPart(mimeBodyPart);
+            message.setFrom("kayafirat.com <noreply@kayafirat.com>");
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(emailAddress, emailAddress.substring(0, emailAddress.indexOf("@"))));
+            message.setSubject(title, "UTF-8");
+            message.setDescription(subtitle);
+            message.setContent(multipart);
+        } catch (MessagingException | UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return message;
+    }
+
+
 
 }
