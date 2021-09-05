@@ -6,7 +6,7 @@
     <hr class="border">
     <div class="kayafirat-font post-detail " [innerHTML]="postDetail?.body"> </div>
 </div>
-<div class="tags mt-50">
+<div class="tags mt-50" *ngIf="postDetail?.post?.category?.length > 0">
     Tags :
     <span *ngFor="let category of postDetail?.post.category;let index = index">{{category.name}}<span *ngIf="index+1 != postDetail?.post?.category?.length">, </span>  </span>
 </div>
