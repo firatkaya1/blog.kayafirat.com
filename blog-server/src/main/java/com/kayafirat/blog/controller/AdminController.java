@@ -58,6 +58,12 @@ public class AdminController {
         return ResponseEntity.ok(postService.getPosts());
     }
 
+    @GetMapping(value = "topic/list/detail")
+    public ResponseEntity<?> getTopicListdetail(){
+        return ResponseEntity.ok(postService.getPostsAllDetail());
+    }
+
+
     @GetMapping(value = "topic/{postId}")
     public ResponseEntity<?> getTopic(@PathVariable Long postId){
         return ResponseEntity.ok(postService.getDetail(postId));

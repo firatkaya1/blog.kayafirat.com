@@ -1,6 +1,7 @@
 package com.kayafirat.blog.service;
 
 import com.kayafirat.blog.dto.PostDTO;
+import com.kayafirat.blog.dto.PostViewAdminDTO;
 import com.kayafirat.blog.dto.PostViewDTO;
 import com.kayafirat.blog.entity.Post;
 import com.kayafirat.blog.entity.PostDetail;
@@ -12,6 +13,8 @@ import java.util.List;
 public interface PostService {
 
     List<PostViewDTO> getPosts();
+
+    List<PostViewAdminDTO> getPostsAllDetail();
 
     Page<Post> getPosts(int pageNumber, int pageSize, String sortedBy, String orderBy);
 

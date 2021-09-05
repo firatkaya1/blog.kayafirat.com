@@ -9,6 +9,7 @@ import BaseCheckbox from '@/components/Util/BaseCheckbox.vue'
 import BaseTextarea from '@/components/Util/BaseTextarea.vue' 
 import Pagination from '@/components/Util/Pagination.vue' 
 import BaseEditor from '@/components/Util/BaseEditor.vue' 
+import date from './directives/date.js'
 
 
 createApp(App)
@@ -20,4 +21,9 @@ createApp(App)
     .component('BaseTextarea',BaseTextarea)
     .component('Pagination',Pagination)
     .component('BaseEditor',BaseEditor)
+
+
+    .directive('date',date)
+
+
     .mount('#app')

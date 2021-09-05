@@ -39,6 +39,8 @@ public class Post extends JdkSerializationRedisSerializer implements Serializabl
     @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Date createdDate;
 
+    private Date updatedDate;
+
     @Column
     private long view;
 

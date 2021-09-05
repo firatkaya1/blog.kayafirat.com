@@ -1,6 +1,7 @@
 package com.kayafirat.blog.service.impl;
 
 import com.kayafirat.blog.dto.PostDTO;
+import com.kayafirat.blog.dto.PostViewAdminDTO;
 import com.kayafirat.blog.dto.PostViewDTO;
 import com.kayafirat.blog.entity.*;
 import com.kayafirat.blog.exception.custom.EntityNotFoundException;
@@ -22,10 +23,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 
 @Service
@@ -39,6 +37,17 @@ public class PostServiceImpl implements PostService {
 
     public List<PostViewDTO> getPosts(){
         return postRepository.findAllPosts();
+    }
+
+    @Override
+    public List<PostViewAdminDTO> getPostsAllDetail() {
+        List<PostViewAdminDTO> posts = new ArrayList<>();
+        postRepository.findAll().forEach(p -> {
+            PostViewAdminDTO pva = new PostViewAdminDTO(p);
+            pva.setTotalComment(commentRepository.countCommentByPostId(p.getId()));
+            posts.add(pva);
+        });
+        return posts;
     }
 
     @Override

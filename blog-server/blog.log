@@ -1,0 +1,6 @@
+2021-09-06 00:00:14.594 DEBUG 6825 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 00:00:37.919 DEBUG 6825 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 00:01:01.308 DEBUG 6825 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 00:01:23.899 DEBUG 6825 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 00:01:45.984 DEBUG 6825 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 00:02:08.073 DEBUG 6825 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0

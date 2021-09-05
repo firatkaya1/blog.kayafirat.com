@@ -48,4 +48,6 @@ public interface CommentRepository extends JpaRepository<Comment, Long> {
             "RIGHT  JOIN user u on c.user_id = u.id where c.is_hide = 0 and c.is_delete = 0 and c.post_id = :postId and c.id = :commentId \n" +
             "group by c.id",nativeQuery = true)
     CommentDTO findCommentById(@Param("commentId") Long commentId,@Param("postId") Long postId);
+
+    Long countCommentByPostId(Long postId);
 }
