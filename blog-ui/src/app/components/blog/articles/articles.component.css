@@ -54,6 +54,11 @@ a {
 .mt-50 {
     margin-top: 50px;
 }
+.post-detail  {
+    white-space: pre-line;
+    text-align: justify;
+
+}
 @media only screen and (max-width: 600px) {
     .col-12 h2 {
         margin-top: 30px;

@@ -49,6 +49,10 @@ export class JoinComponent implements OnInit {
       this.authenticateService.setLoggedIn(true)
       this.route.navigateByUrl('/user');
       this.alertService.notification("Giriş başarılı, yönlendiriliyorsunuz...",true);
+    }, error => {
+      this.route.navigateByUrl('/join');
+      this.alertService.notification("Beklenmedik bir hata ile karşılaşıldı.",false);
+      this.spinner.hide();
     });
   }
 
@@ -59,6 +63,10 @@ export class JoinComponent implements OnInit {
       this.authenticateService.setLoggedIn(true)
       this.route.navigateByUrl('/user');
       this.alertService.notification("Giriş başarılı, yönlendiriliyorsunuz...",true);
+    }, error => {
+      this.route.navigateByUrl('/join');
+      this.alertService.notification("Beklenmedik bir hata ile karşılaşıldı.",false);
+      this.spinner.hide();
     });
   }
 

@@ -89,9 +89,12 @@
     },
     "comment":{
         "title":"Comments",
+        "title1":"Comment ",
         "info":"Please fill the text if you send a comment.",
         "send":"Send",
-        "placeholder":"Write your comment..."
+        "placeholder":"Write your comment...",
+        "view":"Views "
+
     },
     "error":{
         "message":"Hey! We are sorry for what you are looking for. If you think this is a real problem, please message me. I will fix it as soon as possible.",

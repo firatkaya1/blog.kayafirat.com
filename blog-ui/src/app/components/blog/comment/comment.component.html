@@ -13,11 +13,11 @@
             <div class="f-10">
                 <div class="user-info" >
                     <div>
-                        <img class="user-img" src="{{comment.profile_photo}}" (error)="comment.profile_photo='/assets/img/me.jpeg'" width="60x" height="60px"  alt="user-profile-photo">
+                        <img class="user-img" src="{{comment.profile_photo}}" (error)="comment.profile_photo='/assets/img/profile.svg'" width="60x" height="60px"  alt="user-profile-photo">
                     </div>
                     <div class="ml-20">
                         <h2>{{comment.user_name}} 	&nbsp;</h2>
-                        <span>07 January 2018</span>
+                        <span>{{comment?.created_date | date}}</span>
                     </div>
                     <div class="clap">
                         <div class="clap-img" [ngClass]="isVoted(comment.id) ? 'is-clapped':''" (click)="increaseVote(comment.id,i)"></div>
@@ -50,7 +50,7 @@
         <h4 [translate]="'comment.info'">Yorum eklemek için aşağıdaki alanı doldurunuz.</h4>
     </div>
     <div class="mt-50" *ngIf="isFavourite">
-        <textarea name="comment" id="addcomment" #message cols="30" rows="10" placeholder="{{ 'comment.placeholder' | translate }}"></textarea>
-        <button class="btn-panel" (click)="sendComment(message.value)" [translate]="'comment.send'">Send</button>
+        <textarea name="comment" id="addcomment" [(ngModel)]="message" cols="30" rows="10" placeholder="{{ 'comment.placeholder' | translate }}"></textarea>
+        <button class="btn-panel" (click)="sendComment()" [translate]="'comment.send'">Send</button>
     </div>
 </div>

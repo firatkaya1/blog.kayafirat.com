@@ -21,6 +21,7 @@ export class CommentComponent implements OnInit,OnChanges {
   public totalPages:number[];
   private articleID:string;
   private votes:number[];
+  public message:string = ""
 
   constructor(private alertService:AlertService,private commentService:CommentService,private route: ActivatedRoute) {
     this.votes = (localStorage.getItem("cv")) ?  JSON.parse(localStorage.getItem("cv")) : []
@@ -56,16 +57,19 @@ export class CommentComponent implements OnInit,OnChanges {
     this.votes.push(id);
     localStorage.setItem("cv",JSON.stringify(this.votes));
   }
-  sendComment(message:string){
-    this.commentService.sendComment(this.articleID,message).subscribe(
+  sendComment(){
+    this.commentService.sendComment(this.articleID,this.message).subscribe(
       (response)=>{
         let com:Comment = new Comment();
         com["id"]=response["id"];
         com["body"]=response["body"];
         com["total_vote"]=0;
         com["created_date"]=new Date();
+        com["user_name"]=response["user_name"]
         this.comments.push(com);
         this.alertService.notification("Yorumunuz başarıyla gönderildi.",true)});
+        this.message = ""
+
   }
   commentDetail(id:any){
     this.commentDetailID.emit(id);

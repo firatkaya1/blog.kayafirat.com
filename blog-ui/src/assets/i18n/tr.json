@@ -88,9 +88,11 @@
     },
     "comment":{
         "title":"Yorumlar",
+        "title1":"Yorum ",
         "info":"Yorum eklemek için aşağıdaki alanı doldurunuz.",
         "send":"Gönder",
-        "placeholder":"Yorumunuzu buraya yazınız."
+        "placeholder":"Yorumunuzu buraya yazınız.",
+        "view":"Görüntülenme "
     },
     "error":{
         "message":"Hey! Aradığınız şey için üzgünüz. Bunun gerçek bir sorun olduğunu düşünüyorsanız, lütfen bana mesaj atın. En kısa zamanda düzelteceğim.",

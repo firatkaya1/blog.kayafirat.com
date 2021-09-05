@@ -83,7 +83,7 @@
     </div>
     <div>
         <button class="btn-panel custom-panel"  (click)="registerUser()" [disabled]="register.invalid" [translate]="'register.signup'">Sign Up</button>
-        <button class="btn-github" [translate]="'register.github'"><img src="/assets/img/github.svg" width="25px" height="25px" alt=""> Sign Up With GitHub</button>
+        <button class="btn-github" (click)="registerGithub()" [translate]="'register.github'"><img src="/assets/img/github.svg" width="25px" height="25px" alt=""> Sign Up With GitHub</button>
         <button class="btn-linkedin" (click)="registerLinkedin()"><img src="/assets/img/linkedin.svg" width="25px" height="25px" alt=""> Sign Up With Linkedin</button>
     </div>
 </form>

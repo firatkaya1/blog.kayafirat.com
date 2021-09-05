@@ -27,6 +27,11 @@ button:hover {
 button:focus{
     outline: 0;
 }
+.up {
+    width: 25px;
+    height: 25px;
+    background-color: #FFD000;
+}
 @media only screen and (max-width: 600px) {
     .container{
         left: 0;

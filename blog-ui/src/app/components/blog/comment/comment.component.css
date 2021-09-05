@@ -26,6 +26,8 @@
 .comment-detail {
     height: auto;
     line-height: 1.5;
+    white-space: pre-line;
+    
 }
 .ml-20 {
     margin-left: 20px;

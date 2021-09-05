@@ -1,32 +1,27 @@
 <div class="col-12 ">
     <h2>{{postDetail?.post?.title}}</h2>
     <span *ngFor="let category of postDetail?.post.category">
-        <span class="tag"  [ngStyle]="{'background-color':category.color }" >{{category.name}}</span>
+        <span class="tag"  [ngStyle]="{'background-color':category.color,'color':category.textColor }" >{{category.name}}</span>
     </span>
     <hr class="border">
-    <p class="kayafirat-font">
-       {{postDetail?.body}}
-    </p>
-    
+    <div class="kayafirat-font post-detail " [innerHTML]="postDetail?.body"> </div>
 </div>
 <div class="tags mt-50">
     Tags :
-    <span>Java</span>,
-    <span>Redis</span>,
-    <span>Cache</span>
+    <span *ngFor="let category of postDetail?.post.category;let index = index">{{category.name}}<span *ngIf="index+1 != postDetail?.post?.category?.length">, </span>  </span>
 </div>
 <hr class="mt-10">
 <div class="info-stats">
-    <span>{{postDetail?.post.view}} View </span>|
-    <span>{{totalComment}} Comments </span>|
+    <span>{{postDetail?.post.view}}  <span [translate]="'comment.view'"> Views </span>  </span>|
+    <span>{{totalComment}} <span [translate]="'comment.title1'"> Comment </span> </span>|
     <span>{{postDetail?.post.createdDate | date}}</span>
-    <a href="#" >
+    <a target="_blank" href="http://linkedin.com/in/firatkaya1" >
         <img src="/assets/img/linkedin.svg" width="30px" height="30px" alt="">
     </a>
-    <a href="#" >
+    <a target="_blank" href="http://twitter.com/firatkaya1" >
         <img src="/assets/img/twitterl.svg" width="30px" height="30px" alt="">
     </a>
-    <a href="#">
+    <a target="_blank" href="http://github.com/firatkaya1">
         <img src="/assets/img/github.svg" width="30px" height="30px" alt="">
     </a>
 </div>
