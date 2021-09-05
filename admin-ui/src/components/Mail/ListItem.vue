@@ -1,42 +1,71 @@
 <template>
-<tr>
     <td class="px-6 py-4 whitespace-nowrap">
         <div class="flex items-center">
-            <div class="flex-shrink-0 h-10 w-10">
-            <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
-            </div>
-            <div class="ml-4">
-            <div class="text-sm font-medium text-gray-900">
-                Jane Cooper
-            </div>
-            <div class="text-sm text-gray-500">
-                jane.cooper@example.com
-            </div>
-            </div>
+            {{mail.emailAddress}}
         </div>
     </td>
     <td class="px-6 py-4 whitespace-nowrap">
-        <div class="text-sm text-gray-900">Javada optimizasayon</div>
-        <div class="text-sm text-gray-500">Optimization</div>
+        <div class="text-sm text-gray-900"> {{mail.createdDate}}</div>
+        <div class="text-sm text-gray-500">{{mail.sendDate}}</div>
     </td>
     <td class="px-6 py-4 whitespace-nowrap">
-        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-            2021/12/12 23.14
+ 
+        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-200 text-green-600" v-if="mail.mailType == 'Verification'">
+            {{mail.mailType}}
+        </span>
+        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800" v-if="mail.mailType == 'VerificationSuccess'">
+            {{mail.mailType}}
+        </span>
+        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800" v-if="mail.mailType == 'PasswordChanged'">
+            {{mail.mailType}}
+        </span>
+        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800" v-if="mail.mailType == 'PasswordChangedSuccess'">
+            {{mail.mailType}}
+        </span>
+        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800" v-if="mail.mailType == 'LoginSuccess'">
+            {{mail.mailType}}
+        </span>
+        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800" v-if="mail.mailType == 'LoginAttempt'">
+            {{mail.mailType}}
+        </span>
+        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-indigo-100 text-indigo-800" v-if="mail.mailType == 'Other'">
+            {{mail.mailType}}
+        </span>
+       
+    </td>
+    <td class="px-6 py-4 whitespace-nowrap">
+        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800" v-if="mail.send">
+            Gönderildi.
+        </span>
+        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800" v-if="!mail.send">
+            Gönderilmedi.
         </span>
     </td>
     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-        Teşekkürler yorum için ben çok beğendim.
+        {{mail?.mailTitle}}
     </td>
     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-        <a href="#" class="text-red-600 hover:text-red-900 border rounded px-2 py-0.5 bg-red-50">Sil</a>
-        <a href="#" class="text-blue-600 hover:text-blue-900 border rounded px-2 py-0.5 bg-blue-50 ml-2">Edit</a>
-
+      {{mail?.mailSubtitle}}
     </td>
-</tr>
+    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+      <span v-if="mail?.body?.length < 50">
+          {{mail.body}}
+      </span> 
+      <span v-if="mail?.body?.length >=50">
+          {{mail.body.substring(0,51)}}
+      </span>
+    </td>
 </template>
 
 <script>
 export default {
+    name:'MailListItem',
+    props:{
+        mail:{
+            type:Object,
+            required:true
+        }
+    }
 
 }
 </script>

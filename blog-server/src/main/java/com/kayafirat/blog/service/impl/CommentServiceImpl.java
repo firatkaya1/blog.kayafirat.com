@@ -16,6 +16,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -24,6 +25,13 @@ import java.util.List;
 public class CommentServiceImpl implements CommentService {
 
     private final CommentRepository commentRepository;
+
+    @Override
+    public Page<Comment> getAllComments(int pageNumber, int pageSize, String sortedBy, String orderBy) {
+        Sort sort = orderBy.equals("asc".toLowerCase()) ? Sort.by(sortedBy).ascending() : Sort.by(sortedBy).descending();
+        Pageable pageable = PageRequest.of(pageNumber - 1, pageSize, sort);
+        return commentRepository.findAll(pageable);
+    }
 
     @Override
     public Page<CommentDTO> getComments(Long id, int pageNumber, int pageSize, String sortedBy, String orderBy) {
@@ -44,13 +52,16 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public Comment addComment(Comment comment) {
+    public CommentDTO addComment(Comment comment) {
+        comment.setCreatedDate(new Date());
         if(!SecurityContextHolder.getContext().getAuthentication().getName().equals("anonymousUser")){
             comment.setUserId(Long.valueOf(SecurityContextHolder.getContext().getAuthentication().getName()));
         } else {
-            comment.setUserId(398l);
+            comment.setUserId(1L);
         }
-        return commentRepository.save(comment);
+        Comment _comment = commentRepository.save(comment);
+
+        return commentRepository.findCommentById(_comment.getId(),_comment.getPostId());
     }
 
     @Override
@@ -76,6 +87,7 @@ public class CommentServiceImpl implements CommentService {
     public Comment addVote(Long id) {
         Comment comment = commentRepository.findById(id).orElseThrow(()->new CommentIDNotFoundException(id));
         CommentVote commentVote = new CommentVote();
+        commentVote.setDate(new Date());
         if(!SecurityContextHolder.getContext().getAuthentication().getName().equals("anonymousUser")){
             commentVote.setUserId(Long.valueOf(SecurityContextHolder.getContext().getAuthentication().getName()));
         } else {

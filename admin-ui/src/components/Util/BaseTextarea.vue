@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="show">
         <textarea
         :rows="10"
         :cols="30"
@@ -93,6 +93,10 @@ export default {
         active:{
             type:Boolean,
             default:false
+        },
+        show:{
+            type:Boolean,
+            default:true
         }
     },
     data(){

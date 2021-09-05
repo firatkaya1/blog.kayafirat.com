@@ -40,4 +40,12 @@ public interface CommentRepository extends JpaRepository<Comment, Long> {
             "LEFT JOIN comment_vote cv on c.id = cv.comment_id  \n" +
             "RIGHT JOIN user u on c.user_id = u.id where c.user_id = :userID group by c.id",nativeQuery = true)
     List<CommentDTO> findAllByUserId(@Param("userID") Long userId);
+
+    @Query(value = "SELECT " +
+            "c.id,c.body,c.created_date,c.update_date,u.username as user_name,u.photo as profile_photo,c.post_id,count(cv.comment_id) as total_vote \n" +
+            "FROM comment c \n" +
+            "LEFT  JOIN comment_vote cv on c.id = cv.comment_id \n" +
+            "RIGHT  JOIN user u on c.user_id = u.id where c.is_hide = 0 and c.is_delete = 0 and c.post_id = :postId and c.id = :commentId \n" +
+            "group by c.id",nativeQuery = true)
+    CommentDTO findCommentById(@Param("commentId") Long commentId,@Param("postId") Long postId);
 }

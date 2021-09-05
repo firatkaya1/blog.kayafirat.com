@@ -29,7 +29,7 @@ public class Comment extends JdkSerializationRedisSerializer implements Serializ
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String body;
 
     @Column

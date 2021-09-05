@@ -1,6 +1,7 @@
 package com.kayafirat.blog.util;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 import javax.mail.Message;
@@ -16,10 +17,8 @@ import java.util.Date;
 @Component
 public class Template {
 
-    private static String GLOBAL_URL = "https://localhost:4200";
     @Autowired private JwtUtil jwtUtil;
-
-
+    @Autowired private Environment environment;
 
     /**
      * This is a verification email address.
@@ -30,8 +29,8 @@ public class Template {
      * @return
      */
     public MimeMessage verificationEmailTemplate(String emailAddress, Session session) {
-        String link = GLOBAL_URL+"/verify?token="+jwtUtil.generateToken(emailAddress,1800000L);
-        String unSubscribeLink = GLOBAL_URL+"/unsubscribe?token="+jwtUtil.generateToken(emailAddress,1800000000L);
+        String link = environment.getProperty("base.link")+"/verify?token="+jwtUtil.generateToken(emailAddress,1800000L);
+        String unSubscribeLink = environment.getProperty("base.link")+"/unsubscribe?token="+jwtUtil.generateToken(emailAddress,1800000000L);
 
         String template = "<!DOCTYPE html>" +
                 "<html lang=\"en\"> " +
@@ -99,7 +98,7 @@ public class Template {
      * @return
      */
     public MimeMessage verificationSuccessTemplate(String emailAddress, Session session) {
-        String unSubscribeLink = GLOBAL_URL+"/unsubscribe?token="+jwtUtil.generateToken(emailAddress,1800000000L);
+        String unSubscribeLink = environment.getProperty("base.link")+"/unsubscribe?token="+jwtUtil.generateToken(emailAddress,1800000000L);
 
         String template = "<!DOCTYPE html>\n" +
                 "<html lang=\"en\">\n" +
@@ -183,8 +182,8 @@ public class Template {
      * @return
      */
     public MimeMessage resetPasswordTemplate(String emailAddress, Session session) {
-        String link = GLOBAL_URL+"/resetpassword?code="+jwtUtil.generateToken(emailAddress,1800000L);
-        String unSubscribeLink = GLOBAL_URL+"/unsubscribe?token="+jwtUtil.generateToken(emailAddress,1800000000L);
+        String link = environment.getProperty("base.link")+"/resetpassword?code="+jwtUtil.generateToken(emailAddress,1800000L);
+        String unSubscribeLink = environment.getProperty("base.link")+"/unsubscribe?token="+jwtUtil.generateToken(emailAddress,1800000000L);
         String template = "<!DOCTYPE html>" +
                 "<html lang=\"en\"> " +
                 "<head> " +
@@ -252,8 +251,8 @@ public class Template {
      * @return
      */
     public MimeMessage passwordChangedTemplate(String emailAddress, Session session) {
-        String link = GLOBAL_URL+"/forgotpassword";
-        String unSubscribeLink = GLOBAL_URL+"/unsubscribe?token="+jwtUtil.generateToken(emailAddress,1800000000L);
+        String link = environment.getProperty("base.link")+"/forgotpassword";
+        String unSubscribeLink = environment.getProperty("base.link")+"/unsubscribe?token="+jwtUtil.generateToken(emailAddress,1800000000L);
 
         String template = "<!DOCTYPE html><html lang=\"en\"> " +
                 "<head> <meta charset=\"UTF-8\"> " +
@@ -317,7 +316,7 @@ public class Template {
      * @return
      */
     public MimeMessage loginSuccessTemplate(String emailAddress, Session session) {
-        String unSubscribeLink = GLOBAL_URL+"/unsubscribe?token="+jwtUtil.generateToken(emailAddress,1800000000L);
+        String unSubscribeLink = environment.getProperty("base.link")+"/unsubscribe?token="+jwtUtil.generateToken(emailAddress,1800000000L);
 
         String template = "<!DOCTYPE html>\n" +
                 "<html lang=\"en\">\n" +
@@ -399,7 +398,7 @@ public class Template {
      * @return
      */
     public MimeMessage loginAttemptTemplate(String emailAddress, Session session) {
-        String unSubscribeLink = GLOBAL_URL+"/unsubscribe?token="+jwtUtil.generateToken(emailAddress,1800000000L);
+        String unSubscribeLink = environment.getProperty("base.link")+"/unsubscribe?token="+jwtUtil.generateToken(emailAddress,1800000000L);
 
         String template = "<!DOCTYPE html>\n" +
                 "<html lang=\"en\">\n" +

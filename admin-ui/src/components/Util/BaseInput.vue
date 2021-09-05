@@ -1,6 +1,6 @@
 
 <template>
-    <div>
+    <div v-if="show">
         <label :for="id"> {{label}} </label>
         <input
         :type="type"
@@ -90,6 +90,10 @@ export default {
         active:{
             type:Boolean,
             default:false
+        },
+        show:{
+            type:Boolean,
+            default:true
         }
     },
     data(){

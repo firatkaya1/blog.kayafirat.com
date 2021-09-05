@@ -23,24 +23,11 @@
             </th>
         </tr>
         </thead>
+        {{comments}}
         <tbody class="bg-white divide-y divide-gray-200">
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-
+          <tr v-for="comment in comments" :key="comment">
+            <ListItem/>
+          </tr>
         </tbody>
     </table>
   </div>
@@ -51,9 +38,24 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 import ListItem from './ListItem.vue'
 export default {
+  name:'CommentList',
   components: { ListItem },
+  methods:{
+    ...mapGetters('comment',['getAllComments']),
+    ...mapActions('comment',['getComments'])
+  },
+  computed:{
+    comments(){
+      return this.getComments().content
+    }
+  },
+  created(){
+    this.getComments()
+  }
+
 
 }
 </script>

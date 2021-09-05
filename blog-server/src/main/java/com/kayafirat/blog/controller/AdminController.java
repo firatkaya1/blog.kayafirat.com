@@ -6,10 +6,7 @@ import com.kayafirat.blog.dto.PostDTO;
 import com.kayafirat.blog.dto.Register;
 import com.kayafirat.blog.entity.PostDetail;
 import com.kayafirat.blog.entity.User;
-import com.kayafirat.blog.service.MailService;
-import com.kayafirat.blog.service.NotificationService;
-import com.kayafirat.blog.service.PostService;
-import com.kayafirat.blog.service.UserService;
+import com.kayafirat.blog.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,6 +22,7 @@ public class AdminController {
     private final PostService postService;
     private final NotificationService notificationService;
     private final MailService mailService;
+    private final CommentService commentService;
 
     @GetMapping(value = "user/list")
     public ResponseEntity<?> getUserList(){
@@ -106,5 +104,14 @@ public class AdminController {
     public ResponseEntity<?> getMailList(){
         return ResponseEntity.ok(mailService.getAll());
     }
+
+    @GetMapping(value = "comment/list")
+    public ResponseEntity<?> getAllComments(@RequestParam(defaultValue = "1",required = false) int page,
+                                            @RequestParam(defaultValue = "100",required = false) int size,
+                                            @RequestParam(defaultValue = "id",required = false) String sort,
+                                            @RequestParam(defaultValue = "asc",required = false) String order) {
+        return ResponseEntity.ok(commentService.getAllComments(page,size,sort,order));
+    }
+
 
 }

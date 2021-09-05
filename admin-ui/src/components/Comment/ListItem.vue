@@ -1,5 +1,4 @@
 <template>
-<tr>
     <td class="px-6 py-4 whitespace-nowrap">
         <div class="flex items-center">
             <div class="flex-shrink-0 h-10 w-10">
@@ -32,7 +31,6 @@
         <a href="#" class="text-blue-600 hover:text-blue-900 border rounded px-2 py-0.5 bg-blue-50 ml-2">Edit</a>
 
     </td>
-</tr>
 </template>
 
 <script>

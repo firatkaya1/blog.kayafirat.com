@@ -145,7 +145,7 @@ public class UserServiceImpl implements UserService {
         notification.setUser(_user);
         notification.setTitle("Aramıza hoşgeldin.");
         notification.setMessage("Kayıt olduğun için teşekkürler, şimdi rahatlıkla yazıları okuyabilir, yorum yapabilir ve beğenebilirsin. Sana iyi okumalar :)");
-        notification.setLink("http://localhost:4200");
+        notification.setLink(env.getProperty("base.link"));
         notificationService.addNotification(notification);
     }
 
@@ -291,14 +291,14 @@ public class UserServiceImpl implements UserService {
         String email = jwtUtil.extractUserEmail(token);
         User user = userRepository.findByEmail(email);
         if(user != null ) {
-            if(!user.getPassword().equals(password)) {
-                user.setPassword(password);
+            if(!bCryptPasswordEncoder.matches(password,user.getPassword())) {
+                user.setPassword(bCryptPasswordEncoder.encode(password));
                 // send notification
                 Notification notification = new Notification();
                 notification.setCreatedDate(new Date());
                 notification.setMessage("Hey, Şifren "+notification.getCreatedDate()+" tarihinde değiştirildi. Eğer bunu sen yapmadıysan lütfen tıkla ve yeni bir şifre talep et!");
                 notification.setTitle("Şifre Değişikliği");
-                notification.setLink("https://localhost:4200/forgotpassword");
+                notification.setLink(env.getProperty("base.link")+"forgotpassword");
                 notification.setUser(user);
                 notificationService.addNotification(notification);
                 // send mail

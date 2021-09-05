@@ -9,13 +9,15 @@ import java.util.List;
 
 public interface CommentService {
 
+    Page<Comment> getAllComments(int pageNumber, int pageSize, String sortedBy, String orderBy);
+
     Page<CommentDTO> getComments(Long id, int pageNumber, int pageSize, String sortedBy, String orderBy);
 
     List<CommentDTO> getUserComments(Long id);
 
     Comment get(Long id);
 
-    Comment addComment(Comment comment);
+    CommentDTO addComment(Comment comment);
 
     Comment updateComment(Comment comment);
 
