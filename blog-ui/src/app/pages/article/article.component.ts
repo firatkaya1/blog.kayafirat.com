@@ -119,5 +119,9 @@ export class ArticleComponent implements OnInit {
     
   }
 
+  goUp(){
+    window.scroll(0,0);
+  }
+
 
 }

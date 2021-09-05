@@ -20,3 +20,10 @@ html,body {
     font-family:"kayafirat";
     src: url("/assets/fonts/KayaRegular.ttf") format("truetype");
   }
+
+
+  @media only screen and (max-width: 600px) {
+    .kayafirat-font {
+        font-size: 15px!important;
+    }
+}
