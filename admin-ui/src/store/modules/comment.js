@@ -15,11 +15,22 @@ const actions = {
             commit('SET_COMMENTS',response.data)
         })
     },
-    
+    updateComment:({commit},data) => {
+        service.update('admin/comment',data.body)
+            .then(() => {
+                commit('UPDATE_COMMIT',data)
+            })
+    }
 };
 
 const mutations = {
     SET_COMMENTS  :(state,comments)=>state.comments = comments,
+    UPDATE_COMMIT :(state,data) => {
+        var index = state.comments.findIndex(c => c.commentId == data.body.id)
+        state.comments[index].commentBody = data.body.body
+        state.comments[index].commentIsdelete = data.body.isDelete
+        state.comments[index].commentIsHide = data.body.isHide
+    }
 };
 
 export default {

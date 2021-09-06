@@ -22,6 +22,8 @@ public interface CommentService {
 
     CommentDTO addComment(Comment comment);
 
+    CommentDTO updateCommentAdmin(Comment comment);
+
     Comment updateComment(Comment comment);
 
     void deleteComment(Long id);

@@ -52,11 +52,11 @@ public interface CommentRepository extends JpaRepository<Comment, Long> {
 
     Long countCommentByPostId(Long postId);
 
-    @Query(value = "select comment.id as commentId,comment.body as commentBody,comment.is_delete as commentIsdelete, comment.is_hide as commentIshide,\n" +
-            "p1.title as postTitle,u1.username as username,(select count(id) from comment_vote where comment_vote.comment_id = comment.id) as totalVote,\n" +
-            "comment.created_date as commentCreatedDate \n" +
-            "from comment \n" +
-            "left join user as u1 on u1.id = comment.user_id \n" +
-            "left join post as p1 on p1.id = comment.post_id \n",nativeQuery = true)
+    @Query(value = "select c1.id as commentId,c1.body as commentBody,c1.is_delete as commentIsdelete, c1.is_hide as commentIshide,\n" +
+            "p1.title as postTitle,u1.username as username,(select count(id) from comment_vote where comment_vote.comment_id = c1.id) as totalVote,\n" +
+            "c1.created_date as commentCreatedDate \n" +
+            "from comment c1 \n" +
+            "left join user as u1 on u1.id = c1.user_id \n" +
+            "left join post as p1 on p1.id = c1.post_id \n",nativeQuery = true)
     Page<CommentViewDTO> findAllCommentViews(Pageable pageable);
 }

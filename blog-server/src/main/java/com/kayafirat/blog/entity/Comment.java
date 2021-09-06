@@ -39,10 +39,10 @@ public class Comment extends JdkSerializationRedisSerializer implements Serializ
     private Long postId;
 
     @Column
-    private boolean isHide;
+    private Boolean isHide;
 
     @Column
-    private boolean isDelete;
+    private Boolean isDelete;
 
     @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Date createdDate;

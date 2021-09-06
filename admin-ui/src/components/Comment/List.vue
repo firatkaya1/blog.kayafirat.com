@@ -10,23 +10,28 @@
             ID
             </th>
             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-            Konu Adı ve Tarih
+            Kullanıcı Adı
             </th>
             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Güncellenme Tarihi 
+              Oluşturulma Tarihi ve Detay
             </th>
             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-            Kısa Metin
+            Silinme Durumu
             </th>
-            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-right">
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Gizlenme Durumu
+            </th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Toplam Oy
+            </th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
             
             </th>
         </tr>
         </thead>
-        {{comments}}
         <tbody class="bg-white divide-y divide-gray-200">
-          <tr v-for="comment in comments" :key="comment">
-            <ListItem v-bind:comment="comment"/>
+          <tr v-for="(comment,index) in comments" :key="comment">
+            <ListItem v-bind:comment="comment" v-bind:index="index"/>
           </tr>
         </tbody>
     </table>

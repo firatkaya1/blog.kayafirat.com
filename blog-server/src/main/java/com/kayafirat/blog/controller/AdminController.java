@@ -1,9 +1,7 @@
 package com.kayafirat.blog.controller;
 
-import com.kayafirat.blog.dto.MailDTO;
-import com.kayafirat.blog.dto.NotificationSaveDTO;
-import com.kayafirat.blog.dto.PostDTO;
-import com.kayafirat.blog.dto.Register;
+import com.kayafirat.blog.dto.*;
+import com.kayafirat.blog.entity.Comment;
 import com.kayafirat.blog.entity.PostDetail;
 import com.kayafirat.blog.entity.User;
 import com.kayafirat.blog.service.*;
@@ -114,9 +112,14 @@ public class AdminController {
     @GetMapping(value = "comment/list")
     public ResponseEntity<?> getAllComments(@RequestParam(defaultValue = "1",required = false) int page,
                                             @RequestParam(defaultValue = "100",required = false) int size,
-                                            @RequestParam(defaultValue = "id",required = false) String sort,
-                                            @RequestParam(defaultValue = "asc",required = false) String order) {
+                                            @RequestParam(defaultValue = "commentCreatedDate",required = false) String sort,
+                                            @RequestParam(defaultValue = "desc",required = false) String order) {
         return ResponseEntity.ok(commentService.getAllCommentsAdmin(page,size,sort,order));
+    }
+
+    @PutMapping(value = "comment")
+    public ResponseEntity<?> updateComment(@RequestBody Comment comment) {
+        return ResponseEntity.ok(commentService.addComment(comment));
     }
 
 

@@ -6,6 +6,7 @@ import com.kayafirat.blog.dto.CommentVoteDTO;
 import com.kayafirat.blog.entity.Comment;
 import com.kayafirat.blog.entity.CommentVote;
 import com.kayafirat.blog.exception.custom.CommentIDNotFoundException;
+import com.kayafirat.blog.exception.custom.EntityNotFoundException;
 import com.kayafirat.blog.repository.CommentRepository;
 import com.kayafirat.blog.service.CommentService;
 import lombok.RequiredArgsConstructor;
@@ -70,6 +71,22 @@ public class CommentServiceImpl implements CommentService {
         Comment _comment = commentRepository.save(comment);
 
         return commentRepository.findCommentById(_comment.getId(),_comment.getPostId());
+    }
+
+    @Override
+    public CommentDTO updateCommentAdmin(Comment _comment) {
+        Comment comment = commentRepository.findById(_comment.getId()).orElseThrow(() -> new EntityNotFoundException("Yorum bulunamadı"));
+        if(_comment.getBody()!=null){
+            comment.setBody(_comment.getBody());
+        }
+        if(_comment.getIsDelete() != null) {
+            comment.setIsDelete(_comment.getIsDelete());
+        }
+        if(_comment.getIsHide() != null) {
+            comment.setIsHide(_comment.getIsHide());
+        }
+        commentRepository.save(comment);
+        return commentRepository.findCommentById(comment.getId(),comment.getPostId());
     }
 
     @Override
