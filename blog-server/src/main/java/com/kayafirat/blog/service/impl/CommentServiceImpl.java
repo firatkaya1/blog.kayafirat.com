@@ -1,6 +1,7 @@
 package com.kayafirat.blog.service.impl;
 
 import com.kayafirat.blog.dto.CommentDTO;
+import com.kayafirat.blog.dto.CommentViewDTO;
 import com.kayafirat.blog.dto.CommentVoteDTO;
 import com.kayafirat.blog.entity.Comment;
 import com.kayafirat.blog.entity.CommentVote;
@@ -25,6 +26,13 @@ import java.util.List;
 public class CommentServiceImpl implements CommentService {
 
     private final CommentRepository commentRepository;
+
+    @Override
+    public Page<CommentViewDTO> getAllCommentsAdmin(int pageNumber, int pageSize, String sortedBy, String orderBy) {
+        Sort sort = orderBy.equals("asc".toLowerCase()) ? Sort.by(sortedBy).ascending() : Sort.by(sortedBy).descending();
+        Pageable pageable = PageRequest.of(pageNumber - 1, pageSize, sort);
+        return commentRepository.findAllCommentViews(pageable);
+    }
 
     @Override
     public Page<Comment> getAllComments(int pageNumber, int pageSize, String sortedBy, String orderBy) {

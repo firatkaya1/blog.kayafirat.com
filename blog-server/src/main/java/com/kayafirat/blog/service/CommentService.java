@@ -1,6 +1,7 @@
 package com.kayafirat.blog.service;
 
 import com.kayafirat.blog.dto.CommentDTO;
+import com.kayafirat.blog.dto.CommentViewDTO;
 import com.kayafirat.blog.dto.CommentVoteDTO;
 import com.kayafirat.blog.entity.Comment;
 import org.springframework.data.domain.Page;
@@ -8,6 +9,8 @@ import org.springframework.data.domain.Page;
 import java.util.List;
 
 public interface CommentService {
+
+    Page<CommentViewDTO> getAllCommentsAdmin(int pageNumber, int pageSize, String sortedBy, String orderBy);
 
     Page<Comment> getAllComments(int pageNumber, int pageSize, String sortedBy, String orderBy);
 

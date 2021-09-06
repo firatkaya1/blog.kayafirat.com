@@ -2,12 +2,10 @@ import service from '../../service/service.js'
 
 const state = {
     comments:[]
-
 }
 
 const getters = {
     getAllComments:state => state.comments
-
 };
 
 const actions = {
@@ -16,7 +14,8 @@ const actions = {
         .then(response =>  {
             commit('SET_COMMENTS',response.data)
         })
-    }
+    },
+    
 };
 
 const mutations = {

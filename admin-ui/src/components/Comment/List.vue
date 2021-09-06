@@ -7,7 +7,7 @@
         <thead class="bg-gray-50">
         <tr>
             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-            Resmi
+            ID
             </th>
             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
             Konu Adı ve Tarih
@@ -26,7 +26,7 @@
         {{comments}}
         <tbody class="bg-white divide-y divide-gray-200">
           <tr v-for="comment in comments" :key="comment">
-            <ListItem/>
+            <ListItem v-bind:comment="comment"/>
           </tr>
         </tbody>
     </table>
@@ -49,7 +49,7 @@ export default {
   },
   computed:{
     comments(){
-      return this.getComments().content
+      return this.getAllComments().content
     }
   },
   created(){

@@ -116,7 +116,7 @@ public class AdminController {
                                             @RequestParam(defaultValue = "100",required = false) int size,
                                             @RequestParam(defaultValue = "id",required = false) String sort,
                                             @RequestParam(defaultValue = "asc",required = false) String order) {
-        return ResponseEntity.ok(commentService.getAllComments(page,size,sort,order));
+        return ResponseEntity.ok(commentService.getAllCommentsAdmin(page,size,sort,order));
     }
 
 

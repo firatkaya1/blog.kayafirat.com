@@ -35,7 +35,13 @@
 
 <script>
 export default {
-
+    name:'CommentListItem',
+    props:{
+        comment:{
+            type:Object,
+            required:true
+        }
+    }
 }
 </script>
 

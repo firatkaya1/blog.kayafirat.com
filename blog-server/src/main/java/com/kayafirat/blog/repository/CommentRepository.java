@@ -1,6 +1,7 @@
 package com.kayafirat.blog.repository;
 
 import com.kayafirat.blog.dto.CommentDTO;
+import com.kayafirat.blog.dto.CommentViewDTO;
 import com.kayafirat.blog.dto.CommentVoteDTO;
 import com.kayafirat.blog.entity.Comment;
 import org.springframework.data.domain.Page;
@@ -50,4 +51,12 @@ public interface CommentRepository extends JpaRepository<Comment, Long> {
     CommentDTO findCommentById(@Param("commentId") Long commentId,@Param("postId") Long postId);
 
     Long countCommentByPostId(Long postId);
+
+    @Query(value = "select comment.id as commentId,comment.body as commentBody,comment.is_delete as commentIsdelete, comment.is_hide as commentIshide,\n" +
+            "p1.title as postTitle,u1.username as username,(select count(id) from comment_vote where comment_vote.comment_id = comment.id) as totalVote,\n" +
+            "comment.created_date as commentCreatedDate \n" +
+            "from comment \n" +
+            "left join user as u1 on u1.id = comment.user_id \n" +
+            "left join post as p1 on p1.id = comment.post_id \n",nativeQuery = true)
+    Page<CommentViewDTO> findAllCommentViews(Pageable pageable);
 }

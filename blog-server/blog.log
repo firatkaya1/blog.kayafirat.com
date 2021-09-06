@@ -4,3 +4,710 @@
 2021-09-06 00:01:23.899 DEBUG 6825 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
 2021-09-06 00:01:45.984 DEBUG 6825 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
 2021-09-06 00:02:08.073 DEBUG 6825 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 00:02:30.834 DEBUG 6825 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 00:02:53.202 DEBUG 6825 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 00:03:15.385 DEBUG 6825 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 00:03:21.410  INFO 6825 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-09-06 00:03:21.412  INFO 6825 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : SpringBootJPAHikariCP - Shutdown initiated...
+2021-09-06 00:03:21.414  INFO 6825 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : SpringBootJPAHikariCP - Shutdown completed.
+2021-09-06 20:11:44.412  INFO 6229 --- [main] com.kayafirat.blog.BlogApplication       : Starting BlogApplication using Java 16.0.1 on kayaS70A with PID 6229 (/home/kaya/Desktop/blog.kayafirat.com/blog-server/build/classes/java/main started by kaya in /home/kaya/Desktop/blog.kayafirat.com/blog-server)
+2021-09-06 20:11:44.416  INFO 6229 --- [main] com.kayafirat.blog.BlogApplication       : The following profiles are active: dev
+2021-09-06 20:11:45.791  INFO 6229 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-09-06 20:11:45.792  INFO 6229 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-06 20:11:45.969  INFO 6229 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 162 ms. Found 12 JPA repository interfaces.
+2021-09-06 20:11:45.994  INFO 6229 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-09-06 20:11:45.996  INFO 6229 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-09-06 20:11:46.027  INFO 6229 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.kayafirat.blog.repository.CategoryRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-09-06 20:11:46.029  INFO 6229 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.kayafirat.blog.repository.CommentRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-09-06 20:11:46.030  INFO 6229 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.kayafirat.blog.repository.ContactRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-09-06 20:11:46.031  INFO 6229 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.kayafirat.blog.repository.FileRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-09-06 20:11:46.032  INFO 6229 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.kayafirat.blog.repository.ImageRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-09-06 20:11:46.033  INFO 6229 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.kayafirat.blog.repository.MailRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-09-06 20:11:46.035  INFO 6229 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.kayafirat.blog.repository.NotificationRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-09-06 20:11:46.036  INFO 6229 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.kayafirat.blog.repository.PostDetailRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-09-06 20:11:46.037  INFO 6229 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.kayafirat.blog.repository.PostRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-09-06 20:11:46.038  INFO 6229 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.kayafirat.blog.repository.ReportRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-09-06 20:11:46.040  INFO 6229 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.kayafirat.blog.repository.SecurityRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-09-06 20:11:46.041  INFO 6229 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.kayafirat.blog.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-09-06 20:11:46.042  INFO 6229 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29 ms. Found 0 Redis repository interfaces.
+2021-09-06 20:11:46.663  INFO 6229 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@21ea996f' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-09-06 20:11:46.674  INFO 6229 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-09-06 20:11:47.099  INFO 6229 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-09-06 20:11:47.110  INFO 6229 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-09-06 20:11:47.111  INFO 6229 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.48]
+2021-09-06 20:11:47.223  INFO 6229 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-09-06 20:11:47.223  INFO 6229 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2744 ms
+2021-09-06 20:11:47.443 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : Driver class com.mysql.cj.jdbc.Driver found in Thread context class loader TomcatEmbeddedWebappClassLoader
+  context: ROOT
+  delegate: true
+----------> Parent Classloader:
+jdk.internal.loader.ClassLoaders$AppClassLoader@251a69d7
+
+2021-09-06 20:11:47.489 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : SpringBootJPAHikariCP - configuration:
+2021-09-06 20:11:47.492 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : allowPoolSuspension................................false
+2021-09-06 20:11:47.492 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : autoCommit................................true
+2021-09-06 20:11:47.493 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : catalog................................none
+2021-09-06 20:11:47.493 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : connectionInitSql................................none
+2021-09-06 20:11:47.493 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : connectionTestQuery................................none
+2021-09-06 20:11:47.493 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : connectionTimeout................................30000
+2021-09-06 20:11:47.493 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : dataSource................................none
+2021-09-06 20:11:47.493 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : dataSourceClassName................................none
+2021-09-06 20:11:47.494 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : dataSourceJNDI................................none
+2021-09-06 20:11:47.494 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : dataSourceProperties................................{maintainTimeStats=false, password=<masked>, rewriteBatchedStatements=true, prepStmtCacheSqlLimit=2048, elideSetAutoCommits=true, cacheResultSetMetadata=true, cachePrepStmts=true, prepStmtCacheSize=250, useServerPrepStmts=true, useLocalSessionState=true, cacheServerConfiguration=true}
+2021-09-06 20:11:47.494 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : driverClassName................................"com.mysql.cj.jdbc.Driver"
+2021-09-06 20:11:47.495 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : exceptionOverrideClassName................................none
+2021-09-06 20:11:47.495 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : healthCheckProperties................................{}
+2021-09-06 20:11:47.495 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : healthCheckRegistry................................none
+2021-09-06 20:11:47.495 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : idleTimeout................................30000
+2021-09-06 20:11:47.495 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : initializationFailTimeout................................1
+2021-09-06 20:11:47.496 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : isolateInternalQueries................................false
+2021-09-06 20:11:47.496 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : jdbcUrl................................jdbc:mysql://127.0.0.1/blog?useUnicode=yes&characterEncoding=UTF-8&serverTimezone=UTC
+2021-09-06 20:11:47.496 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : keepaliveTime................................0
+2021-09-06 20:11:47.496 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : leakDetectionThreshold................................0
+2021-09-06 20:11:47.496 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : maxLifetime................................2000000
+2021-09-06 20:11:47.496 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : maximumPoolSize................................20
+2021-09-06 20:11:47.497 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : metricRegistry................................none
+2021-09-06 20:11:47.497 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : metricsTrackerFactory................................none
+2021-09-06 20:11:47.497 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : minimumIdle................................5
+2021-09-06 20:11:47.497 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : password................................<masked>
+2021-09-06 20:11:47.497 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : poolName................................"SpringBootJPAHikariCP"
+2021-09-06 20:11:47.497 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : readOnly................................false
+2021-09-06 20:11:47.498 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : registerMbeans................................false
+2021-09-06 20:11:47.498 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : scheduledExecutor................................none
+2021-09-06 20:11:47.498 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : schema................................none
+2021-09-06 20:11:47.498 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : threadFactory................................internal
+2021-09-06 20:11:47.498 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : transactionIsolation................................default
+2021-09-06 20:11:47.498 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : username................................"root"
+2021-09-06 20:11:47.499 DEBUG 6229 --- [main] com.zaxxer.hikari.HikariConfig           : validationTimeout................................5000
+2021-09-06 20:11:47.501  INFO 6229 --- [main] com.zaxxer.hikari.HikariDataSource       : SpringBootJPAHikariCP - Starting...
+2021-09-06 20:11:48.095  INFO 6229 --- [main] com.zaxxer.hikari.HikariDataSource       : SpringBootJPAHikariCP - Start completed.
+2021-09-06 20:11:48.285  INFO 6229 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-06 20:11:48.371  INFO 6229 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-06 20:11:48.553  INFO 6229 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-06 20:11:48.726  INFO 6229 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-09-06 20:11:50.170 DEBUG 6229 --- [main] org.hibernate.SQL                        : alter table comment_vote add constraint FKsuhgx7catnt6chnndede0wmpr foreign key (comment_id) references comment (id)
+2021-09-06 20:11:50.205 DEBUG 6229 --- [main] org.hibernate.SQL                        : alter table meta add constraint FKsp1xynrl08sog1xkajv25ijmp foreign key (facebook_id) references facebookseo (id)
+2021-09-06 20:11:50.230 DEBUG 6229 --- [main] org.hibernate.SQL                        : alter table meta add constraint FKh9yovlps1wx1lhy532mfk49rk foreign key (google_id) references googleseo (id)
+2021-09-06 20:11:50.252 DEBUG 6229 --- [main] org.hibernate.SQL                        : alter table meta add constraint FK559p9h3cd2dmflxot8yamk2sb foreign key (twitter_id) references twitterseo (id)
+2021-09-06 20:11:50.278 DEBUG 6229 --- [main] org.hibernate.SQL                        : alter table notification add constraint FKb0yvoep4h4k92ipon31wmdf7e foreign key (user_id) references user (id)
+2021-09-06 20:11:50.305 DEBUG 6229 --- [main] org.hibernate.SQL                        : alter table post_category add constraint FKqly0d5oc4npxdig2fjfoshhxg foreign key (category_id) references category (id)
+2021-09-06 20:11:50.322 DEBUG 6229 --- [main] org.hibernate.SQL                        : alter table post_category add constraint FKqr4dx4cx1lh4jfjchabytcakl foreign key (post_id) references post (id)
+2021-09-06 20:11:50.346 DEBUG 6229 --- [main] org.hibernate.SQL                        : alter table post_detail add constraint FK6gul3h2hkuo40keptu3tlp7vd foreign key (meta_id) references meta (id)
+2021-09-06 20:11:50.362 DEBUG 6229 --- [main] org.hibernate.SQL                        : alter table post_detail add constraint FK46mm0e5earch2ws3ffhl533aa foreign key (post_id) references post (id)
+2021-09-06 20:11:50.392 DEBUG 6229 --- [main] org.hibernate.SQL                        : alter table security_role add constraint FKgh1bm3y975hxilb8lpkpsylvu foreign key (role_id) references role (id)
+2021-09-06 20:11:50.411 DEBUG 6229 --- [main] org.hibernate.SQL                        : alter table security_role add constraint FKoe6ux7pqmsnuxghxpichf2s68 foreign key (security_id) references security (id)
+2021-09-06 20:11:50.442 DEBUG 6229 --- [main] org.hibernate.SQL                        : alter table user add constraint FKs4304uoya22tdl9o1pmfj4ge7 foreign key (e_permission_id) references mail_permission (id)
+2021-09-06 20:11:50.468 DEBUG 6229 --- [main] org.hibernate.SQL                        : alter table user add constraint FKnvfi57ejhb02o2r1wxnshqps6 foreign key (n_permission_id) references notification_permission (id)
+2021-09-06 20:11:50.495 DEBUG 6229 --- [main] org.hibernate.SQL                        : alter table user add constraint FKo9n8s2lqeqreroprlkrr7bj9e foreign key (u_permission_id) references user_permission (id)
+2021-09-06 20:11:50.517 DEBUG 6229 --- [main] org.hibernate.SQL                        : alter table user add constraint FK5hv52mjjufrwrx302p37tq262 foreign key (profile_id) references user_profile (id)
+2021-09-06 20:11:50.545 DEBUG 6229 --- [main] org.hibernate.SQL                        : alter table user_role add constraint FKa68196081fvovjhkek5m97n3y foreign key (role_id) references role (id)
+2021-09-06 20:11:50.563 DEBUG 6229 --- [main] org.hibernate.SQL                        : alter table user_role add constraint FK859n2jvi8ivhui0rl0esws6o foreign key (user_id) references user (id)
+2021-09-06 20:11:50.582  INFO 6229 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-06 20:11:50.594  INFO 6229 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-06 20:11:51.262  WARN 6229 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-06 20:11:53.001  INFO 6229 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@295e989, org.springframework.security.web.context.SecurityContextPersistenceFilter@457547a1, org.springframework.security.web.header.HeaderWriterFilter@6dd8ac29, org.springframework.web.filter.CorsFilter@504216ff, org.springframework.security.web.authentication.logout.LogoutFilter@4bda93f1, com.kayafirat.blog.security.JwtRequestFilter@4eee730c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@280cb0b4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5d16bb07, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4ce4c097, org.springframework.security.web.session.SessionManagementFilter@207e3ffd, org.springframework.security.web.access.ExceptionTranslationFilter@3f1dadeb, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@421c4c3e]
+2021-09-06 20:11:53.682  INFO 6229 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2021-09-06 20:11:54.842  INFO 6229 --- [main] com.kayafirat.blog.BlogApplication       : Started BlogApplication in 11.299 seconds (JVM running for 13.415)
+2021-09-06 20:11:54.902 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:12:19.047 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:12:43.608 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:13:06.086 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:13:28.991 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:13:52.105 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:14:15.093 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:14:37.571 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:15:00.676 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:15:23.497 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:15:45.997 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:16:09.035 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:16:31.702 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:16:54.271 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:17:17.489 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:17:40.065 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:18:02.601 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:18:25.258 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:18:34.840  INFO 6229 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-06 20:18:34.841  INFO 6229 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-09-06 20:18:34.842  INFO 6229 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-09-06 20:18:36.698 DEBUG 6229 --- [http-nio-8081-exec-4] org.hibernate.SQL                        : select user0_.id as id1_21_, user0_.email as email2_21_, user0_.e_permission_id as e_permis6_21_, user0_.n_permission_id as n_permis7_21_, user0_.password as password3_21_, user0_.photo as photo4_21_, user0_.u_permission_id as u_permis8_21_, user0_.profile_id as profile_9_21_, user0_.username as username5_21_ from user user0_ where user0_.username=? or user0_.email=?
+2021-09-06 20:18:36.701 TRACE 6229 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [test]
+2021-09-06 20:18:36.701 TRACE 6229 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [test]
+2021-09-06 20:18:36.710 DEBUG 6229 --- [http-nio-8081-exec-4] org.hibernate.SQL                        : select mailpermis0_.id as id1_8_0_, mailpermis0_.login_attempt as login_at2_8_0_, mailpermis0_.login_notification as login_no3_8_0_, mailpermis0_.pass_change as pass_cha4_8_0_, mailpermis0_.post_notification as post_not5_8_0_ from mail_permission mailpermis0_ where mailpermis0_.id=?
+2021-09-06 20:18:36.712 TRACE 6229 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [125]
+2021-09-06 20:18:36.719 DEBUG 6229 --- [http-nio-8081-exec-4] org.hibernate.SQL                        : select notificati0_.id as id1_12_0_, notificati0_.login_attempt as login_at2_12_0_, notificati0_.login_notification as login_no3_12_0_, notificati0_.pass_change as pass_cha4_12_0_, notificati0_.post_notification as post_not5_12_0_ from notification_permission notificati0_ where notificati0_.id=?
+2021-09-06 20:18:36.720 TRACE 6229 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [126]
+2021-09-06 20:18:36.727 DEBUG 6229 --- [http-nio-8081-exec-4] org.hibernate.SQL                        : select userpermis0_.id as id1_23_0_, userpermis0_.birthdate as birthdat2_23_0_, userpermis0_.contact as contact3_23_0_, userpermis0_.github as github4_23_0_, userpermis0_.linkedin as linkedin5_23_0_ from user_permission userpermis0_ where userpermis0_.id=?
+2021-09-06 20:18:36.729 TRACE 6229 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [127]
+2021-09-06 20:18:36.731 DEBUG 6229 --- [http-nio-8081-exec-4] org.hibernate.SQL                        : select userprofil0_.id as id1_24_0_, userprofil0_.account_status as account_2_24_0_, userprofil0_.birth_date as birth_da3_24_0_, userprofil0_.contact_address as contact_4_24_0_, userprofil0_.github_address as github_a5_24_0_, userprofil0_.linkedin_address as linkedin6_24_0_, userprofil0_.register_date as register7_24_0_ from user_profile userprofil0_ where userprofil0_.id=?
+2021-09-06 20:18:36.733 TRACE 6229 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [128]
+2021-09-06 20:18:36.737 DEBUG 6229 --- [http-nio-8081-exec-4] org.hibernate.SQL                        : select role0_.user_id as user_id1_22_0_, role0_.role_id as role_id2_22_0_, role1_.id as id1_17_1_, role1_.role as role2_17_1_ from user_role role0_ inner join role role1_ on role0_.role_id=role1_.id where role0_.user_id=?
+2021-09-06 20:18:36.739 TRACE 6229 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [124]
+2021-09-06 20:18:38.725 DEBUG 6229 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : select user0_.id as id1_21_, user0_.email as email2_21_, user0_.e_permission_id as e_permis6_21_, user0_.n_permission_id as n_permis7_21_, user0_.password as password3_21_, user0_.photo as photo4_21_, user0_.u_permission_id as u_permis8_21_, user0_.profile_id as profile_9_21_, user0_.username as username5_21_ from user user0_
+2021-09-06 20:18:38.727 DEBUG 6229 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : select mailpermis0_.id as id1_8_0_, mailpermis0_.login_attempt as login_at2_8_0_, mailpermis0_.login_notification as login_no3_8_0_, mailpermis0_.pass_change as pass_cha4_8_0_, mailpermis0_.post_notification as post_not5_8_0_ from mail_permission mailpermis0_ where mailpermis0_.id=?
+2021-09-06 20:18:38.728 TRACE 6229 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [53]
+2021-09-06 20:18:38.729 DEBUG 6229 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : select notificati0_.id as id1_12_0_, notificati0_.login_attempt as login_at2_12_0_, notificati0_.login_notification as login_no3_12_0_, notificati0_.pass_change as pass_cha4_12_0_, notificati0_.post_notification as post_not5_12_0_ from notification_permission notificati0_ where notificati0_.id=?
+2021-09-06 20:18:38.729 TRACE 6229 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [54]
+2021-09-06 20:18:38.730 DEBUG 6229 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : select userpermis0_.id as id1_23_0_, userpermis0_.birthdate as birthdat2_23_0_, userpermis0_.contact as contact3_23_0_, userpermis0_.github as github4_23_0_, userpermis0_.linkedin as linkedin5_23_0_ from user_permission userpermis0_ where userpermis0_.id=?
+2021-09-06 20:18:38.730 TRACE 6229 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [55]
+2021-09-06 20:18:38.731 DEBUG 6229 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : select userprofil0_.id as id1_24_0_, userprofil0_.account_status as account_2_24_0_, userprofil0_.birth_date as birth_da3_24_0_, userprofil0_.contact_address as contact_4_24_0_, userprofil0_.github_address as github_a5_24_0_, userprofil0_.linkedin_address as linkedin6_24_0_, userprofil0_.register_date as register7_24_0_ from user_profile userprofil0_ where userprofil0_.id=?
+2021-09-06 20:18:38.731 TRACE 6229 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [56]
+2021-09-06 20:18:38.732 DEBUG 6229 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : select mailpermis0_.id as id1_8_0_, mailpermis0_.login_attempt as login_at2_8_0_, mailpermis0_.login_notification as login_no3_8_0_, mailpermis0_.pass_change as pass_cha4_8_0_, mailpermis0_.post_notification as post_not5_8_0_ from mail_permission mailpermis0_ where mailpermis0_.id=?
+2021-09-06 20:18:38.732 TRACE 6229 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [107]
+2021-09-06 20:18:38.733 DEBUG 6229 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : select notificati0_.id as id1_12_0_, notificati0_.login_attempt as login_at2_12_0_, notificati0_.login_notification as login_no3_12_0_, notificati0_.pass_change as pass_cha4_12_0_, notificati0_.post_notification as post_not5_12_0_ from notification_permission notificati0_ where notificati0_.id=?
+2021-09-06 20:18:38.733 TRACE 6229 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [108]
+2021-09-06 20:18:38.734 DEBUG 6229 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : select userpermis0_.id as id1_23_0_, userpermis0_.birthdate as birthdat2_23_0_, userpermis0_.contact as contact3_23_0_, userpermis0_.github as github4_23_0_, userpermis0_.linkedin as linkedin5_23_0_ from user_permission userpermis0_ where userpermis0_.id=?
+2021-09-06 20:18:38.735 TRACE 6229 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [109]
+2021-09-06 20:18:38.736 DEBUG 6229 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : select userprofil0_.id as id1_24_0_, userprofil0_.account_status as account_2_24_0_, userprofil0_.birth_date as birth_da3_24_0_, userprofil0_.contact_address as contact_4_24_0_, userprofil0_.github_address as github_a5_24_0_, userprofil0_.linkedin_address as linkedin6_24_0_, userprofil0_.register_date as register7_24_0_ from user_profile userprofil0_ where userprofil0_.id=?
+2021-09-06 20:18:38.736 TRACE 6229 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [110]
+2021-09-06 20:18:38.738 DEBUG 6229 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : select mailpermis0_.id as id1_8_0_, mailpermis0_.login_attempt as login_at2_8_0_, mailpermis0_.login_notification as login_no3_8_0_, mailpermis0_.pass_change as pass_cha4_8_0_, mailpermis0_.post_notification as post_not5_8_0_ from mail_permission mailpermis0_ where mailpermis0_.id=?
+2021-09-06 20:18:38.738 TRACE 6229 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [125]
+2021-09-06 20:18:38.739 DEBUG 6229 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : select notificati0_.id as id1_12_0_, notificati0_.login_attempt as login_at2_12_0_, notificati0_.login_notification as login_no3_12_0_, notificati0_.pass_change as pass_cha4_12_0_, notificati0_.post_notification as post_not5_12_0_ from notification_permission notificati0_ where notificati0_.id=?
+2021-09-06 20:18:38.739 TRACE 6229 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [126]
+2021-09-06 20:18:38.741 DEBUG 6229 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : select userpermis0_.id as id1_23_0_, userpermis0_.birthdate as birthdat2_23_0_, userpermis0_.contact as contact3_23_0_, userpermis0_.github as github4_23_0_, userpermis0_.linkedin as linkedin5_23_0_ from user_permission userpermis0_ where userpermis0_.id=?
+2021-09-06 20:18:38.741 TRACE 6229 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [127]
+2021-09-06 20:18:38.742 DEBUG 6229 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : select userprofil0_.id as id1_24_0_, userprofil0_.account_status as account_2_24_0_, userprofil0_.birth_date as birth_da3_24_0_, userprofil0_.contact_address as contact_4_24_0_, userprofil0_.github_address as github_a5_24_0_, userprofil0_.linkedin_address as linkedin6_24_0_, userprofil0_.register_date as register7_24_0_ from user_profile userprofil0_ where userprofil0_.id=?
+2021-09-06 20:18:38.742 TRACE 6229 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [128]
+2021-09-06 20:18:38.748 DEBUG 6229 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : select role0_.user_id as user_id1_22_1_, role0_.role_id as role_id2_22_1_, role1_.id as id1_17_0_, role1_.role as role2_17_0_ from user_role role0_ inner join role role1_ on role0_.role_id=role1_.id where role0_.user_id in (select user0_.id from user user0_)
+2021-09-06 20:18:42.157 DEBUG 6229 --- [http-nio-8081-exec-6] org.hibernate.SQL                        : SELECT id,title from post
+2021-09-06 20:18:42.158 DEBUG 6229 --- [http-nio-8081-exec-7] org.hibernate.SQL                        : SELECT id as categoryId, name as categoryName,color as categoryColor, text_color as categoryTextColor from category
+2021-09-06 20:18:43.515 DEBUG 6229 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : select post0_.id as id1_13_, post0_.created_date as created_2_13_, post0_.header as header3_13_, post0_.is_hide as is_hide4_13_, post0_.title as title5_13_, post0_.updated_date as updated_6_13_, post0_.view as view7_13_ from post post0_
+2021-09-06 20:18:43.519 DEBUG 6229 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : select category0_.post_id as post_id1_14_1_, category0_.category_id as category2_14_1_, category1_.id as id1_0_0_, category1_.color as color2_0_0_, category1_.name as name3_0_0_, category1_.text_color as text_col4_0_0_ from post_category category0_ inner join category category1_ on category0_.category_id=category1_.id where category0_.post_id in (select post0_.id from post post0_)
+2021-09-06 20:18:43.529 DEBUG 6229 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : select count(comment0_.id) as col_0_0_ from comment comment0_ where comment0_.post_id=?
+2021-09-06 20:18:43.532 TRACE 6229 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [6]
+2021-09-06 20:18:43.533 DEBUG 6229 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : select count(comment0_.id) as col_0_0_ from comment comment0_ where comment0_.post_id=?
+2021-09-06 20:18:43.534 TRACE 6229 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [69]
+2021-09-06 20:18:43.535 DEBUG 6229 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : select count(comment0_.id) as col_0_0_ from comment comment0_ where comment0_.post_id=?
+2021-09-06 20:18:43.535 TRACE 6229 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [75]
+2021-09-06 20:18:43.537 DEBUG 6229 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : select count(comment0_.id) as col_0_0_ from comment comment0_ where comment0_.post_id=?
+2021-09-06 20:18:43.537 TRACE 6229 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [81]
+2021-09-06 20:18:43.538 DEBUG 6229 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : select count(comment0_.id) as col_0_0_ from comment comment0_ where comment0_.post_id=?
+2021-09-06 20:18:43.538 TRACE 6229 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [87]
+2021-09-06 20:18:43.539 DEBUG 6229 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : select count(comment0_.id) as col_0_0_ from comment comment0_ where comment0_.post_id=?
+2021-09-06 20:18:43.540 TRACE 6229 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [93]
+2021-09-06 20:18:43.541 DEBUG 6229 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : select count(comment0_.id) as col_0_0_ from comment comment0_ where comment0_.post_id=?
+2021-09-06 20:18:43.541 TRACE 6229 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [99]
+2021-09-06 20:18:43.542 DEBUG 6229 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : select count(comment0_.id) as col_0_0_ from comment comment0_ where comment0_.post_id=?
+2021-09-06 20:18:43.542 TRACE 6229 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [105]
+2021-09-06 20:18:47.508 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:19:10.897 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:19:33.339 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:19:55.770 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:20:17.966 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:20:41.138 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:21:04.017 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:21:26.703 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:21:49.503 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:22:11.693 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:22:34.109 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:22:56.678 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:23:19.463 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:23:41.893 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:24:04.492 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:24:26.856 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:24:49.680 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:25:11.982 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:25:34.446 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:25:56.877 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:26:19.421 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:26:42.441 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:27:04.765 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:27:27.521 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:27:49.883 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:28:13.599 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:28:36.058 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:28:58.461 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:29:21.231 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:29:43.841 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:30:06.191 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:30:28.601 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:30:51.370 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:31:14.096 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:31:37.457 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:31:48.580 DEBUG 6229 --- [http-nio-8081-exec-2] org.hibernate.SQL                        : select comment0_.id as id1_1_, comment0_.body as body2_1_, comment0_.created_date as created_3_1_, comment0_.is_delete as is_delet4_1_, comment0_.is_hide as is_hide5_1_, comment0_.post_id as post_id6_1_, comment0_.update_date as update_d7_1_, comment0_.user_id as user_id8_1_ from comment comment0_ order by comment0_.id asc limit ?
+2021-09-06 20:31:48.603 DEBUG 6229 --- [http-nio-8081-exec-4] org.hibernate.SQL                        : select comment0_.id as id1_1_, comment0_.body as body2_1_, comment0_.created_date as created_3_1_, comment0_.is_delete as is_delet4_1_, comment0_.is_hide as is_hide5_1_, comment0_.post_id as post_id6_1_, comment0_.update_date as update_d7_1_, comment0_.user_id as user_id8_1_ from comment comment0_ order by comment0_.id asc limit ?
+2021-09-06 20:31:50.230 DEBUG 6229 --- [http-nio-8081-exec-3] org.hibernate.SQL                        : select user0_.id as id1_21_, user0_.email as email2_21_, user0_.e_permission_id as e_permis6_21_, user0_.n_permission_id as n_permis7_21_, user0_.password as password3_21_, user0_.photo as photo4_21_, user0_.u_permission_id as u_permis8_21_, user0_.profile_id as profile_9_21_, user0_.username as username5_21_ from user user0_
+2021-09-06 20:31:50.231 DEBUG 6229 --- [http-nio-8081-exec-3] org.hibernate.SQL                        : select mailpermis0_.id as id1_8_0_, mailpermis0_.login_attempt as login_at2_8_0_, mailpermis0_.login_notification as login_no3_8_0_, mailpermis0_.pass_change as pass_cha4_8_0_, mailpermis0_.post_notification as post_not5_8_0_ from mail_permission mailpermis0_ where mailpermis0_.id=?
+2021-09-06 20:31:50.231 TRACE 6229 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [53]
+2021-09-06 20:31:50.232 DEBUG 6229 --- [http-nio-8081-exec-3] org.hibernate.SQL                        : select notificati0_.id as id1_12_0_, notificati0_.login_attempt as login_at2_12_0_, notificati0_.login_notification as login_no3_12_0_, notificati0_.pass_change as pass_cha4_12_0_, notificati0_.post_notification as post_not5_12_0_ from notification_permission notificati0_ where notificati0_.id=?
+2021-09-06 20:31:50.232 TRACE 6229 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [54]
+2021-09-06 20:31:50.233 DEBUG 6229 --- [http-nio-8081-exec-3] org.hibernate.SQL                        : select userpermis0_.id as id1_23_0_, userpermis0_.birthdate as birthdat2_23_0_, userpermis0_.contact as contact3_23_0_, userpermis0_.github as github4_23_0_, userpermis0_.linkedin as linkedin5_23_0_ from user_permission userpermis0_ where userpermis0_.id=?
+2021-09-06 20:31:50.233 TRACE 6229 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [55]
+2021-09-06 20:31:50.234 DEBUG 6229 --- [http-nio-8081-exec-3] org.hibernate.SQL                        : select userprofil0_.id as id1_24_0_, userprofil0_.account_status as account_2_24_0_, userprofil0_.birth_date as birth_da3_24_0_, userprofil0_.contact_address as contact_4_24_0_, userprofil0_.github_address as github_a5_24_0_, userprofil0_.linkedin_address as linkedin6_24_0_, userprofil0_.register_date as register7_24_0_ from user_profile userprofil0_ where userprofil0_.id=?
+2021-09-06 20:31:50.234 TRACE 6229 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [56]
+2021-09-06 20:31:50.235 DEBUG 6229 --- [http-nio-8081-exec-3] org.hibernate.SQL                        : select mailpermis0_.id as id1_8_0_, mailpermis0_.login_attempt as login_at2_8_0_, mailpermis0_.login_notification as login_no3_8_0_, mailpermis0_.pass_change as pass_cha4_8_0_, mailpermis0_.post_notification as post_not5_8_0_ from mail_permission mailpermis0_ where mailpermis0_.id=?
+2021-09-06 20:31:50.235 TRACE 6229 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [107]
+2021-09-06 20:31:50.236 DEBUG 6229 --- [http-nio-8081-exec-3] org.hibernate.SQL                        : select notificati0_.id as id1_12_0_, notificati0_.login_attempt as login_at2_12_0_, notificati0_.login_notification as login_no3_12_0_, notificati0_.pass_change as pass_cha4_12_0_, notificati0_.post_notification as post_not5_12_0_ from notification_permission notificati0_ where notificati0_.id=?
+2021-09-06 20:31:50.236 TRACE 6229 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [108]
+2021-09-06 20:31:50.237 DEBUG 6229 --- [http-nio-8081-exec-3] org.hibernate.SQL                        : select userpermis0_.id as id1_23_0_, userpermis0_.birthdate as birthdat2_23_0_, userpermis0_.contact as contact3_23_0_, userpermis0_.github as github4_23_0_, userpermis0_.linkedin as linkedin5_23_0_ from user_permission userpermis0_ where userpermis0_.id=?
+2021-09-06 20:31:50.237 TRACE 6229 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [109]
+2021-09-06 20:31:50.238 DEBUG 6229 --- [http-nio-8081-exec-3] org.hibernate.SQL                        : select userprofil0_.id as id1_24_0_, userprofil0_.account_status as account_2_24_0_, userprofil0_.birth_date as birth_da3_24_0_, userprofil0_.contact_address as contact_4_24_0_, userprofil0_.github_address as github_a5_24_0_, userprofil0_.linkedin_address as linkedin6_24_0_, userprofil0_.register_date as register7_24_0_ from user_profile userprofil0_ where userprofil0_.id=?
+2021-09-06 20:31:50.238 TRACE 6229 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [110]
+2021-09-06 20:31:50.239 DEBUG 6229 --- [http-nio-8081-exec-3] org.hibernate.SQL                        : select mailpermis0_.id as id1_8_0_, mailpermis0_.login_attempt as login_at2_8_0_, mailpermis0_.login_notification as login_no3_8_0_, mailpermis0_.pass_change as pass_cha4_8_0_, mailpermis0_.post_notification as post_not5_8_0_ from mail_permission mailpermis0_ where mailpermis0_.id=?
+2021-09-06 20:31:50.239 TRACE 6229 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [125]
+2021-09-06 20:31:50.240 DEBUG 6229 --- [http-nio-8081-exec-3] org.hibernate.SQL                        : select notificati0_.id as id1_12_0_, notificati0_.login_attempt as login_at2_12_0_, notificati0_.login_notification as login_no3_12_0_, notificati0_.pass_change as pass_cha4_12_0_, notificati0_.post_notification as post_not5_12_0_ from notification_permission notificati0_ where notificati0_.id=?
+2021-09-06 20:31:50.240 TRACE 6229 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [126]
+2021-09-06 20:31:50.241 DEBUG 6229 --- [http-nio-8081-exec-3] org.hibernate.SQL                        : select userpermis0_.id as id1_23_0_, userpermis0_.birthdate as birthdat2_23_0_, userpermis0_.contact as contact3_23_0_, userpermis0_.github as github4_23_0_, userpermis0_.linkedin as linkedin5_23_0_ from user_permission userpermis0_ where userpermis0_.id=?
+2021-09-06 20:31:50.241 TRACE 6229 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [127]
+2021-09-06 20:31:50.242 DEBUG 6229 --- [http-nio-8081-exec-3] org.hibernate.SQL                        : select userprofil0_.id as id1_24_0_, userprofil0_.account_status as account_2_24_0_, userprofil0_.birth_date as birth_da3_24_0_, userprofil0_.contact_address as contact_4_24_0_, userprofil0_.github_address as github_a5_24_0_, userprofil0_.linkedin_address as linkedin6_24_0_, userprofil0_.register_date as register7_24_0_ from user_profile userprofil0_ where userprofil0_.id=?
+2021-09-06 20:31:50.242 TRACE 6229 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [128]
+2021-09-06 20:31:50.243 DEBUG 6229 --- [http-nio-8081-exec-3] org.hibernate.SQL                        : select role0_.user_id as user_id1_22_1_, role0_.role_id as role_id2_22_1_, role1_.id as id1_17_0_, role1_.role as role2_17_0_ from user_role role0_ inner join role role1_ on role0_.role_id=role1_.id where role0_.user_id in (select user0_.id from user user0_)
+2021-09-06 20:31:51.397 DEBUG 6229 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : select comment0_.id as id1_1_, comment0_.body as body2_1_, comment0_.created_date as created_3_1_, comment0_.is_delete as is_delet4_1_, comment0_.is_hide as is_hide5_1_, comment0_.post_id as post_id6_1_, comment0_.update_date as update_d7_1_, comment0_.user_id as user_id8_1_ from comment comment0_ order by comment0_.id asc limit ?
+2021-09-06 20:31:51.409 DEBUG 6229 --- [http-nio-8081-exec-7] org.hibernate.SQL                        : select comment0_.id as id1_1_, comment0_.body as body2_1_, comment0_.created_date as created_3_1_, comment0_.is_delete as is_delet4_1_, comment0_.is_hide as is_hide5_1_, comment0_.post_id as post_id6_1_, comment0_.update_date as update_d7_1_, comment0_.user_id as user_id8_1_ from comment comment0_ order by comment0_.id asc limit ?
+2021-09-06 20:32:00.509 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:32:22.876 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:32:45.548 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:33:08.122 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:33:30.537 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:33:53.064 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:34:15.704 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:34:37.956 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:35:00.704 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:35:23.014 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:35:45.520 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:36:07.749 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:36:30.245 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:36:52.801 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:37:15.218 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:37:37.876 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:38:01.002 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:38:23.039 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:38:45.521 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:39:08.471 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:39:30.782 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:39:53.227 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:40:15.630 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:40:38.450 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:41:00.829 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:41:23.097 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:41:45.380 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:42:08.568 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:42:31.132 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:42:53.373 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:43:16.845 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:43:39.470 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:44:01.621 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:44:24.155 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:44:46.536 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:45:10.112 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:45:32.344 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:45:55.148 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:46:17.473 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:46:40.036 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:47:02.386 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:47:25.512 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:47:47.863 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:48:10.299 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:48:33.387 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:48:55.841 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:49:18.230 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:49:40.596 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:50:03.055 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:50:25.781 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:50:48.054 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:50:51.313 DEBUG 6229 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : select post0_.id as id1_13_, post0_.created_date as created_2_13_, post0_.header as header3_13_, post0_.is_hide as is_hide4_13_, post0_.title as title5_13_, post0_.updated_date as updated_6_13_, post0_.view as view7_13_ from post post0_
+2021-09-06 20:50:51.318 DEBUG 6229 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : select category0_.post_id as post_id1_14_1_, category0_.category_id as category2_14_1_, category1_.id as id1_0_0_, category1_.color as color2_0_0_, category1_.name as name3_0_0_, category1_.text_color as text_col4_0_0_ from post_category category0_ inner join category category1_ on category0_.category_id=category1_.id where category0_.post_id in (select post0_.id from post post0_)
+2021-09-06 20:50:51.321 DEBUG 6229 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : select count(comment0_.id) as col_0_0_ from comment comment0_ where comment0_.post_id=?
+2021-09-06 20:50:51.322 TRACE 6229 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [6]
+2021-09-06 20:50:51.323 DEBUG 6229 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : select count(comment0_.id) as col_0_0_ from comment comment0_ where comment0_.post_id=?
+2021-09-06 20:50:51.323 TRACE 6229 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [69]
+2021-09-06 20:50:51.324 DEBUG 6229 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : select count(comment0_.id) as col_0_0_ from comment comment0_ where comment0_.post_id=?
+2021-09-06 20:50:51.324 TRACE 6229 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [75]
+2021-09-06 20:50:51.325 DEBUG 6229 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : select count(comment0_.id) as col_0_0_ from comment comment0_ where comment0_.post_id=?
+2021-09-06 20:50:51.325 TRACE 6229 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [81]
+2021-09-06 20:50:51.326 DEBUG 6229 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : select count(comment0_.id) as col_0_0_ from comment comment0_ where comment0_.post_id=?
+2021-09-06 20:50:51.326 TRACE 6229 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [87]
+2021-09-06 20:50:51.327 DEBUG 6229 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : select count(comment0_.id) as col_0_0_ from comment comment0_ where comment0_.post_id=?
+2021-09-06 20:50:51.328 TRACE 6229 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [93]
+2021-09-06 20:50:51.329 DEBUG 6229 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : select count(comment0_.id) as col_0_0_ from comment comment0_ where comment0_.post_id=?
+2021-09-06 20:50:51.329 TRACE 6229 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [99]
+2021-09-06 20:50:51.330 DEBUG 6229 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : select count(comment0_.id) as col_0_0_ from comment comment0_ where comment0_.post_id=?
+2021-09-06 20:50:51.330 TRACE 6229 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [105]
+2021-09-06 20:51:10.701 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:51:32.944 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:51:55.084 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:52:13.490 DEBUG 6229 --- [http-nio-8081-exec-1] org.hibernate.SQL                        : SELECT id,title from post
+2021-09-06 20:52:13.490 DEBUG 6229 --- [http-nio-8081-exec-2] org.hibernate.SQL                        : SELECT id as categoryId, name as categoryName,color as categoryColor, text_color as categoryTextColor from category
+2021-09-06 20:52:16.346 DEBUG 6229 --- [http-nio-8081-exec-4] org.hibernate.SQL                        : select comment0_.id as id1_1_, comment0_.body as body2_1_, comment0_.created_date as created_3_1_, comment0_.is_delete as is_delet4_1_, comment0_.is_hide as is_hide5_1_, comment0_.post_id as post_id6_1_, comment0_.update_date as update_d7_1_, comment0_.user_id as user_id8_1_ from comment comment0_ order by comment0_.id asc limit ?
+2021-09-06 20:52:16.359 DEBUG 6229 --- [http-nio-8081-exec-3] org.hibernate.SQL                        : select comment0_.id as id1_1_, comment0_.body as body2_1_, comment0_.created_date as created_3_1_, comment0_.is_delete as is_delet4_1_, comment0_.is_hide as is_hide5_1_, comment0_.post_id as post_id6_1_, comment0_.update_date as update_d7_1_, comment0_.user_id as user_id8_1_ from comment comment0_ order by comment0_.id asc limit ?
+2021-09-06 20:52:17.621 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:52:40.586 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:52:49.232 DEBUG 6229 --- [http-nio-8081-exec-1] org.hibernate.SQL                        : select comment0_.id as id1_1_, comment0_.body as body2_1_, comment0_.created_date as created_3_1_, comment0_.is_delete as is_delet4_1_, comment0_.is_hide as is_hide5_1_, comment0_.post_id as post_id6_1_, comment0_.update_date as update_d7_1_, comment0_.user_id as user_id8_1_ from comment comment0_ order by comment0_.id asc limit ?
+2021-09-06 20:53:03.110 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:53:25.408 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:53:47.773 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:53:54.461 DEBUG 6229 --- [http-nio-8081-exec-6] org.hibernate.SQL                        : select comment0_.id as id1_1_, comment0_.body as body2_1_, comment0_.created_date as created_3_1_, comment0_.is_delete as is_delet4_1_, comment0_.is_hide as is_hide5_1_, comment0_.post_id as post_id6_1_, comment0_.update_date as update_d7_1_, comment0_.user_id as user_id8_1_ from comment comment0_ order by comment0_.id asc limit ?
+2021-09-06 20:53:54.465 DEBUG 6229 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : select comment0_.id as id1_1_, comment0_.body as body2_1_, comment0_.created_date as created_3_1_, comment0_.is_delete as is_delet4_1_, comment0_.is_hide as is_hide5_1_, comment0_.post_id as post_id6_1_, comment0_.update_date as update_d7_1_, comment0_.user_id as user_id8_1_ from comment comment0_ order by comment0_.id asc limit ?
+2021-09-06 20:54:10.264 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:54:32.728 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:54:55.825 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:55:18.232 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:55:41.163 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:56:03.763 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:56:26.013 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:56:48.287 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:57:10.742 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:57:33.109 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:58:07.866 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:58:30.618 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:58:53.298 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:59:16.303 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 20:59:38.871 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:00:01.440 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:00:23.783 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:00:46.892 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:01:09.330 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:01:32.370 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:01:55.089 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:02:17.788 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:02:40.180 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:03:03.312 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:03:25.533 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:03:48.155 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:04:10.461 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:04:33.233 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:04:55.304 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:05:17.910 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:05:40.322 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:06:02.789 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:06:25.037 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:06:47.618 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:07:10.132 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:07:32.527 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:07:54.934 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:08:17.426 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:08:40.177 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:09:02.801 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:09:25.560 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:09:47.796 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:10:10.159 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:10:32.646 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:10:55.266 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:11:12.285 DEBUG 6229 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : select comment0_.id as id1_1_, comment0_.body as body2_1_, comment0_.created_date as created_3_1_, comment0_.is_delete as is_delet4_1_, comment0_.is_hide as is_hide5_1_, comment0_.post_id as post_id6_1_, comment0_.update_date as update_d7_1_, comment0_.user_id as user_id8_1_ from comment comment0_ order by comment0_.id asc limit ?
+2021-09-06 21:11:12.288 DEBUG 6229 --- [http-nio-8081-exec-2] org.hibernate.SQL                        : select comment0_.id as id1_1_, comment0_.body as body2_1_, comment0_.created_date as created_3_1_, comment0_.is_delete as is_delet4_1_, comment0_.is_hide as is_hide5_1_, comment0_.post_id as post_id6_1_, comment0_.update_date as update_d7_1_, comment0_.user_id as user_id8_1_ from comment comment0_ order by comment0_.id asc limit ?
+2021-09-06 21:11:17.971 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:11:33.226 DEBUG 6229 --- [http-nio-8081-exec-7] org.hibernate.SQL                        : select comment0_.id as id1_1_, comment0_.body as body2_1_, comment0_.created_date as created_3_1_, comment0_.is_delete as is_delet4_1_, comment0_.is_hide as is_hide5_1_, comment0_.post_id as post_id6_1_, comment0_.update_date as update_d7_1_, comment0_.user_id as user_id8_1_ from comment comment0_ order by comment0_.id asc limit ?
+2021-09-06 21:11:40.239 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:12:02.272 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:12:25.174 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:12:47.429 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:13:10.226 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:13:32.378 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:13:54.855 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:14:17.527 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:14:40.133 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:15:02.688 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:15:24.949 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:15:47.261 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:16:09.897 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:16:32.323 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:16:54.954 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:17:17.423 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:17:39.656 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:18:02.183 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:18:24.340 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:18:48.412 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:19:10.691 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:19:33.004 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:19:55.347 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:20:17.682 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:20:40.391 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:21:04.327 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:21:28.556 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:21:50.888 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:22:14.249 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:22:36.750 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:22:59.120 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:23:21.453 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:23:44.057 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:24:06.316 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:24:28.537 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:24:51.047 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:25:13.560 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:25:36.127 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:25:58.513 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:26:21.169 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:26:43.586 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:27:05.865 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:27:28.557 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:27:51.030 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:28:13.485 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:28:35.709 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:28:58.148 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:29:20.560 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:29:42.802 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:30:04.939 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:30:27.509 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:30:49.749 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:31:11.831 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:31:34.214 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:31:56.301 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:32:18.822 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:32:40.931 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:33:03.137 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:33:25.398 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:33:47.906 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:34:10.653 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:34:33.034 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:34:55.489 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:35:17.707 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:35:40.126 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:36:02.597 DEBUG 6229 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:36:12.638  INFO 6229 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-09-06 21:36:12.640  INFO 6229 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : SpringBootJPAHikariCP - Shutdown initiated...
+2021-09-06 21:36:12.642  INFO 6229 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : SpringBootJPAHikariCP - Shutdown completed.
+2021-09-06 21:36:20.500  INFO 10315 --- [main] com.kayafirat.blog.BlogApplication       : Starting BlogApplication using Java 16.0.1 on kayaS70A with PID 10315 (/home/kaya/Desktop/blog.kayafirat.com/blog-server/build/classes/java/main started by kaya in /home/kaya/Desktop/blog.kayafirat.com/blog-server)
+2021-09-06 21:36:20.505  INFO 10315 --- [main] com.kayafirat.blog.BlogApplication       : The following profiles are active: dev
+2021-09-06 21:36:21.880  INFO 10315 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-09-06 21:36:21.880  INFO 10315 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-06 21:36:22.017  INFO 10315 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 128 ms. Found 12 JPA repository interfaces.
+2021-09-06 21:36:22.038  INFO 10315 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-09-06 21:36:22.039  INFO 10315 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-09-06 21:36:22.060  INFO 10315 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.kayafirat.blog.repository.CategoryRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-09-06 21:36:22.061  INFO 10315 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.kayafirat.blog.repository.CommentRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-09-06 21:36:22.062  INFO 10315 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.kayafirat.blog.repository.ContactRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-09-06 21:36:22.063  INFO 10315 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.kayafirat.blog.repository.FileRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-09-06 21:36:22.064  INFO 10315 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.kayafirat.blog.repository.ImageRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-09-06 21:36:22.065  INFO 10315 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.kayafirat.blog.repository.MailRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-09-06 21:36:22.066  INFO 10315 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.kayafirat.blog.repository.NotificationRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-09-06 21:36:22.067  INFO 10315 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.kayafirat.blog.repository.PostDetailRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-09-06 21:36:22.067  INFO 10315 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.kayafirat.blog.repository.PostRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-09-06 21:36:22.068  INFO 10315 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.kayafirat.blog.repository.ReportRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-09-06 21:36:22.069  INFO 10315 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.kayafirat.blog.repository.SecurityRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-09-06 21:36:22.069  INFO 10315 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.kayafirat.blog.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-09-06 21:36:22.070  INFO 10315 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 0 Redis repository interfaces.
+2021-09-06 21:36:22.791  INFO 10315 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2a8b33ba' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-09-06 21:36:22.802  INFO 10315 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-09-06 21:36:23.229  INFO 10315 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-09-06 21:36:23.241  INFO 10315 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-09-06 21:36:23.241  INFO 10315 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.48]
+2021-09-06 21:36:23.345  INFO 10315 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-09-06 21:36:23.346  INFO 10315 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2754 ms
+2021-09-06 21:36:23.515 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : Driver class com.mysql.cj.jdbc.Driver found in Thread context class loader TomcatEmbeddedWebappClassLoader
+  context: ROOT
+  delegate: true
+----------> Parent Classloader:
+jdk.internal.loader.ClassLoaders$AppClassLoader@251a69d7
+
+2021-09-06 21:36:23.547 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : SpringBootJPAHikariCP - configuration:
+2021-09-06 21:36:23.550 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : allowPoolSuspension................................false
+2021-09-06 21:36:23.550 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : autoCommit................................true
+2021-09-06 21:36:23.550 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : catalog................................none
+2021-09-06 21:36:23.551 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : connectionInitSql................................none
+2021-09-06 21:36:23.551 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : connectionTestQuery................................none
+2021-09-06 21:36:23.551 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : connectionTimeout................................30000
+2021-09-06 21:36:23.551 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : dataSource................................none
+2021-09-06 21:36:23.552 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : dataSourceClassName................................none
+2021-09-06 21:36:23.552 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : dataSourceJNDI................................none
+2021-09-06 21:36:23.552 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : dataSourceProperties................................{maintainTimeStats=false, password=<masked>, rewriteBatchedStatements=true, prepStmtCacheSqlLimit=2048, elideSetAutoCommits=true, cacheResultSetMetadata=true, cachePrepStmts=true, prepStmtCacheSize=250, useServerPrepStmts=true, useLocalSessionState=true, cacheServerConfiguration=true}
+2021-09-06 21:36:23.553 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : driverClassName................................"com.mysql.cj.jdbc.Driver"
+2021-09-06 21:36:23.553 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : exceptionOverrideClassName................................none
+2021-09-06 21:36:23.554 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : healthCheckProperties................................{}
+2021-09-06 21:36:23.554 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : healthCheckRegistry................................none
+2021-09-06 21:36:23.554 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : idleTimeout................................30000
+2021-09-06 21:36:23.554 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : initializationFailTimeout................................1
+2021-09-06 21:36:23.555 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : isolateInternalQueries................................false
+2021-09-06 21:36:23.555 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : jdbcUrl................................jdbc:mysql://127.0.0.1/blog?useUnicode=yes&characterEncoding=UTF-8&serverTimezone=UTC
+2021-09-06 21:36:23.555 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : keepaliveTime................................0
+2021-09-06 21:36:23.556 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : leakDetectionThreshold................................0
+2021-09-06 21:36:23.556 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : maxLifetime................................2000000
+2021-09-06 21:36:23.556 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : maximumPoolSize................................20
+2021-09-06 21:36:23.556 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : metricRegistry................................none
+2021-09-06 21:36:23.556 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : metricsTrackerFactory................................none
+2021-09-06 21:36:23.557 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : minimumIdle................................5
+2021-09-06 21:36:23.557 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : password................................<masked>
+2021-09-06 21:36:23.558 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : poolName................................"SpringBootJPAHikariCP"
+2021-09-06 21:36:23.558 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : readOnly................................false
+2021-09-06 21:36:23.559 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : registerMbeans................................false
+2021-09-06 21:36:23.559 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : scheduledExecutor................................none
+2021-09-06 21:36:23.559 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : schema................................none
+2021-09-06 21:36:23.560 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : threadFactory................................internal
+2021-09-06 21:36:23.560 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : transactionIsolation................................default
+2021-09-06 21:36:23.560 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : username................................"root"
+2021-09-06 21:36:23.560 DEBUG 10315 --- [main] com.zaxxer.hikari.HikariConfig           : validationTimeout................................5000
+2021-09-06 21:36:23.562  INFO 10315 --- [main] com.zaxxer.hikari.HikariDataSource       : SpringBootJPAHikariCP - Starting...
+2021-09-06 21:36:23.972  INFO 10315 --- [main] com.zaxxer.hikari.HikariDataSource       : SpringBootJPAHikariCP - Start completed.
+2021-09-06 21:36:24.104  INFO 10315 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-06 21:36:24.166  INFO 10315 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-06 21:36:24.317  INFO 10315 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-06 21:36:24.476  INFO 10315 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-09-06 21:36:25.778 DEBUG 10315 --- [main] org.hibernate.SQL                        : alter table comment_vote add constraint FKsuhgx7catnt6chnndede0wmpr foreign key (comment_id) references comment (id)
+2021-09-06 21:36:25.807 DEBUG 10315 --- [main] org.hibernate.SQL                        : alter table meta add constraint FKsp1xynrl08sog1xkajv25ijmp foreign key (facebook_id) references facebookseo (id)
+2021-09-06 21:36:25.827 DEBUG 10315 --- [main] org.hibernate.SQL                        : alter table meta add constraint FKh9yovlps1wx1lhy532mfk49rk foreign key (google_id) references googleseo (id)
+2021-09-06 21:36:25.848 DEBUG 10315 --- [main] org.hibernate.SQL                        : alter table meta add constraint FK559p9h3cd2dmflxot8yamk2sb foreign key (twitter_id) references twitterseo (id)
+2021-09-06 21:36:25.887 DEBUG 10315 --- [main] org.hibernate.SQL                        : alter table notification add constraint FKb0yvoep4h4k92ipon31wmdf7e foreign key (user_id) references user (id)
+2021-09-06 21:36:25.913 DEBUG 10315 --- [main] org.hibernate.SQL                        : alter table post_category add constraint FKqly0d5oc4npxdig2fjfoshhxg foreign key (category_id) references category (id)
+2021-09-06 21:36:25.929 DEBUG 10315 --- [main] org.hibernate.SQL                        : alter table post_category add constraint FKqr4dx4cx1lh4jfjchabytcakl foreign key (post_id) references post (id)
+2021-09-06 21:36:25.951 DEBUG 10315 --- [main] org.hibernate.SQL                        : alter table post_detail add constraint FK6gul3h2hkuo40keptu3tlp7vd foreign key (meta_id) references meta (id)
+2021-09-06 21:36:25.970 DEBUG 10315 --- [main] org.hibernate.SQL                        : alter table post_detail add constraint FK46mm0e5earch2ws3ffhl533aa foreign key (post_id) references post (id)
+2021-09-06 21:36:25.995 DEBUG 10315 --- [main] org.hibernate.SQL                        : alter table security_role add constraint FKgh1bm3y975hxilb8lpkpsylvu foreign key (role_id) references role (id)
+2021-09-06 21:36:26.013 DEBUG 10315 --- [main] org.hibernate.SQL                        : alter table security_role add constraint FKoe6ux7pqmsnuxghxpichf2s68 foreign key (security_id) references security (id)
+2021-09-06 21:36:26.036 DEBUG 10315 --- [main] org.hibernate.SQL                        : alter table user add constraint FKs4304uoya22tdl9o1pmfj4ge7 foreign key (e_permission_id) references mail_permission (id)
+2021-09-06 21:36:26.059 DEBUG 10315 --- [main] org.hibernate.SQL                        : alter table user add constraint FKnvfi57ejhb02o2r1wxnshqps6 foreign key (n_permission_id) references notification_permission (id)
+2021-09-06 21:36:26.082 DEBUG 10315 --- [main] org.hibernate.SQL                        : alter table user add constraint FKo9n8s2lqeqreroprlkrr7bj9e foreign key (u_permission_id) references user_permission (id)
+2021-09-06 21:36:26.103 DEBUG 10315 --- [main] org.hibernate.SQL                        : alter table user add constraint FK5hv52mjjufrwrx302p37tq262 foreign key (profile_id) references user_profile (id)
+2021-09-06 21:36:26.134 DEBUG 10315 --- [main] org.hibernate.SQL                        : alter table user_role add constraint FKa68196081fvovjhkek5m97n3y foreign key (role_id) references role (id)
+2021-09-06 21:36:26.152 DEBUG 10315 --- [main] org.hibernate.SQL                        : alter table user_role add constraint FK859n2jvi8ivhui0rl0esws6o foreign key (user_id) references user (id)
+2021-09-06 21:36:26.170  INFO 10315 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-06 21:36:26.180  INFO 10315 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-06 21:36:26.739  WARN 10315 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-06 21:36:28.465  INFO 10315 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4e0a5606, org.springframework.security.web.context.SecurityContextPersistenceFilter@50cb64d5, org.springframework.security.web.header.HeaderWriterFilter@53cdfb09, org.springframework.web.filter.CorsFilter@361a1e86, org.springframework.security.web.authentication.logout.LogoutFilter@2778a7c3, com.kayafirat.blog.security.JwtRequestFilter@312e8eaf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3e1c566d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@77c4aeb6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@295e989, org.springframework.security.web.session.SessionManagementFilter@15844237, org.springframework.security.web.access.ExceptionTranslationFilter@3df79197, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@52dfd7f5]
+2021-09-06 21:36:29.280  INFO 10315 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2021-09-06 21:36:30.502  INFO 10315 --- [main] com.kayafirat.blog.BlogApplication       : Started BlogApplication in 10.514 seconds (JVM running for 11.337)
+2021-09-06 21:36:30.556 DEBUG 10315 --- [scheduling-1] org.hibernate.SQL                        : SELECT * FROM mail_queue where is_send=0
+2021-09-06 21:36:47.462  INFO 10315 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-06 21:36:47.462  INFO 10315 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-09-06 21:36:47.463  INFO 10315 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-09-06 21:36:47.507 DEBUG 10315 --- [http-nio-8081-exec-1] org.hibernate.SQL                        : select comment.id as commentId,comment.body as commentBody,comment.is_delete as commentIsdelete, comment.is_hide as commentIshide,
+p1.title as postTitle,u1.username as username,(select count(id) from comment_vote where comment_vote.comment_id = comment.id) as totalVote,
+comment.created_date as commentCreatedDate 
+from comment 
+left join user as u1 on u1.id = comment.user_id 
+left join post as p1 on p1.id = comment.post_id 
+ order by left.id asc limit ?
+2021-09-06 21:36:47.523  WARN 10315 --- [http-nio-8081-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1054, SQLState: 42S22
+2021-09-06 21:36:47.524 ERROR 10315 --- [http-nio-8081-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unknown column 'left.id' in 'order clause'
+2021-09-06 21:36:47.537 ERROR 10315 --- [http-nio-8081-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessResourceUsageException: could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet] with root cause
+
+java.sql.SQLSyntaxErrorException: Unknown column 'left.id' in 'order clause'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1003) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.extract(ResultSetReturnImpl.java:57) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.loader.Loader.getResultSet(Loader.java:2297) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:2050) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:2012) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.loader.Loader.doQuery(Loader.java:948) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:349) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2843) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2825) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2657) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.loader.Loader.list(Loader.java:2652) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.loader.custom.CustomLoader.list(CustomLoader.java:338) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.internal.SessionImpl.listCustomQuery(SessionImpl.java:2141) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.list(AbstractSharedSessionContract.java:1169) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.query.internal.NativeQueryImpl.doList(NativeQueryImpl.java:176) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.query.internal.AbstractProducedQuery.list(AbstractProducedQuery.java:1604) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.query.Query.getResultList(Query.java:165) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution$PagedExecution.doExecute(JpaQueryExecution.java:177) ~[spring-data-jpa-2.5.2.jar:2.5.2]
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:88) ~[spring-data-jpa-2.5.2.jar:2.5.2]
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:155) ~[spring-data-jpa-2.5.2.jar:2.5.2]
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:143) ~[spring-data-jpa-2.5.2.jar:2.5.2]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:137) ~[spring-data-commons-2.5.2.jar:2.5.2]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:121) ~[spring-data-commons-2.5.2.jar:2.5.2]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:159) ~[spring-data-commons-2.5.2.jar:2.5.2]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:138) ~[spring-data-commons-2.5.2.jar:2.5.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:80) ~[spring-data-commons-2.5.2.jar:2.5.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.8.jar:5.3.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.8.jar:5.3.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:145) ~[spring-data-jpa-2.5.2.jar:2.5.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.8.jar:5.3.8]
+	at jdk.proxy2/jdk.proxy2.$Proxy135.findAllCommentViews(Unknown Source) ~[na:na]
+	at com.kayafirat.blog.service.impl.CommentServiceImpl.getAllCommentsAdmin(CommentServiceImpl.java:34) ~[main/:na]
+	at com.kayafirat.blog.controller.AdminController.getAllComments(AdminController.java:119) ~[main/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.8.jar:5.3.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894) ~[spring-webmvc-5.3.8.jar:5.3.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.8.jar:5.3.8]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.8.jar:5.3.8]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1063) ~[spring-webmvc-5.3.8.jar:5.3.8]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.8.jar:5.3.8]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.8.jar:5.3.8]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.8.jar:5.3.8]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.48.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.8.jar:5.3.8]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.48.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:228) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.48.jar:9.0.48]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:121) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:115) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at com.kayafirat.blog.security.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:61) ~[main/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1723) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at java.base/java.lang.Thread.run(Thread.java:831) ~[na:na]
+
