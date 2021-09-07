@@ -9,8 +9,8 @@ import {HttpClient} from '@angular/common/http';
 export class PostService {
 
   
-  private BASE_URL:string = "http://localhost:8081/";
-  //private BASE_URL:string = "https://api.kayafirat.com/blog/";
+  //private BASE_URL:string = "http://localhost:8081/";
+  private BASE_URL:string = "https://api.kayafirat.com/blog/";
   constructor(private http:HttpClient) { }
 
   public getPosts(pageNumber:number){

@@ -3,6 +3,8 @@ plugins {
 	id 'org.springframework.boot' version '2.5.2'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'checkstyle'
+	id "com.github.spotbugs" version "4.7.3"
 }
 
 group = 'com.kayafirat'
@@ -43,6 +45,42 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
+
+checkstyle {
+	toolVersion '9.0'
+}
+
+spotbugsMain {
+	reports {
+		html {
+			enabled = true
+			destination = file("$buildDir/reports/spotbugs/main/spotbugs.html")
+			stylesheet = 'fancy-hist.xsl'
+		}
+	}
+}
+
+task setProductionConfig() {
+	group = "other"
+	description = "Sets the environment for production mode"
+	doFirst {
+		/*
+           notice the file location ("./build/resources/main/application.properties"),
+           it refers to the file processed and already in the build folder, ready
+           to be packed, if you use a different folder from `build`, put yours
+           here
+        */
+		ant.propertyfile(file: "./build/resources/main/application.properties") {
+			entry(key: "spring.profiles.active", value: "prod")
+		}
+	}
+	doLast {
+		println 'Production ortamına göre build ediliyor.'
+
+	}
+}
+
 bootWar {
+	dependsOn setProductionConfig
 	archiveFileName = 'blog.war'
 }
