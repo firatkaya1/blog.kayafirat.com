@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 
@@ -18,9 +19,14 @@ public class Image {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long imageId;
-    private String imageName;
+    private String imageOriginalName;
+    private Long fileSize;
+    private String fileContenttype;
+    private String fullPath;
 
-    @OneToOne(cascade = {CascadeType.PERSIST}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "image_id")
-    private File imageFile;
+    public Image(MultipartFile multipartFile){
+        this.imageOriginalName = multipartFile.getOriginalFilename();
+        this.fileSize = multipartFile.getSize();
+        this.fileContenttype = multipartFile.getContentType();
+    }
 }

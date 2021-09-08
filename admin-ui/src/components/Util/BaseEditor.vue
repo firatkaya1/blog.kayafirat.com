@@ -17,15 +17,11 @@ import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote.js';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold.js';
 import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder.js';
 import CKFinderUploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter.js';
-import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices.js';
 import Code from '@ckeditor/ckeditor5-basic-styles/src/code.js';
 import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock.js';
-import Comments from '@ckeditor/ckeditor5-comments/src/comments.js';
 import DataFilter from '@ckeditor/ckeditor5-html-support/src/datafilter.js';
 import DataSchema from '@ckeditor/ckeditor5-html-support/src/dataschema.js';
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials.js';
-import ExportPdf from '@ckeditor/ckeditor5-export-pdf/src/exportpdf.js';
-import ExportWord from '@ckeditor/ckeditor5-export-word/src/exportword.js';
 import FindAndReplace from '@ckeditor/ckeditor5-find-and-replace/src/findandreplace.js';
 import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor.js';
 import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor.js';
@@ -50,7 +46,6 @@ import Link from '@ckeditor/ckeditor5-link/src/link.js';
 import LinkImage from '@ckeditor/ckeditor5-link/src/linkimage.js';
 import List from '@ckeditor/ckeditor5-list/src/list.js';
 import ListStyle from '@ckeditor/ckeditor5-list/src/liststyle.js';
-import Markdown from '@ckeditor/ckeditor5-markdown-gfm/src/markdown.js';
 import MathType from '@wiris/mathtype-ckeditor5';
 import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed.js';
 import MediaEmbedToolbar from '@ckeditor/ckeditor5-media-embed/src/mediaembedtoolbar.js';
@@ -78,7 +73,6 @@ import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar.js';
 import TextPartLanguage from '@ckeditor/ckeditor5-language/src/textpartlanguage.js';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation.js';
 import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
-import TrackChanges from '@ckeditor/ckeditor5-track-changes/src/trackchanges.js';
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline.js';
 import WordCount from '@ckeditor/ckeditor5-word-count/src/wordcount.js';
 import EditorWatchdog from '@ckeditor/ckeditor5-watchdog/src/editorwatchdog.js';
@@ -102,15 +96,11 @@ export default {
                     Bold,
                     CKFinder,
                     CKFinderUploadAdapter,
-                    CloudServices,
                     Code,
                     CodeBlock,
-                    Comments,
                     DataFilter,
                     DataSchema,
                     Essentials,
-                    ExportPdf,
-                    ExportWord,
                     FindAndReplace,
                     FontBackgroundColor,
                     FontColor,
@@ -135,7 +125,6 @@ export default {
                     LinkImage,
                     List,
                     ListStyle,
-                    Markdown,
                     MathType,
                     MediaEmbed,
                     MediaEmbedToolbar,
@@ -163,20 +152,21 @@ export default {
                     TextPartLanguage,
                     TextTransformation,
                     TodoList,
-                    TrackChanges,
                     Underline,
                     WordCount,
-                    EditorWatchdog
+                    EditorWatchdog,
                 ],
                 toolbar: {
                     items: [
                         'heading',
+                        'Markdown',
                         '|',
                         'fontSize',
                         'fontFamily',
                         'fontColor',
                         'fontBackgroundColor',
-                        'imageInsert',
+                        'imageTextAlternative',
+                        'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight',
                         '|',
                         'bold',
                         'italic',
@@ -204,7 +194,11 @@ export default {
                         'CKFinder',
                         'link',
                     ]
+                },
+                  ckfinder: {
+                    uploadUrl: 'https://api.kayafirat.com/blog/image/upload'
                 }
+                
             }
         }
     },
@@ -214,14 +208,12 @@ export default {
             default:null
         },
     },
+
     watch:{
         cmodel(newWal){
             this.$emit('setValue',newWal)
         }
     },
-    created(){
-        console.log( this.editor.ui)
-    }
 }
 </script>
 

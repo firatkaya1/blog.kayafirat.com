@@ -1,5 +1,6 @@
 package com.kayafirat.blog.controller;
 
+import com.kayafirat.blog.entity.Image;
 import com.kayafirat.blog.service.impl.ImageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.Base64;
+import java.util.HashMap;
 
 @RestController
 @RequestMapping("/image")
@@ -26,9 +29,13 @@ public class ImageController {
         return ResponseEntity.ok(imageService.getImage(imageId));
     }
 
-    @PostMapping(value = "post")
-    public ResponseEntity<?> saveImage(@RequestParam(value = "file", required = false) MultipartFile multipartFile) throws IOException {
-        return ResponseEntity.ok(imageService.saveImage(multipartFile));
+    @PostMapping(value = "upload")
+    public ResponseEntity<?> saveImage(@RequestParam(value = "upload", required = false) MultipartFile multipartFile) throws IOException {
+        Image image = imageService.saveImage(multipartFile);
+        HashMap<String,Object> response = new HashMap<>();
+        response.put("uploaded","true");
+        response.put("url",imageService.getImage(image.getImageId()));
+        return ResponseEntity.ok(response);
     }
 
 

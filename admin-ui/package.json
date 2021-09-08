@@ -51,6 +51,7 @@
     "@ckeditor/ckeditor5-theme-lark": "^29.2.0",
     "@ckeditor/ckeditor5-track-changes": "^29.2.0",
     "@ckeditor/ckeditor5-typing": "^29.2.0",
+    "@ckeditor/ckeditor5-upload": "^29.2.0",
     "@ckeditor/ckeditor5-vue": "^2.0.1",
     "@ckeditor/ckeditor5-watchdog": "^29.2.0",
     "@ckeditor/ckeditor5-word-count": "^29.2.0",
