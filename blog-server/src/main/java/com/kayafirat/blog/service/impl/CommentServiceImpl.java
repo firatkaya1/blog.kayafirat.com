@@ -63,6 +63,8 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public CommentDTO addComment(Comment comment) {
         comment.setCreatedDate(new Date());
+        comment.setIsHide(false);
+        comment.setIsDelete(false);
         if(!SecurityContextHolder.getContext().getAuthentication().getName().equals("anonymousUser")){
             comment.setUserId(Long.valueOf(SecurityContextHolder.getContext().getAuthentication().getName()));
         } else {

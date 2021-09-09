@@ -26,8 +26,8 @@ public class PostController {
     public ResponseEntity<?> getAll(
             @RequestParam(defaultValue = "1",required = false) int page,
             @RequestParam(defaultValue = "100",required = false) int size,
-            @RequestParam(defaultValue = "id",required = false) String sort,
-            @RequestParam(defaultValue = "asc",required = false) String order){
+            @RequestParam(defaultValue = "createdDate",required = false) String sort,
+            @RequestParam(defaultValue = "desc",required = false) String order){
         return ResponseEntity.ok(postService.getPosts(page,size,sort,order));
     }
 
@@ -36,8 +36,8 @@ public class PostController {
             @RequestParam String keyword,
             @RequestParam(defaultValue = "1",required = false) int page,
             @RequestParam(defaultValue = "100",required = false) int size,
-            @RequestParam(defaultValue = "id",required = false) String sort,
-            @RequestParam(defaultValue = "asc",required = false) String order){
+            @RequestParam(defaultValue = "createdDate",required = false) String sort,
+            @RequestParam(defaultValue = "desc",required = false) String order){
         return ResponseEntity.ok(postService.getPostsByTitle(keyword,page,size,sort,order));
     }
 
@@ -45,9 +45,9 @@ public class PostController {
     public ResponseEntity<?> getAllCategory(
             @RequestParam String categoryName,
             @RequestParam(defaultValue = "1",required = false) int page,
-            @RequestParam(defaultValue = "10",required = false) int size,
-            @RequestParam(defaultValue = "id",required = false) String sort,
-            @RequestParam(defaultValue = "asc",required = false) String order){
+            @RequestParam(defaultValue = "100",required = false) int size,
+            @RequestParam(defaultValue = "createdDate",required = false) String sort,
+            @RequestParam(defaultValue = "desc",required = false) String order){
         return ResponseEntity.ok(postService.getPostsByCategoryName(categoryName,page,size,sort,order));
     }
 
