@@ -77,6 +77,8 @@ import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline.js';
 import WordCount from '@ckeditor/ckeditor5-word-count/src/wordcount.js';
 import EditorWatchdog from '@ckeditor/ckeditor5-watchdog/src/editorwatchdog.js';
 
+import { global } from '@/config/variables';
+
 export default {
     name:'BaseEditor',
     components:{ckeditor: CKEditor.component},
@@ -160,13 +162,14 @@ export default {
                     items: [
                         'heading',
                         'Markdown',
+                        'horizontalLine',
                         '|',
                         'fontSize',
                         'fontFamily',
                         'fontColor',
                         'fontBackgroundColor',
-                        'imageTextAlternative',
-                        'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight',
+                        'imageTextAlternative','insertImage',
+                        'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight','imageStyle:block','imageStyle:side','linkImage',
                         '|',
                         'bold',
                         'italic',
@@ -196,7 +199,10 @@ export default {
                     ]
                 },
                   ckfinder: {
-                    uploadUrl: 'https://api.kayafirat.com/blog/image/upload'
+                    uploadUrl: global.baseUrl+'image/upload'
+                },
+                mediaEmbed:{
+                    previewsInData: true
                 }
                 
             }

@@ -59,6 +59,8 @@ a {
     text-align: justify;
 
 }
+
+
 @media only screen and (max-width: 600px) {
     .col-12 h2 {
         margin-top: 30px;
@@ -66,4 +68,19 @@ a {
     textarea {
         padding: 0;
     }
+    .mobile-category {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .info-stats {
+        margin-top: 15px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    
 }
+
+
