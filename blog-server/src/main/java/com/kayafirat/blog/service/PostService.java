@@ -28,6 +28,8 @@ public interface PostService {
 
     PostDetail updatePost(PostDetail post);
 
+    void increasePostView(Long postId);
+
     void deletePost(Long id);
 
 

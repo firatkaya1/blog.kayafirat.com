@@ -182,6 +182,38 @@ public class UserServiceImpl implements UserService {
         return jwtUtil.generateToken(userDetails,user);
     }
 
+    private String loginByAuth(String email) throws Exception {
+        User user = userRepository.findByUsernameOrEmail(email, email)
+                .orElseThrow(() ->  new UserNotFoundException());
+
+        if (user == null)
+            throw new UserNotFoundException();
+
+        try {
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(String.valueOf(user.getId()),user.getPassword()));
+
+            if(user.getNotificationPermission().isLoginNotification()) {
+                Notification notification = new Notification();
+                notification.setUser(user);
+                notification.setTitle("Giriş yapıldı.");
+                notification.setMessage(new Date()+" tarihinde hesabına giriş yaptın.");
+                notificationService.addNotification(notification);
+            }
+
+            if(user.getMailPermission().isLoginNotification()) {
+                MailQueue mailQueue = new MailQueue();
+                mailQueue.setEmailAddress(user.getEmail());
+                mailQueue.setMailType(Type.LoginSuccess);
+                mailService.save(mailQueue);
+            }
+
+        } catch (BadCredentialsException e) {
+            throw new Exception("Incorrect username or password.", e);
+        }
+        final UserDetails userDetails = loadUserByUsername(String.valueOf(user.getId()));
+        return jwtUtil.generateToken(userDetails,user);
+    }
+
     @Override
     public User updateUser(User user) {
         return userRepository.save(user);
@@ -362,6 +394,12 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    /**
+     * İki tip password oluşturuyorum. Birincisi databaseye kayıt etmem gereken format
+     * ikincisi ise mevcut düzende doğrulamam gereken ham password.
+     * Ham şifre kayıt edilmez.
+     * @return
+     */
     private String createRandomPassword() {
         String[] alphabet = {"a","b","c","d","e","f","g","h","l","A","B","C","D","E","F","G","L","1","2","3","4","5","6","7","8","9","0"};
         StringBuilder sb = new StringBuilder();
@@ -382,20 +420,22 @@ public class UserServiceImpl implements UserService {
             notification.setMessage(new Date()+" tarihinde "+socialAccount+" hesabını kullanarak giriş yaptın.");
             notificationService.addNotification(notification);
 
-            return login(new AuthenticateRequest(user.getEmail(),user.getPassword()));
+            return loginByAuth(user.getEmail());
         }else {
             User user = new User();
             UserPermission userPermission = new UserPermission();
+            NotificationPermission notificationPermission = new NotificationPermission();
+            MailPermission mailPermission = new MailPermission();
             UserProfile userProfile = new UserProfile();
             userProfile.setAccountStatus(true);
             userProfile.setRegisterDate(new Date());
-            NotificationPermission notificationPermission = new NotificationPermission();
             user.setUserPermission(userPermission);
             user.setUserProfile(userProfile);
             user.setNotificationPermission(notificationPermission);
+            user.setMailPermission(mailPermission);
             user.setUsername(username);
             user.setEmail(email);
-            user.setPassword(password);
+            user.setPassword(bCryptPasswordEncoder.encode(password));
             User _user = userRepository.save(user);
 
             Notification notification = new Notification();

@@ -129,6 +129,11 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    public void increasePostView(Long postId) {
+        postRepository.increaseView(postId);
+    }
+
+    @Override
     @Caching(evict = {
             @CacheEvict(cacheNames = "detailID",key = "#id"),
             @CacheEvict(cacheNames = {"pageable","pageableCategory","pageableCategory"}, allEntries = true)})

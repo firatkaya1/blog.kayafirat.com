@@ -53,6 +53,7 @@ public class PostController {
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<?> get(@PathVariable(value = "id") Long id){
+        postService.increasePostView(id);
         return ResponseEntity.ok(postService.getDetail(id));
     }
 
