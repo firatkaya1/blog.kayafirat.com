@@ -66,23 +66,23 @@
       <BaseInput id="facebookURL" label="URL" placeholder="URL" v-model="post.facebookUrl"/>
       <BaseInput id="facebookType" label="Type" placeholder="Type" v-model="post.facebookType"/>
       <BaseInput id="facebookTag" label="Facebook Tags" placeholder="Facebook Tags" v-model="post.facebookTag"/>
-
     </div>
   </div>
     <div class="flex flex-row space-x-12 justify-center">
       <button class="bg-green-500 px-2 py-2 text-sm rounded-md border hover:bg-green-600 focus:ring-2 transition duration-300 mt-4 text-white" @click="savePost"> Yeni Konu Kaydet </button>
-      <button class="bg-blue-500 px-2 py-2 text-sm rounded-md border hover:bg-blue-600 focus:ring-2 transition duration-300 mt-4 text-white"> Değişiklikleri Kaydet </button>
-      <button class="bg-red-600 px-2 py-2 text-sm rounded-md border hover:bg-red-700 focus:ring-2 transition duration-300 mt-4 text-white"> Seçili Konuyu Sil </button>
+      <button class="bg-blue-500 px-2 py-2 text-sm rounded-md border hover:bg-blue-600 focus:ring-2 transition duration-300 mt-4 text-white" v-if="post.id != null" @click="update"> Değişiklikleri Kaydet </button>
+      <button class="bg-red-600 px-2 py-2 text-sm rounded-md border hover:bg-red-700 focus:ring-2 transition duration-300 mt-4 text-white" v-if="post.id != null"> Seçili Konuyu Sil </button>
+      <button class="bg-red-600 px-2 py-2 text-sm rounded-md border hover:bg-red-700 focus:ring-2 transition duration-300 mt-4 text-white" @click="clear"> Temizle </button>
   </div>
   <div class="flex flex-col w-full mt-12">
-      <BaseEditor @setValue="setValue"></BaseEditor>
+      <BaseEditor @setValue="setValue" v-bind:body="this.post.body"></BaseEditor>
   </div>
 
 </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 
 export default {
   name:'PostAdd',
@@ -128,10 +128,11 @@ export default {
     }
   },
   methods:{
-    ...mapActions('topic',['getTopics','getTopicById','saveTopic']),
+    ...mapActions('topic',['getTopics','getTopicById','saveTopic','updateTopic']),
     ...mapActions('category',['saveCategory','getCategories']),
     ...mapGetters('topic',['getAllTopic','getTopic']),
     ...mapGetters('category',['getAllCategories']),
+    ...mapMutations('alert',['pushAlert']),
     removeCategory(id){
       this.selectedCategories.splice(this.selectedCategories.indexOf(id),1)
     },
@@ -147,6 +148,38 @@ export default {
     savePost(){
       this.post.categories = this.selectedCategories 
       this.saveTopic(this.post);
+    },
+    update(){
+      this.updateTopic(this.post)
+    },
+    clear(){
+      this.post.title = null;
+      this.post.header=null,
+      this.post.categories=null,
+      this.post.body=null,
+      this.post.isPublish=false,
+      this.post.googleTitle=null,
+      this.post.googleDescription=null,
+      this.post.googlePath=null,
+      this.post.googleTag=null,
+      this.post.keywords=null,
+      this.post.twitterDescription=null,
+      this.post.twitterImagepath=null,
+      this.post.twitterTitle=null,
+      this.post.twitterTag=null,
+      this.post.twitterCard=null,
+      this.post.twitterCreator=null,
+      this.post.facebookDescription=null,
+      this.post.facebookImagepath=null,
+      this.post.facebookTitle=null,
+      this.post.facebookTag=null,
+      this.post.facebookAuthor=null,
+      this.post.facebookSitename=null,
+      this.post.facebookUrl=null,
+      this.post.facebookType=null
+
+      this.selectedCategories = []
+      this.selectedTopicId = null
     }
   },
   computed:{
@@ -174,7 +207,39 @@ export default {
       }
     },
     topic(newVal){
-      this.selectedTopic = newVal
+      this.post.id = newVal?.post?.id
+      this.post.title = newVal?.post?.title
+      this.post.header = newVal?.post?.header
+      this.post.title = newVal?.post?.title
+      this.post.body = newVal?.body
+
+      this.post.googleId =newVal?.meta?.googleSEO?.id
+      this.post.googleTitle=newVal?.meta?.googleSEO?.title,
+      this.post.googleDescription=newVal?.meta?.googleSEO?.description
+      this.post.googlePath=newVal?.meta?.googleSEO?.image
+      this.post.keywords=newVal?.meta?.googleSEO?.keywords
+
+      this.post.twitterId =newVal?.meta?.twitterSEO?.id
+      this.post.twitterDescription=newVal?.meta?.twitterSEO?.description,
+      this.post.twitterImagepath=newVal?.meta?.twitterSEO?.image,
+      this.post.twitterTitle=newVal?.meta?.twitterSEO?.title,
+      this.post.twitterCard=newVal?.meta?.twitterSEO?.card,
+      this.post.twitterCreator=newVal?.meta?.twitterSEO?.creator
+
+      this.post.facebookId =newVal?.meta?.facebookSEO?.id
+      this.post.facebookDescription=newVal?.meta?.facebookSEO?.description
+      this.post.facebookImagepath=newVal?.meta?.facebookSEO?.image
+      this.post.facebookTitle=newVal?.meta?.facebookSEO?.title
+      this.post.facebookAuthor=newVal?.meta?.facebookSEO?.author
+      this.post.facebookSitename=newVal?.meta?.facebookSEO?.siteName
+      this.post.facebookUrl=newVal?.meta?.facebookSEO?.url
+      this.post.facebookType=newVal?.meta?.facebookSEO?.type
+
+      this.post.metaId = newVal?.meta?.id
+
+      if(newVal?.post?.category?.length > 0){
+        this.selectedCategories = newVal?.post?.category?.map(c => c.id)
+      }
     },
     selectedCategory(newVal){
       if(!this.selectedCategories.includes(newVal)){

@@ -10,6 +10,7 @@
         <p>
             {{post.header}}
         </p>
+        <div class="date">{{post.createdDate | date:'yyyy.MM.dd HH:mm'}} | {{post.view}} Görüntülenme</div>
         <a [routerLink]="['/a/', post.id]" routerLinkActive="active" [translate]="'post.click'">Click to read.</a>
         <img src="/assets/img/arrow2.svg" class="arrow" width="70px" height="70px" alt="" *ngIf="i==0">
         <br>    

@@ -39,8 +39,18 @@ export default {
   min-width: 500px;
   bottom: 30px;
 }
+.alert {
+  border: 1px solid #1e1e1e;
+  padding: 15px 10px;
+  border-radius: 5px;
+  margin-top: 15px;
+}
 .alert-success {
-    background-color: green;
-    color: white;
+  background-color: #6DB33F;
+  color: white;
+}
+.alert-danger {
+  background-color: rgb(224, 6, 6);
+  color: white;
 }
 </style>

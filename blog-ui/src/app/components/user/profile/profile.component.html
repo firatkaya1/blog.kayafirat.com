@@ -8,10 +8,10 @@
         <span [translate]="'profile.emailAddress'">Email addresi</span> : <span>{{user?.email}}</span>
     </div>
     <div>
-        <span [translate]="'profile.birthdate'">Doğum Tarihi</span> : <span>{{user?.birthDate}}</span>
+        <span [translate]="'profile.birthdate'">Doğum Tarihi</span> : <span>{{user?.birthDate  | date:'yyyy.MM.dd'}}</span>
     </div>
     <div>
-        <span [translate]="'profile.registerDate'">Üyelik Tarihi</span> : <span>{{user?.registerDate}}</span>
+        <span [translate]="'profile.registerDate'">Üyelik Tarihi</span> : <span>{{user?.registerDate | date:'yyyy.MM.dd HH:mm'}}</span>
     </div>
     <div>
         <span [translate]="'profile.contact'">İletişim Adresi</span> :<span>{{user?.contactAddress}}</span>

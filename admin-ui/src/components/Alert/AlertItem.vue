@@ -3,7 +3,7 @@
     {{ alert.message }}
     <div class="exit">
       <img
-        src="../../assets/img/x.svg"
+        src="@/assets/x.svg"
         :style="{ width: '15px', height: '15px' }"
         @click="deleteAlert(alert.id)"
         alt=""

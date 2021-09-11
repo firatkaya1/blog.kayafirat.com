@@ -37,6 +37,13 @@ public class Meta extends JdkSerializationRedisSerializer implements Serializabl
     @JoinColumn(name = "facebook_id", referencedColumnName = "id")
     private FacebookSEO facebookSEO;
 
+    public Meta(GoogleSEO googleSEO, TwitterSEO twitterSEO, FacebookSEO facebookSEO,Long id){
+        this.id = id;
+        this.googleSEO = googleSEO;
+        this.twitterSEO = twitterSEO;
+        this.facebookSEO = facebookSEO;
+    }
+
     public Meta(GoogleSEO googleSEO, TwitterSEO twitterSEO, FacebookSEO facebookSEO){
         this.googleSEO = googleSEO;
         this.twitterSEO = twitterSEO;

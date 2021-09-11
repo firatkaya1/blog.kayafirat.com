@@ -16,6 +16,9 @@
     color: #6C737B;
     font-size: 16px;
 }
+.date {
+    float:left;font-size:12px;margin-top: 5px;color: #6C737B;
+}
 .col-12 a {
     float:right;
     color: #000;

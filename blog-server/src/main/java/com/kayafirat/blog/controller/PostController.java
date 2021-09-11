@@ -63,8 +63,8 @@ public class PostController {
     }
 
     @PutMapping
-    public ResponseEntity<?> update(@RequestBody PostDetail postDetail){
-        return ResponseEntity.ok(postService.updatePost(postDetail));
+    public ResponseEntity<?> update(@RequestBody PostDTO postDTO){
+        return ResponseEntity.ok(postService.updatePost(postDTO));
     }
 
     @DeleteMapping(value = "/{id}")

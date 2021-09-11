@@ -74,8 +74,8 @@ public class AdminController {
     }
 
     @PutMapping(value = "topic")
-    public ResponseEntity<?> updateTopic(@RequestBody PostDetail postDetail){
-        return ResponseEntity.ok(postService.updatePost(postDetail));
+    public ResponseEntity<?> updateTopic(@RequestBody PostDTO postDTO){
+        return ResponseEntity.ok(postService.updatePost(postDTO));
     }
 
     @DeleteMapping(value = "topic/{postId}")

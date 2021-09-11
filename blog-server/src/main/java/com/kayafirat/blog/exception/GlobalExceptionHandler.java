@@ -252,7 +252,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleConstraintViolation(UserEmailAlreadyExistsException ex) {
         APIError apiError = new APIError.Builder()
                 .httpStatus(HttpStatus.CONFLICT)
-                .errorCode(0)
+                .errorCode(1)
                 .message(ex.getMessage())
                 .build();
         return buildResponseEntity(apiError);
@@ -272,7 +272,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleConstraintViolation(UsernameAlreadyExistsException ex) {
         APIError apiError = new APIError.Builder()
                 .httpStatus(HttpStatus.CONFLICT)
-                .errorCode(0)
+                .errorCode(2)
                 .message(ex.getMessage())
                 .build();
         return buildResponseEntity(apiError);

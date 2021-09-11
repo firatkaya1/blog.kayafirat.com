@@ -22,32 +22,55 @@ const actions = {
         .then(response =>  {
             commit('SET_TOPICS',response.data)
         })
+        .catch(error => {
+            commit('alert/pushAlert',{message:"Bir hata ile karşılaşıldı:"+error,type:'error'},{root:true})
+        })
     },
     getTopicsDetail:({commit}) => {
         service.getAll("admin/topic/list/detail")
         .then(response =>  {
             commit('SET_TOPICS_DETAİL',response.data)
         })
+        .catch(error => {
+            commit('alert/pushAlert',{message:"Bir hata ile karşılaşıldı:"+error,type:'error'},{root:true})
+        })
     },
     getTopicById:({commit},id) => {
         service.getAll("admin/topic/"+id)
         .then(response =>  {
             commit('SET_TOPIC',response.data)
-
+        })
+        .catch(error => {
+            commit('alert/pushAlert',{message:"Bir hata ile karşılaşıldı:"+error,type:'error'},{root:true})
         })
     },
     getCategories:({commit}) => {
         service.getAll("category")
         .then(response =>  {
             commit('SET_CATEGORIES',response.data)
-
+        })
+        .catch(error => {
+            commit('alert/pushAlert',{message:"Bir hata ile karşılaşıldı:"+error,type:'error'},{root:true})
         })
     },
     saveTopic:({commit},body) => {
-        console.log(body)
         service.save("post",body)
         .then(() =>  {
+            commit('alert/pushAlert',{message:"Konu başarıyla kayıt edildi.",type:'success'},{root:true})
             commit('SET_TOPICS',{})
+        })
+        .catch(error => {
+            commit('alert/pushAlert',{message:"Bir hata ile karşılaşıldı:"+error,type:'error'},{root:true})
+        })
+    },
+    updateTopic:({commit},body) => {
+        service.update("post",body)
+        .then(() =>  {
+            commit('alert/pushAlert',{message:"Konu başarıyla güncellendi.",type:'success'},{root:true})
+            commit('SET_TOPICS',{})
+        })
+        .catch(error => {
+            commit('alert/pushAlert',{message:"Bir hata ile karşılaşıldı:"+error,type:'error'},{root:true})
         })
     }
 

@@ -48,7 +48,14 @@ export class RegisterComponent implements OnInit {
       this.alertService.notification("Kayıt başarıyla tamamlandı. Hesabınızı doğrulamayı unutmayın.",true);
       this.register.reset();
     },(error)=> {
-      this.alertService.notification("Bir hata ile karşılaşıldı.",false);
+      if(error.errorCode == 1){
+        this.alertService.notification("Bu email adresi alınmış.",false);
+      } else if(error.errorCode == 2){
+        this.alertService.notification("Bu kullanıcı adı alınmış..",false);
+      } else {
+        this.alertService.notification("Bir hata ile karşılaşıldı.",false);
+      }
+      
     })
   }
   public registerLinkedin(){

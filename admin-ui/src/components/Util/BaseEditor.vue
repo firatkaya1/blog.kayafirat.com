@@ -1,6 +1,5 @@
 <template>
   <div style="min-height:500px;">
-      
       <ckeditor v-model="cmodel" :editor="editor" :config="editorConfig"  tag-name="textarea">  </ckeditor>
   </div>
 </template>
@@ -84,7 +83,7 @@ export default {
     components:{ckeditor: CKEditor.component},
     data(){
         return {
-            cmodel:(this.modelValue) ? this.modelValue : '',
+            cmodel:(this.body != null) ? this.body : '',
             editor: ClassicEditor,
             editorData: '<p>Content of the editor.</p>',
             editorConfig: { 
@@ -213,13 +212,19 @@ export default {
             type:[String],
             default:null
         },
+        body:{
+            type:String,
+            default:null
+        }
     },
-
     watch:{
         cmodel(newWal){
             this.$emit('setValue',newWal)
+        },
+        body(newVal){
+            this.cmodel = newVal
         }
-    },
+    }
 }
 </script>
 

@@ -35,6 +35,7 @@ public class FacebookSEO extends SEO {
     private String author;
 
     public FacebookSEO(PostDTO postDTO){
+        this.setId(postDTO.getFacebookId());
         this.setTitle(postDTO.getTitle());
         this.setDescription(postDTO.getFacebookDescription());
         this.setImage(postDTO.getFacebookImagepath());

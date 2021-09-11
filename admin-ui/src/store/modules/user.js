@@ -19,9 +19,12 @@ const actions = {
     loggedUser:({commit}) => {
         service.getCurrentUser()
             .then(response =>  {
+                commit('alert/pushAlert',{message:"Başarılı bir şekilde giriş yapıldı.",type:'success'},{root:true})
                 router.push("/home");
                     commit('setLoggedUser',response.data)
-
+            })
+            .catch(error => {
+                commit('alert/pushAlert',{message:"Bir hata ile karşılaşıldı:"+error,type:'error'},{root:true})
             })
     },
     getUsers:({commit}) => {

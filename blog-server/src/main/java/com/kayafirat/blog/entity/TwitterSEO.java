@@ -29,6 +29,7 @@ public class TwitterSEO extends SEO {
     private String card;
 
     public TwitterSEO(PostDTO postDTO){
+        this.setId(postDTO.getTwitterId());
         this.setTitle(postDTO.getTwitterTitle());
         this.setDescription(postDTO.getTwitterDescription());
         this.setImage(postDTO.getTwitterImagepath());

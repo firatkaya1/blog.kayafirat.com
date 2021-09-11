@@ -26,6 +26,7 @@ public class GoogleSEO extends SEO {
     private String keywords;
 
     public GoogleSEO(PostDTO postDTO){
+        this.setId(postDTO.getGoogleId());
         this.setImage(postDTO.getGooglePath());
         this.setKeywords(postDTO.getKeywords());
         this.setDescription(postDTO.getGoogleDescription());

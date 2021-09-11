@@ -26,11 +26,9 @@ public interface PostService {
 
     PostDetail addPost(PostDTO postDTO);
 
-    PostDetail updatePost(PostDetail post);
+    PostDetail updatePost(PostDTO postDTO);
 
     void increasePostView(Long postId);
 
     void deletePost(Long id);
-
-
 }

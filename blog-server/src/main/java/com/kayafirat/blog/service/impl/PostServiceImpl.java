@@ -103,7 +103,6 @@ public class PostServiceImpl implements PostService {
             post.setCategory(categorySet);
         }
 
-
         PostDetail postDetail = new PostDetail();
         postDetail.setBody(postDTO.getBody());
         postDetail.setPost(post);
@@ -120,12 +119,37 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    @CachePut(cacheNames = "detailID", key = "#postDetail.post.id")
+    @CachePut(cacheNames = "detailID", key = "#postDTO.id")
     @CacheEvict(cacheNames = {"pageable","pageableCategory","pageableCategory"}, allEntries = true)
-    public PostDetail updatePost(PostDetail postDetail) {
-        if (!postDetailRepository.existsById(postDetail.getId()))
-            throw new PostIDNotFoundException(postDetail.getId());
-        return postDetailRepository.save(postDetail);
+    public PostDetail updatePost(PostDTO postDTO) {
+        Post post = postRepository.findById(postDTO.getId()).orElseThrow(()-> new EntityNotFoundException("Post bulunamadı"));
+        post.setUpdatedDate(new Date());
+        post.setTitle(postDTO.getTitle());
+        post.setHeader(postDTO.getHeader());
+        post.setHide(postDTO.isPublish());
+
+        if(postDTO.getCategories() != null && postDTO.getCategories().length > 0){
+            Set<Category> categorySet = new HashSet<>();
+            for (Long categoryId:postDTO.getCategories()) {
+                Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new EntityNotFoundException("Category bulunamadı"));
+                categorySet.add(category);
+            }
+            post.setCategory(categorySet);
+        }
+
+        PostDetail postDetail = postDetailRepository.findPostDetailByPostId(post.getId()).orElseThrow(()-> new EntityNotFoundException("PostDetail bulunamadı"));
+        postDetail.setBody(postDTO.getBody());
+        postDetail.setPost(post);
+
+        GoogleSEO googleSEO = new GoogleSEO(postDTO);
+        FacebookSEO facebookSEO = new FacebookSEO(postDTO);
+        TwitterSEO twitterSEO = new TwitterSEO(postDTO);
+
+        Meta meta = new Meta(googleSEO,twitterSEO,facebookSEO,postDTO.getMetaId());
+        postDetail.setMeta(meta);
+
+        postDetail = postDetailRepository.save(postDetail);
+        return postDetail;
     }
 
     @Override
