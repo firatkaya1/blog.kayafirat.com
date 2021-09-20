@@ -45,6 +45,7 @@ import { HttpInterceptorService } from './interceptor/HttpInterceptorService';
 import { UnsubscribeComponent } from './components/user/unsubscribe/unsubscribe.component';
 import { MailSettingsComponent } from './components/user/mail-settings/mail-settings.component';
 import { VerifyComponent } from './components/user/verify/verify.component';
+import { PublisherComponent } from './components/blog/publisher/publisher.component';
 
 
 
@@ -81,11 +82,12 @@ import { VerifyComponent } from './components/user/verify/verify.component';
     CommentbarComponent,
     UnsubscribeComponent,
     MailSettingsComponent,
-    VerifyComponent
+    VerifyComponent,
+    PublisherComponent
   ],
   imports: [
     BrowserAnimationsModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     ReactiveFormsModule,
     NgxSpinnerModule,

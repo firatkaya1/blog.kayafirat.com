@@ -1,16 +1,16 @@
 <div class="col-12 ">
     <div class="mobile-category">
         <h2>{{postDetail?.post?.title}}</h2>
-        <span *ngFor="let category of postDetail?.post.category" style="margin:3px" >
-            <span class="tag"  [ngStyle]="{'background-color':category.color,'color':category.textColor }" >{{category.name}}</span>
-        </span>
     </div>
     <hr class="border">
+    <app-publisher [body]="postDetail?.body" [createdDate]="postDetail?.post.createdDate"></app-publisher>
     <div class="kayafirat-font post-detail ck-content" [innerHTML]="sanitize(postDetail?.body)"> </div>
 </div>
 <div class="tags mt-50" *ngIf="postDetail?.post?.category?.length > 0">
     Tags :
-    <span *ngFor="let category of postDetail?.post.category;let index = index">{{category.name}}<span *ngIf="index+1 != postDetail?.post?.category?.length">, </span>  </span>
+    <span *ngFor="let category of postDetail?.post.category" style="margin:3px" >
+        <span class="tag"  [ngStyle]="{'background-color':category.color,'color':category.textColor }" >{{category.name}}</span>
+    </span>
 </div>
 <hr class="mt-10">
 <div class="">

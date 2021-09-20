@@ -9,13 +9,7 @@ html,body {
     color: #000;
     font-weight: 200;
 }
-::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
-}
-::-webkit-scrollbar-thumb {
-    background: transparent;
-}
+    
 @font-face {
     font-family:"kayafirat";
     src: url("/assets/fonts/KayaRegular.ttf") format("truetype");

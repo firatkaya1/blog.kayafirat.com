@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { JoinComponent } from './join.component';
 
@@ -6,7 +6,7 @@ describe('JoinComponent', () => {
   let component: JoinComponent;
   let fixture: ComponentFixture<JoinComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ JoinComponent ]
     })
