@@ -5,7 +5,7 @@
       <label for="users">Konu Seç:</label> 
       <select name="users" id="users" class="bg-white border px-2 py-1 focus:outline-none focus:ring-2 rounded" v-model="selectedTopicId">
         <option :value="null" selected>Konu Seç</option>
-        <option  v-for="topic in topics" :key="topic" :value="topic.id"> {{topic.id}} </option>
+        <option  v-for="topic in topics" :key="topic" :value="topic.id"> {{topic.id}} - {{topic.title}} </option>
       </select>
       <BaseInput id="postTitle" label="Konu Başlığı" placeholder="Bir başlık gir" v-model="post.title" />
       <BaseInput id="postHeader" label="Konu Headeri" placeholder="Bir header gir" v-model="post.header"/>

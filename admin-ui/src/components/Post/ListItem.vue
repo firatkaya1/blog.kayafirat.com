@@ -17,11 +17,17 @@
             {{category}}
         </span>
     </td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-black text-center">
+        <span class="bg-red-100 text-red-500 px-2 py-1 rounded-full mx-2 hover:bg-red-50 cursor-pointer" @click="$emit('delete',topic.postId)">
+            Hızlı Sil
+        </span>
+    </td>
 </template>
 
 <script>
 export default {
     name:'PostListItem',
+    emits:['delete'],
     props:{
         topic:{
             type:Object,

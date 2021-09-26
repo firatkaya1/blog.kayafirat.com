@@ -1,6 +1,6 @@
 <template>
 <div class="w-1/3 mx-auto">
-    <BaseInput placeholder="Yorum Ara"/>
+    <BaseInput placeholder="Yorum Ara" v-model="keyword"/>
 </div>
   <div class="m-2 border flex flex-col">
     <table class="min-w-full divide-y divide-gray-200">
@@ -47,6 +47,11 @@ import { mapActions, mapGetters } from 'vuex'
 import ListItem from './ListItem.vue'
 export default {
   name:'CommentList',
+  data(){
+    return {
+      keyword:''
+    }
+  },
   components: { ListItem },
   methods:{
     ...mapGetters('comment',['getAllComments']),
@@ -54,7 +59,11 @@ export default {
   },
   computed:{
     comments(){
-      return this.getAllComments().content
+      if(this.keyword.length > 0){
+        return this.getAllComments().content.filter(c => c.username?.toLowerCase().includes(this.keyword?.toLowerCase()) ||  c.commentBody?.toLowerCase().includes(this.keyword?.toLowerCase())   )
+      } else {
+        return this.getAllComments().content
+      }
     }
   },
   created(){

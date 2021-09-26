@@ -32,10 +32,4 @@ public class MailSchedule {
         senderService.sendMail(Type.LoginAttempt, queueList.stream().filter(q -> q.getMailType().equals(Type.LoginAttempt)).collect(Collectors.toList()));
         senderService.sendMail(Type.Other, queueList.stream().filter(q -> q.getMailType().equals(Type.Other)).collect(Collectors.toList()));
     }
-
-    @Scheduled(cron = "0 0 23 * * ?")
-    public void clearMail() {
-        mailService.deleteAll();
-    }
-
 }

@@ -21,6 +21,8 @@ const actions = {
         service.save("category",body)
         .then(response =>  {
             commit('ADD_CATEGORY',response.data)
+            commit('alert/pushAlert',{message:"Yeni bir kategori eklendi.",type:'success'},{root:true})
+
         })
     }
 

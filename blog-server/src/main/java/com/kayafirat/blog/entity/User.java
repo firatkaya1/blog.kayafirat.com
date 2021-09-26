@@ -42,6 +42,14 @@ public class User extends JdkSerializationRedisSerializer implements  Serializab
     @Column
     private String photo;
 
+    private boolean enabled = true;
+
+    private boolean accountExpired;
+
+    private boolean accountLocked;
+
+    private boolean passwordExpired;
+
     @JsonIgnoreProperties("user")
     @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE,CascadeType.REFRESH})
     @JoinTable(name = "user_role",

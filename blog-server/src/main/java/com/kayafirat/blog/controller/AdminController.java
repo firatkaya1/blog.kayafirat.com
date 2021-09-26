@@ -21,6 +21,7 @@ public class AdminController {
     private final NotificationService notificationService;
     private final MailService mailService;
     private final CommentService commentService;
+    private final LogService logService;
 
     @GetMapping(value = "user/list")
     public ResponseEntity<?> getUserList(){
@@ -87,8 +88,8 @@ public class AdminController {
     @GetMapping(value = "notification/list")
     public ResponseEntity<?> getNotificationList(@RequestParam(defaultValue = "1",required = false) int page,
                                                  @RequestParam(defaultValue = "100",required = false) int size,
-                                                 @RequestParam(defaultValue = "id",required = false) String sort,
-                                                 @RequestParam(defaultValue = "asc",required = false) String order){
+                                                 @RequestParam(defaultValue = "created_date",required = false) String sort,
+                                                 @RequestParam(defaultValue = "desc",required = false) String order){
         return ResponseEntity.ok(notificationService.getAllNotification(page,size,sort,order));
     }
 
@@ -122,5 +123,12 @@ public class AdminController {
         return ResponseEntity.ok(commentService.addComment(comment));
     }
 
+    @GetMapping(value = "log/list")
+    public ResponseEntity<?> getLogList(@RequestParam(defaultValue = "1",required = false) int page,
+                                        @RequestParam(defaultValue = "100",required = false) int size,
+                                        @RequestParam(defaultValue = "created_date",required = false) String sort,
+                                        @RequestParam(defaultValue = "desc",required = false) String order){
+        return ResponseEntity.ok(logService.getLogs(page,size,sort,order));
+    }
 
 }

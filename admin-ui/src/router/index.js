@@ -18,6 +18,9 @@ import ImageList from '@/components/Image/ImageList.vue'
 import Mail from '@/components/Mail/Mail.vue'
 import MailList from '@/components/Mail/List.vue'
 
+import LogList from '@/components/Log/LogList.vue'
+
+
 
 import Notification from '@/components/Notification/Notification.vue'
 import NotificationList from '@/components/Notification/List.vue'
@@ -80,6 +83,10 @@ const routes = [
       {
         path: 'mail/list',
         component: MailList
+      },
+      {
+        path: 'log',
+        component: LogList
       }
     ]
   },

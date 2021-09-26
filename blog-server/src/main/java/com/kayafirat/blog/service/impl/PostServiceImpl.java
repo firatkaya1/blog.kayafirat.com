@@ -24,6 +24,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -47,7 +48,7 @@ public class PostServiceImpl implements PostService {
             pva.setTotalComment(commentRepository.countCommentByPostId(p.getId()));
             posts.add(pva);
         });
-        return posts;
+        return posts.stream().sorted(Comparator.comparing(PostViewAdminDTO::getCreatedDate)).collect(Collectors.toList());
     }
 
     @Override

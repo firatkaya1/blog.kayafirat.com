@@ -18,7 +18,7 @@ import java.util.List;
 public interface PostRepository extends JpaRepository<Post, Long> {
 
 
-    @Query(value = "SELECT id,title from post",nativeQuery = true)
+    @Query(value = "SELECT id,title from post order by created_date ASC",nativeQuery = true)
     List<PostViewDTO> findAllPosts();
 
     List<Post> findAll();

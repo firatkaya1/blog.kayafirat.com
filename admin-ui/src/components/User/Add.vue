@@ -33,6 +33,13 @@
       <BaseCheckbox id="11" label="Github adresimin görünmesini istemiyorum." v-model="selectedUser.userPermission.github" :checked="selectedUser.userPermission.github"/>
       <BaseCheckbox id="12" label="Linkedin adresimin görünmesini istemiyorum." v-model="selectedUser.userPermission.linkedin" :checked="selectedUser.userPermission.linkedin"/>
 
+      <h1 class="font-bold text-xl mt-4">Güvenlik Ayarları</h1>
+      <BaseCheckbox id="13" label="Hesabı aktive et." v-model="selectedUser.enabled" :checked="selectedUser.enabled"/>
+      <BaseCheckbox id="14" label="Hesap süresi dolmuş." v-model="selectedUser.accountExpired" :checked="selectedUser.accountExpired"/>
+      <BaseCheckbox id="15" label="Hesabı kilitle." v-model="selectedUser.accountLocked" :checked="selectedUser.accountLocked"/>
+      <BaseCheckbox id="16" label="Kullanıcı şifresinin süresi dolmuş." v-model="selectedUser.passwordExpired" :checked="selectedUser.passwordExpired"/>
+
+
       <div class="flex flex-row justify-between text-white w-auto  text-sm px-2 py-0.5 rounded cursor-pointer" :class="{'bg-blue-500':!hasAdmin,'bg-green-500':hasAdmin}" @click="updateRole(1,'ROLE_ADMIN')">
         <Icon :name="(hasAdmin) ? 'CheckIcon' : 'XIcon'" class="cursor-pointer hover:text-gray-300" /> ROLE_ADMIN
       </div>
@@ -63,6 +70,10 @@ export default {
         email: null,
         username: null,
         password: null,
+        enabled : null,
+        accountExpired:null,
+        accountLocked:null,
+        passwordExpired:null,
         role: [],
         userPermission:{},
         userProfile:{},

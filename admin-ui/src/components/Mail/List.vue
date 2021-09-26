@@ -1,6 +1,6 @@
 <template>
 <div class="w-1/3 mx-auto">
-    <BaseInput placeholder="Maillerde Ara"/>
+    <BaseInput placeholder="Maillerde Ara" v-model="keyword"/>
 </div>
   <div class="m-2 border flex flex-col">
     <table class="min-w-full divide-y divide-gray-200">
@@ -50,12 +50,21 @@ export default {
   components: { ListItem },
   data(){
     return { 
-      mailList:[]
+      mailList:[],
+      keyword:''
     }
   },
   computed:{
     mails(){
-      return this.mailList
+      if(this.keyword?.length > 0){
+        return this.mailList.filter(m => m.emailAddress?.toLowerCase().includes(this.keyword?.toLowerCase()) ||
+        m.mailType?.toLowerCase().includes(this.keyword?.toLowerCase()) || 
+        m.mailTitle?.toLowerCase().includes(this.keyword?.toLowerCase()) || 
+        m.mailSubtitle?.toLowerCase().includes(this.keyword?.toLowerCase()) || 
+        m.body?.toLowerCase().includes(this.keyword?.toLowerCase()))
+      } else {
+        return this.mailList
+      }
     }
   },
   created(){

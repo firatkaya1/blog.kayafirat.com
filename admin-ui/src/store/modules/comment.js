@@ -19,6 +19,8 @@ const actions = {
         service.update('admin/comment',data.body)
             .then(() => {
                 commit('UPDATE_COMMIT',data)
+                commit('alert/pushAlert',{message:"Yorum güncellendi.",type:'success'},{root:true})
+
             })
     }
 };

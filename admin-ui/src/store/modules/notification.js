@@ -15,12 +15,15 @@ const actions = {
         service.getAll("admin/notification/list")
         .then(response =>  {
             commit('SET_NOTIFICATIONS',response.data)
+
         })
     },
     saveNotification:({commit},body) => {
         service.save("admin/notification",body)
         .then(response =>  {
             commit('ADD_NOTIFICATION',response.data)
+            commit('alert/pushAlert',{message:"Yeni bildirim yollandı.",type:'success'},{root:true})
+
         })
     }
 

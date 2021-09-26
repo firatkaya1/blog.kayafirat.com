@@ -80,6 +80,11 @@ export default {
           icon:"PhotographIcon"
         },
         {
+          name:"Log",
+          link:"/home/log",
+          icon:"RssIcon"
+        },
+        {
           name:"Çıkış",
           link:"/login",
           icon:"LogoutIcon"

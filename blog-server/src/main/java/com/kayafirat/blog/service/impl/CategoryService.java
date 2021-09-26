@@ -2,8 +2,11 @@ package com.kayafirat.blog.service.impl;
 
 import com.kayafirat.blog.dto.CategoryDTO;
 import com.kayafirat.blog.entity.Category;
+import com.kayafirat.blog.entity.Log;
+import com.kayafirat.blog.enums.LogType;
 import com.kayafirat.blog.exception.custom.EntityNotFoundException;
 import com.kayafirat.blog.repository.CategoryRepository;
+import com.kayafirat.blog.service.LogService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +30,7 @@ public class CategoryService implements com.kayafirat.blog.service.CategoryServi
         category.setName(_category.getName());
         category.setColor(_category.getColor());
         category.setTextColor(_category.getTextColor());
+
 
         return categoryRepository.save(category);
     }

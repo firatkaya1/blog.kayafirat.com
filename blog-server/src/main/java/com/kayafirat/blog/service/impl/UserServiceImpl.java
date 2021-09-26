@@ -280,12 +280,15 @@ public class UserServiceImpl implements UserService {
     @Override
     @Cacheable(cacheNames = "userDetail", key = "#id")
     public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
-        User user = userRepository.findById(Long.valueOf(id)).orElseThrow(()-> new UserNotFoundException());
+        User user = userRepository.findById(Long.valueOf(id)).orElseThrow(UserNotFoundException::new);
         final List<SimpleGrantedAuthority> authorities = new LinkedList<>();
         for (Role role:user.getRole()) {
             authorities.add(new SimpleGrantedAuthority(role.getRole()));
         }
-        return new org.springframework.security.core.userdetails.User(String.valueOf(user.getId()), securityUtil.encode(user.getPassword()),authorities);
+        return new org.springframework.security.core.userdetails.User(String.valueOf(user.getId()), securityUtil.encode(user.getPassword()), user.isEnabled(),
+                !user.isAccountExpired(),
+                !user.isPasswordExpired(),
+                !user.isAccountLocked(),authorities);
     }
 
     public String linkedinOauth(String code) throws Exception {

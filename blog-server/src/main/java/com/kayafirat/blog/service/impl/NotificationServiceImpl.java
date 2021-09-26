@@ -99,7 +99,7 @@ public class NotificationServiceImpl implements NotificationService {
 
     @Override
     public void addNotification(Notification notification) {
-        User user = userRepository.findById(notification.getUser().getId()).orElseThrow(()->new UserNotFoundException());
+        User user = userRepository.findById(notification.getUser().getId()).orElseThrow(UserNotFoundException::new);
         notification.setUser(user);
         Set<Notification> notifications = user.getNotifications();
         notifications.add(notification);
@@ -110,7 +110,7 @@ public class NotificationServiceImpl implements NotificationService {
     @Override
     @CachePut(value = "notificationPermissions", key = "#id")
     public NotificationPermission updateNotificationPermissions(NotificationPermission notificationPermission,Long id) {
-        User user = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException());
+        User user = userRepository.findById(id).orElseThrow(UserNotFoundException::new);
         notificationPermission.setId(user.getNotificationPermission().getId());
         user.setNotificationPermission(notificationPermission);
         return userRepository.save(user).getNotificationPermission();

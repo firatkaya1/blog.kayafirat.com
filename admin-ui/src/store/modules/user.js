@@ -46,6 +46,8 @@ const actions = {
             service.getAll("admin/user/list")
             .then(response =>  {
                 commit('SET_USERS',response.data)
+                commit('alert/pushAlert',{message:"Yeni bir kullanıcı kayıt edildi.",type:'success'},{root:true})
+
             })
         })
     },
@@ -53,12 +55,15 @@ const actions = {
         service.update("admin/user",body)
         .then(response =>  {
             commit('SET_USER',response.data)
+            commit('alert/pushAlert',{message:"Mevcut kullanıcı güncellendi.",type:'success'},{root:true})
+
         })
     },
     deleteUser:({commit},id) => {
         service.delete("admin/user/",id)
         .then(() =>  {
             commit('DELETE_USER',id)
+            commit('alert/pushAlert',{message:"Bir kullanıcı silindi.",type:'success'},{root:true})
         })
     },
 

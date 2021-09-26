@@ -5,10 +5,13 @@ import com.kayafirat.blog.dto.CommentViewDTO;
 import com.kayafirat.blog.dto.CommentVoteDTO;
 import com.kayafirat.blog.entity.Comment;
 import com.kayafirat.blog.entity.CommentVote;
+import com.kayafirat.blog.entity.Log;
+import com.kayafirat.blog.enums.LogType;
 import com.kayafirat.blog.exception.custom.CommentIDNotFoundException;
 import com.kayafirat.blog.exception.custom.EntityNotFoundException;
 import com.kayafirat.blog.repository.CommentRepository;
 import com.kayafirat.blog.service.CommentService;
+import com.kayafirat.blog.service.LogService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -27,7 +30,6 @@ import java.util.List;
 public class CommentServiceImpl implements CommentService {
 
     private final CommentRepository commentRepository;
-
     @Override
     public Page<CommentViewDTO> getAllCommentsAdmin(int pageNumber, int pageSize, String sortedBy, String orderBy) {
         Sort sort = orderBy.equals("asc".toLowerCase()) ? Sort.by(sortedBy).ascending() : Sort.by(sortedBy).descending();
