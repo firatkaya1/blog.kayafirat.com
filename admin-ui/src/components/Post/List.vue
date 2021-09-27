@@ -22,13 +22,16 @@
             Kategoriler
             </th>
             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Gizle
+            </th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
             Sil
             </th>
         </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200">
           <tr v-for="topic in topics" :key="topic">
-            <ListItem v-bind:topic="topic" @delete="deletePost"/>
+            <ListItem v-bind:topic="topic" @delete="deletePost" @hide="hidePost" />
           </tr>
         </tbody>
     </table>
@@ -51,10 +54,13 @@ export default {
     }
   },
   methods:{
-    ...mapActions('topic',['getTopicsDetail']),
+    ...mapActions('topic',['getTopicsDetail','deleteTopic','hideTopic']),
     ...mapGetters('topic',['getTopicsAllDetail']),
     deletePost(id){
-      this.selectedTopic = this.getTopicsAllDetail().find(t => t.postId === id)
+      this.deleteTopic(id)
+    },
+    hidePost(id){
+      this.hideTopic(id)
     }
   },
   computed:{

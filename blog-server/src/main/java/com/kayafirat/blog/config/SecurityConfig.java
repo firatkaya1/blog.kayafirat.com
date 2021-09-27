@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -36,24 +37,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        /*List<Security> securities = securityService.getLinks();
-        for (Security security:securities) {
-            String[] roles = new String[security.getRole().size()];
-            int i = 0;
-            for (Role role:security.getRole()) {
-                roles[i] = role.getRole().substring(role.getRole().indexOf("_")+1);
-                i++;
-            }
-            if(!security.isPermitAll())
-                http.authorizeRequests().antMatchers(security.getHttpMethod(),security.getLink()).hasAnyRole(roles);
-            else
-                http.authorizeRequests().antMatchers(security.getHttpMethod(),security.getLink()).permitAll();
-        }*/
         http.csrf().disable()
             .cors().configurationSource(corsConfigurationSource()).and()
             .authorizeRequests()
-            .antMatchers("/user/current").authenticated()
-            .anyRequest().permitAll()
+            .antMatchers("/user/login").permitAll()
+            .antMatchers(HttpMethod.GET,"post","post/*","post/**").permitAll()
+            .antMatchers("admin","admin/*","admin/**").hasRole("ADMIN")
+            .anyRequest().authenticated()
             .and()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);

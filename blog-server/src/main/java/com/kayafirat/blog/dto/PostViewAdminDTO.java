@@ -23,6 +23,7 @@ public class PostViewAdminDTO {
     private Date updatedDate;
     private Long totalComment;
     private Long totalView;
+    private Boolean isHide;
 
 
     public PostViewAdminDTO(Post post){
@@ -32,5 +33,6 @@ public class PostViewAdminDTO {
         this.categories = post.getCategory().stream().map(c -> c.getName()).collect(Collectors.toList());
         this.updatedDate = post.getUpdatedDate();
         this.totalView = post.getView();
+        this.isHide = post.isHide();
     }
 }

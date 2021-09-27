@@ -18,6 +18,14 @@
         </span>
     </td>
     <td class="px-6 py-4 whitespace-nowrap text-sm text-black text-center">
+        <span class="bg-green-100 text-green-500 px-2 py-1 rounded-full mx-2 hover:bg-green-50 cursor-pointer" @click="$emit('hide',topic.postId)" v-if="topic.isHide">
+            Herkese Açık
+        </span>
+        <span class="bg-blue-100 text-blue-500 px-2 py-1 rounded-full mx-2 hover:bg-blue-50 cursor-pointer" @click="$emit('hide',topic.postId)" v-if="!topic.isHide">
+            Herkese Kapalı
+        </span>
+    </td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-black text-center">
         <span class="bg-red-100 text-red-500 px-2 py-1 rounded-full mx-2 hover:bg-red-50 cursor-pointer" @click="$emit('delete',topic.postId)">
             Hızlı Sil
         </span>

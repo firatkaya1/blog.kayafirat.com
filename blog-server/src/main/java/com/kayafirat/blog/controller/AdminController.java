@@ -79,9 +79,15 @@ public class AdminController {
         return ResponseEntity.ok(postService.updatePost(postDTO));
     }
 
-    @DeleteMapping(value = "topic/{postId}")
-    public ResponseEntity<?> deleteTopic(@PathVariable Long postId){
-        postService.deletePost(postId);
+    @DeleteMapping(value = "topic")
+    public ResponseEntity<?> deleteTopic(@RequestParam Long id){
+        postService.deletePost(id);
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
+
+    @PostMapping(value = "topic/hide")
+    public ResponseEntity<?> hideTopic(@RequestParam Long id){
+        postService.hidePost(id);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
@@ -124,11 +130,8 @@ public class AdminController {
     }
 
     @GetMapping(value = "log/list")
-    public ResponseEntity<?> getLogList(@RequestParam(defaultValue = "1",required = false) int page,
-                                        @RequestParam(defaultValue = "100",required = false) int size,
-                                        @RequestParam(defaultValue = "created_date",required = false) String sort,
-                                        @RequestParam(defaultValue = "desc",required = false) String order){
-        return ResponseEntity.ok(logService.getLogs(page,size,sort,order));
+    public ResponseEntity<?> getLogList(){
+        return ResponseEntity.ok(logService.getLogs());
     }
 
 }

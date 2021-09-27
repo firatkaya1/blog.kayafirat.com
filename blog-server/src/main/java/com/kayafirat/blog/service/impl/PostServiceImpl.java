@@ -169,6 +169,13 @@ public class PostServiceImpl implements PostService {
         commentRepository.deleteByPostId(postDetail.getId());
     }
 
+
+    @Override
+    public void hidePost(Long id) {
+       Post post = postRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Post bulunamadı"));
+       post.setHide(!post.isHide());
+       postRepository.save(post);
+    }
 }
 
 

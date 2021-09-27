@@ -1,14 +1,14 @@
 package com.kayafirat.blog.service;
 
+import com.kayafirat.blog.dto.LogResponse;
 import com.kayafirat.blog.entity.Log;
-import com.kayafirat.blog.entity.Post;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+
+import java.util.List;
 
 public interface LogService {
 
-    Page<Log> getLogs(int pageNumber, int pageSize, String sortedBy, String orderBy);
+    List<LogResponse> getLogs();
 
     public void addLog(Log log);
 

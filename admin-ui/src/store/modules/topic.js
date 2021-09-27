@@ -72,6 +72,26 @@ const actions = {
         .catch(error => {
             commit('alert/pushAlert',{message:"Bir hata ile karşılaşıldı:"+error,type:'error'},{root:true})
         })
+    },
+    deleteTopic:({commit},id) => {
+        service.delete("admin/topic?id=",id)
+            .then(() =>  {
+                commit('alert/pushAlert',{message:"Konu başarıyla silindi.",type:'success'},{root:true})
+                commit('DELETE_TOPIC',id)
+            })
+            .catch(error => {
+                commit('alert/pushAlert',{message:"Bir hata ile karşılaşıldı:"+error,type:'error'},{root:true})
+            })
+    },
+    hideTopic:({commit},id) => {
+        service.save("admin/topic/hide?id="+id,{})
+            .then(() =>  {
+                commit('alert/pushAlert',{message:"Konu durumu güncellendi.",type:'success'},{root:true})
+                commit('HIDE_TOPIC',id)
+            })
+            .catch(error => {
+                commit('alert/pushAlert',{message:"Bir hata ile karşılaşıldı:"+error,type:'error'},{root:true})
+            })
     }
 
 };
@@ -80,7 +100,12 @@ const mutations = {
     SET_TOPICS      :(state,topics) => state.topics = topics,
     SET_TOPICS_DETAİL:(state,topicsDetail) => state.topicsDetail = topicsDetail,
     SET_TOPIC       :(state,topic)  => state.topic = topic,
-    SET_CATEGORIES  :(state,categories)=>state.categories = categories
+    SET_CATEGORIES  :(state,categories)=>state.categories = categories,
+    DELETE_TOPIC    :(state,topicId) => state.topicsDetail = state.topicsDetail.filter(t => t.postId != topicId),
+    HIDE_TOPIC      :(state,topicId) => {
+        var index = state.topicsDetail.findIndex(t => t.postId == topicId)
+        state.topicsDetail[index].isHide = !state.topicsDetail[index].isHide
+    }
 
 
 

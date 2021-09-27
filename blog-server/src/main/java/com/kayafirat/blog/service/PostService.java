@@ -31,4 +31,6 @@ public interface PostService {
     void increasePostView(Long postId);
 
     void deletePost(Long id);
+
+    void hidePost(Long id);
 }

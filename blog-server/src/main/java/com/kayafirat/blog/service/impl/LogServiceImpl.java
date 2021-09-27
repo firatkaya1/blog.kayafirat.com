@@ -1,5 +1,6 @@
 package com.kayafirat.blog.service.impl;
 
+import com.kayafirat.blog.dto.LogResponse;
 import com.kayafirat.blog.entity.Log;
 import com.kayafirat.blog.entity.User;
 import com.kayafirat.blog.exception.custom.UserNotFoundException;
@@ -15,6 +16,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class LogServiceImpl  implements LogService {
@@ -23,10 +26,8 @@ public class LogServiceImpl  implements LogService {
     private final UserRepository userRepository;
 
     @Override
-    public Page<Log> getLogs(int pageNumber, int pageSize, String sortedBy, String orderBy) {
-        Sort sort = orderBy.equals("asc".toLowerCase()) ? Sort.by(sortedBy).ascending() : Sort.by(sortedBy).descending();
-        Pageable pageable = PageRequest.of(pageNumber - 1, pageSize, sort);
-        return logRepository.findAll(pageable);
+    public List<LogResponse> getLogs() {
+        return logRepository.findAllResponse();
     }
 
     @Override
