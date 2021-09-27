@@ -119,6 +119,7 @@ public class UserServiceImpl implements UserService {
         mailPermission.setLoginAttempt(true);
         mailPermission.setPassChange(true);
         mailPermission.setPostNotification(true);
+        userProfile.setRegisterDate(new Date());
 
         user.setMailPermission(mailPermission);
         user.setUserPermission(userPermission);

@@ -51,6 +51,7 @@
     </div>
     <div class="mt-50" *ngIf="isFavourite">
         <textarea name="comment" id="addcomment" [(ngModel)]="message" cols="30" rows="10" placeholder="{{ 'comment.placeholder' | translate }}"></textarea>
-        <button class="btn-panel" (click)="sendComment()" [translate]="'comment.send'">Send</button>
+        <p style="color: red;">*Yorumunuz 8 karakterden küçük olamaz.</p>
+        <button class="btn-panel" (click)="sendComment()" [translate]="'comment.send'" [disabled]="message?.length <= 7">Send</button>
     </div>
 </div>

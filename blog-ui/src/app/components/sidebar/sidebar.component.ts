@@ -22,7 +22,6 @@ export class SidebarComponent implements OnInit {
 
   onFileChanged(event) {
     this.selectedImage = event.target.files[0]
-    console.log(this.selectedImage)
     this.userService.updateUserProfilPhoto(this.selectedImage).subscribe(data => {});
 
   }

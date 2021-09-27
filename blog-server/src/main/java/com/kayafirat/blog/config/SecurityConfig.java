@@ -41,7 +41,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .cors().configurationSource(corsConfigurationSource()).and()
             .authorizeRequests()
             .antMatchers("/user/login").permitAll()
-            .antMatchers(HttpMethod.GET,"post","post/*","post/**").permitAll()
+            .antMatchers(HttpMethod.GET,"/post","/post/*","/post/**").permitAll()
+            .antMatchers(HttpMethod.POST,"/comment","/comment/vote/**").permitAll()
+            .antMatchers(HttpMethod.GET,"/comment","/comment/*","/comment/**").permitAll()
             .antMatchers("admin","admin/*","admin/**").hasRole("ADMIN")
             .anyRequest().authenticated()
             .and()
@@ -64,7 +66,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
-
 
 
     @Override

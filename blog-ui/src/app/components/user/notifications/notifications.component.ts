@@ -62,7 +62,6 @@ export class NotificationsComponent implements OnInit {
   }
 
   deleteNotification(id:number,index:number){
-    console.log(index)
     this.userService.deleteNotification(id).subscribe((data)=> {
         this.notifications.splice(index,1);
         this.alertService.notification("Bildirim silindi.",true);

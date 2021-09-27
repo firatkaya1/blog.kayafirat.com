@@ -95,7 +95,7 @@ export class ArticleComponent implements OnInit {
         }
       })
     }
-    this.metaService.addTags([
+    var values = [
       {name: 'keywords', content: post.meta.googleSEO.keywords},
       {name: 'description', content: post.meta.googleSEO.description},
       {name: 'author', content: '1firatkaya'},
@@ -113,10 +113,9 @@ export class ArticleComponent implements OnInit {
       {name: 'twitter:image:alt', content: post.meta.twitterSEO.title},
       {name: 'twitter:creator', content: post.meta.twitterSEO.creator},
       {name: 'robots', content: 'index, follow'}
-      
-    ]);
-    
-    
+    ]
+    localStorage.setItem('dynamic-seo',JSON.stringify(values))
+    this.metaService.addTags(values);
   }
 
   goUp(){
