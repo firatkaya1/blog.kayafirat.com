@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   public totalPages:number = 0;
 
   constructor(private postService:PostService,private alertService:AlertService,private spinner: NgxSpinnerService,private titleService:Title) { 
-    this.titleService.setTitle("Anasayfa");
+    this.titleService.setTitle("Blog | kayafirat.com");
 
     this.spinner.show();
   }

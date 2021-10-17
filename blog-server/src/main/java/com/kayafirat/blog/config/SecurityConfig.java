@@ -40,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
             .cors().configurationSource(corsConfigurationSource()).and()
             .authorizeRequests()
-            .antMatchers("/user/login").permitAll()
+            .antMatchers(HttpMethod.POST,"/user/login","/user","/user/oauth/**").permitAll()
             .antMatchers(HttpMethod.GET,"/post","/post/*","/post/**").permitAll()
             .antMatchers(HttpMethod.POST,"/comment","/comment/vote/**").permitAll()
             .antMatchers(HttpMethod.GET,"/comment","/comment/*","/comment/**").permitAll()
@@ -55,8 +55,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOriginPatterns(Arrays.asList("https://*.kayafirat.com"));
-        //configuration.setAllowedOriginPatterns(Arrays.asList("http://localhost:8080","http://localhost:4200"));
+        //configuration.setAllowedOriginPatterns(Arrays.asList("https://*.kayafirat.com"));
+        configuration.setAllowedOriginPatterns(Arrays.asList("http://localhost:8080","http://localhost:4200"));
         configuration.setAllowedMethods(Arrays.asList("GET","POST","HEAD","OPTIONS","PUT","PATCH","DELETE"));
         configuration.setAllowedHeaders(Arrays.asList("Accept","Access-Control-Request-Method","Access-Control-Request-Headers",
                 "Accept-Language","Authorization","Content-Type","Request-Name","Request-Surname","Origin","X-Request-AppVersion",

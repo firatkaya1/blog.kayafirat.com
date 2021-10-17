@@ -19,26 +19,5 @@ public class EventLogging {
 
     private final LogRepository logRepository;
 
-    @Around("execution(* com.kayafirat.blog.service..*(..)))")
-    public Object profileAllMethods(ProceedingJoinPoint proceedingJoinPoint) throws Throwable
-    {
-        MethodSignature methodSignature = (MethodSignature) proceedingJoinPoint.getSignature();
 
-        //Get intercepted method details
-        String className = methodSignature.getDeclaringType().getSimpleName();
-        String methodName = methodSignature.getName();
-
-        final StopWatch stopWatch = new StopWatch();
-
-        //Measure method execution time
-        stopWatch.start();
-        Object result = proceedingJoinPoint.proceed();
-        stopWatch.stop();
-
-        //Log method execution time
-        String message = className+ " adındaki clasın sahip olduğu " + methodName + " isimli methoda istek yapıldı. Harcanan süre : " + stopWatch.getTotalTimeMillis() + " ms";
-        Log log = new Log(LogType.INFO,"EVENT LOG",message,stopWatch.getTotalTimeMillis(),methodName,className);
-        logRepository.save(log);
-        return result;
-    }
 }
