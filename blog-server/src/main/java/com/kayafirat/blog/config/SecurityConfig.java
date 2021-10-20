@@ -44,7 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers(HttpMethod.GET,"/post","/post/*","/post/**").permitAll()
             .antMatchers(HttpMethod.POST,"/comment","/comment/vote/**").permitAll()
             .antMatchers(HttpMethod.GET,"/comment","/comment/*","/comment/**").permitAll()
-            .antMatchers("admin","admin/*","admin/**").hasRole("ADMIN")
+            .antMatchers("admin","admin/*","admin/**","/image/post").hasRole("ADMIN")
             .anyRequest().authenticated()
             .and()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
@@ -55,8 +55,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        //configuration.setAllowedOriginPatterns(Arrays.asList("https://*.kayafirat.com"));
-        configuration.setAllowedOriginPatterns(Arrays.asList("http://localhost:8080","http://localhost:4200"));
+        configuration.setAllowedOriginPatterns(Arrays.asList("https://*.kayafirat.com"));
+        //configuration.setAllowedOriginPatterns(Arrays.asList("http://localhost:8080","http://localhost:4200"));
         configuration.setAllowedMethods(Arrays.asList("GET","POST","HEAD","OPTIONS","PUT","PATCH","DELETE"));
         configuration.setAllowedHeaders(Arrays.asList("Accept","Access-Control-Request-Method","Access-Control-Request-Headers",
                 "Accept-Language","Authorization","Content-Type","Request-Name","Request-Surname","Origin","X-Request-AppVersion",

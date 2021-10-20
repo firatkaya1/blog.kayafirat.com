@@ -11,23 +11,5 @@
 </head>
 <body>
   <app-root></app-root>
-  <script>
-    var oldLink = ""
-    var currentLink = ""
-    setInterval(() => {
-      currentLink = window.location.href
-      var values = JSON.parse(localStorage.getItem('dynamic-seo'))
-      if(values != null && currentLink !== oldLink && window.location.href.indexOf('/a/') > -1  ){
-        values.forEach(element => {
-          var link = document.createElement('meta');
-          link.setAttribute('name', element.name);
-          link.content = element.content;
-          document.getElementsByTagName('head')[0].appendChild(link);
-          oldLink = currentLink
-        });
-      }
-    },1000)
-    
-  </script>
 </body>
 </html>

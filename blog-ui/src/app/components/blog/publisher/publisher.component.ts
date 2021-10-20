@@ -18,7 +18,7 @@ export class PublisherComponent implements OnInit {
   public calculateReadTime(){
     const words = this.body?.trim().split(/\s+/).length;
     const time = Math.ceil(words / 255);
-    return time+" min read"
+    return time
   }
 
 }

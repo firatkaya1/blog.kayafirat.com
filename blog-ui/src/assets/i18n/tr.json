@@ -18,7 +18,8 @@
         "delete":"Hesabımı Sil"
     },
     "post":{
-        "click":"Okumak için tıklayınız."
+        "click":"Okumak için tıklayınız.",
+        "read":" dakika okuma süresi"
     },
     "register":{
         "title":"Kayıt Ol",

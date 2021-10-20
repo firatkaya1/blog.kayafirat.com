@@ -19,7 +19,9 @@
 
     },
     "post":{
-        "click":"Click to read."
+        "click":"Click to read.",
+        "read":" min read"
+
     },
     "register":{
         "title":"Register",

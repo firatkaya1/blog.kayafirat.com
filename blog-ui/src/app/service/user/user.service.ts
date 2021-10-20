@@ -1,5 +1,3 @@
-import { AuthService } from './../auth/AuthenticateService';
-import { Comment } from './../../model/Comment';
 import { NotificationPermission } from './../../model/NotificationPermission';
 import { Visibility } from './../../model/Visibility';
 import { User } from './../../model/User';
