@@ -40,7 +40,7 @@ public class ReportController {
     }
 
     @DeleteMapping
-    public ResponseEntity<?> delete(@RequestParam Long id) {
+    public ResponseEntity<?> delete(@PathVariable Long id) {
         reportService.delete(id);
         return ResponseEntity.ok(HttpStatus.OK);
     }
