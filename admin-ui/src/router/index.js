@@ -20,10 +20,15 @@ import MailList from '@/components/Mail/List.vue'
 
 import LogList from '@/components/Log/LogList.vue'
 
+import ReportList from '@/components/Report/ReportList.vue'
 
+import ContactList from '@/components/Contact/ContactList.vue'
 
 import Notification from '@/components/Notification/Notification.vue'
 import NotificationList from '@/components/Notification/List.vue'
+
+import Settings from '@/components/Settings/Settings.vue'
+
 
 const routes = [
   {
@@ -87,6 +92,18 @@ const routes = [
       {
         path: 'log',
         component: LogList
+      },
+      {
+        path: 'report',
+        component: ReportList
+      },
+      {
+        path: 'contact',
+        component: ContactList
+      },
+      {
+        path: 'settings',
+        component: Settings
       }
     ]
   },

@@ -1,6 +1,7 @@
 package com.kayafirat.blog.service.impl;
 
 import com.kayafirat.blog.entity.Report;
+import com.kayafirat.blog.exception.custom.EntityNotFoundException;
 import com.kayafirat.blog.exception.custom.ReportNotFoundException;
 import com.kayafirat.blog.repository.ReportRepository;
 import com.kayafirat.blog.service.ReportService;
@@ -47,6 +48,9 @@ public class ReportServiceImpl implements ReportService {
     @Override
     @CacheEvict(value = "report", key = "#id")
     public void delete(Long id) {
+        if(!reportRepository.existsById(id))
+            throw new EntityNotFoundException("Silinmek istenen report bulunamadı");
+
         reportRepository.deleteById(id);
     }
 

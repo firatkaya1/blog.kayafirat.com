@@ -39,8 +39,8 @@ public class ReportController {
         return ResponseEntity.ok(reportService.update(report));
     }
 
-    @DeleteMapping
-    public ResponseEntity<?> delete(@PathVariable Long id) {
+    @DeleteMapping()
+    public ResponseEntity<?> delete(@RequestParam Long id) {
         reportService.delete(id);
         return ResponseEntity.ok(HttpStatus.OK);
     }

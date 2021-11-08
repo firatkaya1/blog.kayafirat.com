@@ -6,6 +6,7 @@ import notification from './modules/notification';
 import comment from './modules/comment';
 import alert from './modules/alert';
 import log from './modules/log';
+import report from './modules/report';
 
 const store = createStore({
   modules: {
@@ -15,7 +16,8 @@ const store = createStore({
     notification,
     comment,
     alert,
-    log
+    log,
+    report
   }
 });
 

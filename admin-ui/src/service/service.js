@@ -29,6 +29,10 @@ class service {
         return axios.delete(GLOBAL_URI+domain+""+id)
     }
 
+    deleteById(domain){
+        return axios.delete(GLOBAL_URI+domain)
+    }
+
     filter(domain,body){
         return axios.post(GLOBAL_URI+domain+'/filter',body);
     }

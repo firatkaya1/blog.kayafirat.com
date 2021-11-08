@@ -75,6 +75,16 @@ export default {
           ]
         },
         {
+          name:"Hata Raporları",
+          link:"/home/report",
+          icon:"DocumentReportIcon",
+        },
+        {
+          name:"İletişim Raporları",
+          link:"/home/contact",
+          icon:"PhoneMissedCallIcon",
+        },
+        {
           name:"Resim Arşivi",
           link:"/home/image",
           icon:"PhotographIcon"
@@ -83,6 +93,11 @@ export default {
           name:"Log",
           link:"/home/log",
           icon:"RssIcon"
+        },
+         {
+          name:"Ayarlar",
+          link:"/home/settings",
+          icon:"CogIcon"
         },
         {
           name:"Çıkış",
