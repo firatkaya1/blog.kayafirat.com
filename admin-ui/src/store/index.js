@@ -7,6 +7,7 @@ import comment from './modules/comment';
 import alert from './modules/alert';
 import log from './modules/log';
 import report from './modules/report';
+import contact from './modules/contact';
 
 const store = createStore({
   modules: {
@@ -17,7 +18,8 @@ const store = createStore({
     comment,
     alert,
     log,
-    report
+    report,
+    contact
   }
 });
 

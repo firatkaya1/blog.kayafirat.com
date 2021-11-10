@@ -103,5 +103,15 @@
         "back":"Geri Dön",
         "send":"Gönder",
         "placeholder":"Sorununuzu buraya yazınız..."
+    },
+    "contact":{
+        "title":"İletişim",
+        "message":"Benimle iletişime geçmek isterseniz eğer aşağıdaki alanları doldurarak iletişime geçebilirsiniz. Dilerseniz bana me@kayafirat.com adresinden de ulaşabilirsiniz.",
+        "placeholder":"Lütfen iletişim konunuzu yazınız...",
+        "problem":"Konu hakkında bir şeyler yazın.",
+        "name":"İsminiz",
+        "emailAddress":"Email Adresiniz",
+        "back":"Geri Dön",
+        "send":"Gönder"
     }
 }

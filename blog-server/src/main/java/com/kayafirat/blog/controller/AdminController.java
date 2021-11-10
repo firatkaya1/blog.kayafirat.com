@@ -7,6 +7,7 @@ import com.kayafirat.blog.entity.User;
 import com.kayafirat.blog.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.CacheManager;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +23,8 @@ public class AdminController {
     private final MailService mailService;
     private final CommentService commentService;
     private final LogService logService;
+
+    private final CacheManager cacheManager;
 
     @GetMapping(value = "user/list")
     public ResponseEntity<?> getUserList(){
@@ -133,5 +136,13 @@ public class AdminController {
     public ResponseEntity<?> getLogList(){
         return ResponseEntity.ok(logService.getLogs());
     }
+
+    @PostMapping("config/cache")
+    public ResponseEntity<?> clearCache(){
+        cacheManager.getCacheNames().parallelStream().forEach(name -> cacheManager.getCache(name).clear());
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
+
+
 
 }

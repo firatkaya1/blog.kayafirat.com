@@ -46,6 +46,8 @@ import { UnsubscribeComponent } from './components/user/unsubscribe/unsubscribe.
 import { MailSettingsComponent } from './components/user/mail-settings/mail-settings.component';
 import { VerifyComponent } from './components/user/verify/verify.component';
 import { PublisherComponent } from './components/blog/publisher/publisher.component';
+import { StatusComponent } from './components/status/status.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 
 
@@ -83,7 +85,9 @@ import { PublisherComponent } from './components/blog/publisher/publisher.compon
     UnsubscribeComponent,
     MailSettingsComponent,
     VerifyComponent,
-    PublisherComponent
+    PublisherComponent,
+    StatusComponent,
+    ContactComponent
   ],
   imports: [
     BrowserAnimationsModule,

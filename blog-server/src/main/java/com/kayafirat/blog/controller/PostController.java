@@ -2,12 +2,15 @@ package com.kayafirat.blog.controller;
 
 import com.kayafirat.blog.dto.PostDTO;
 import com.kayafirat.blog.entity.PostDetail;
+import com.kayafirat.blog.repository.ConfigRepository;
 import com.kayafirat.blog.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
 
 
 @RestController
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 public class PostController {
 
     private final PostService postService;
+    private final ConfigRepository configrepository;
 
     @GetMapping("all")
     public ResponseEntity<?> getAll(){
@@ -73,5 +77,11 @@ public class PostController {
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
+    @GetMapping("config/status")
+    public ResponseEntity<?> status(){
+        HashMap<String,String> map = new HashMap<>();
+        map.put("status",configrepository.findByConfigKod("status"));
+        return ResponseEntity.ok(map);
+    }
 
 }

@@ -96,7 +96,6 @@
         "send":"Send",
         "placeholder":"Write your comment...",
         "view":"Views "
-
     },
     "error":{
         "message":"Hey! We are sorry for what you are looking for. If you think this is a real problem, please message me. I will fix it as soon as possible.",
@@ -106,6 +105,16 @@
         "back":"Back",
         "send":"Send",
         "placeholder":"Write your problem..."
+    },
+    "contact":{
+        "title":"Contact",
+        "message":"If you want to contact me, please filling out the fields below. If you wish, you can also reach me at me@kayafirat.com.",
+        "placeholder":"Please write your contact subject...",
+        "problem":"Please write your contact subject.",
+        "name":"Name",
+        "emailAddress":"Email Address",
+        "back":"Back",
+        "send":"Send"
     }
     
 }

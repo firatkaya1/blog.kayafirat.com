@@ -19,6 +19,7 @@ import { NotFoundComponent } from './pages/errors/not-found/not-found.component'
 import { HomeComponent } from './pages/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ContactComponent } from './pages/contact/contact.component';
 
 
 const routes: Routes = [
@@ -40,6 +41,7 @@ const routes: Routes = [
     {path: 'terms', component: TermsofpolicyComponent},
     {path: 'exit', component: ExitComponent}
   ]},
+  {path:'contact',component:ContactComponent},
   {path:'404',component:NotFoundComponent},
   {path:'403',component:UnauthorizedComponent}
 
