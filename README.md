@@ -2,3 +2,4 @@
 
 
 this is my personal blog.
+yakında güncellenecek
