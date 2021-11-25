@@ -6,8 +6,8 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ReportService {
  
-  private BASE_URL:string = "http://localhost:8081/report";
-  //private BASE_URL:string = "https://api.kayafirat.com/blog/report";
+  //private BASE_URL:string = "http://localhost:8081/report";
+  private BASE_URL:string = "https://api.kayafirat.com/blog/report";
   constructor(private http:HttpClient) { }
 
   public sendReport(body){

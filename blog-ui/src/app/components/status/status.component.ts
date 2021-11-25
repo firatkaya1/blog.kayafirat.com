@@ -10,8 +10,7 @@ import { Router } from '@angular/router';
 export class StatusComponent implements OnInit {
 
   public isShow:boolean = true
-  private BASE_URL:string = "http://localhost:8081/post";
-  //private BASE_URL:string = "https://api.kayafirat.com/blog/post";
+  private BASE_URL:string = "https://api.kayafirat.com/blog/post";
 
   constructor(public router:Router,private http:HttpClient) { 
     this.http.get<any>(this.BASE_URL+"/config/status").subscribe((data) => { this.isShow = data.status == "true"})

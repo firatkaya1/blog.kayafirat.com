@@ -121,6 +121,11 @@ public class UserServiceImpl implements UserService {
         mailPermission.setPostNotification(true);
         userProfile.setRegisterDate(new Date());
 
+        Role role = new Role();
+        role.setId(1L);
+        role.setRole("ROLE_USER");
+
+        user.setRole(new HashSet<>(Collections.singletonList(role)));
         user.setMailPermission(mailPermission);
         user.setUserPermission(userPermission);
         user.setUserProfile(userProfile);
