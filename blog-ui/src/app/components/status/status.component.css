@@ -1,0 +1,27 @@
+.close-site {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: white;
+    z-index: 500;
+    padding: 25px;
+}
+.btn-panel { 
+    margin-right: 20px;
+    cursor: pointer;
+    padding: 10px 30px;
+    font-size: 20px;
+    background-color: #FFDD00;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inconsolata', monospace;
+}
+.btn-panel:hover { 
+    background-color: #FFD000;
+    color: #4f65dd;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

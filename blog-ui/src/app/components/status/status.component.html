@@ -1,0 +1,17 @@
+<div class="close-site" *ngIf="(router.url != '/contact') ? isShow : false">
+    <h1 style="text-align: center;margin-top: 5%;"> Geçiçi olarak site kapalı {{isShow}} !</h1>
+    <div style="display: flex;flex-direction: column;">
+        <div style="margin-left: 30%;margin-right:30%;">
+            <p style="text-align: justify;"> Ya bir yerlerde hata yaptım, ya da siteyi deploy etme kısmında hata yaşadım. Hangisi doğru bilmiyorum. Fakat şundan emin olabilirsiniz ki bir an önce ayağa kaldırmaya çalışıyorumdur. </p>
+            <p>
+                Baktınız site harbi boktan, bir de ben çakayım diyorsanız fikir ve önerilerinizi aşağıya yazabilirsiniz. Canım sıkılınca açar okurum. Teşekkürler.
+            </p>
+        </div>
+        <div style="margin-left: 45%;">
+            <a routerLink="/contact" class="btn-panel"> İletişim </a>
+        </div>
+        <div class="" style="width: 30%;margin-left: 30%;margin-right:30%;margin-top: 5%;">
+            <img src="/assets/img/close-site.svg" width="100%" alt="closed-site">
+        </div>
+    </div>
+</div>

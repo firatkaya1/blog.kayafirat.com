@@ -2,6 +2,7 @@ package com.kayafirat.blog.controller;
 
 import com.kayafirat.blog.dto.*;
 import com.kayafirat.blog.entity.Comment;
+import com.kayafirat.blog.entity.Config;
 import com.kayafirat.blog.entity.PostDetail;
 import com.kayafirat.blog.entity.User;
 import com.kayafirat.blog.service.*;
@@ -23,6 +24,7 @@ public class AdminController {
     private final MailService mailService;
     private final CommentService commentService;
     private final LogService logService;
+    private final ConfigService configService;
 
     private final CacheManager cacheManager;
 
@@ -141,6 +143,11 @@ public class AdminController {
     public ResponseEntity<?> clearCache(){
         cacheManager.getCacheNames().parallelStream().forEach(name -> cacheManager.getCache(name).clear());
         return ResponseEntity.ok(HttpStatus.OK);
+    }
+
+    @PostMapping("config")
+    public ResponseEntity<?> saveConfig(@RequestBody Config config){
+        return ResponseEntity.ok(configService.updateConfig(config));
     }
 
 
