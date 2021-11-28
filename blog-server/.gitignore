@@ -34,7 +34,8 @@ out/
 /.nb-gradle/
 
 application-prod.properties
-.properties
+application-dev.properties
+application.properties
 
 ### VS Code ###
 .vscode/
