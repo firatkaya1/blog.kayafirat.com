@@ -7,6 +7,7 @@ import com.kayafirat.blog.util.Auth;
 import com.kayafirat.blog.util.Template;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import javax.mail.*;
@@ -21,8 +22,10 @@ public class SenderService {
 
     private final Template template;
     private final MailService mailService;
-
+    private final Environment env;
+    
     public void sendMail(Type type, List<MailQueue> to) throws MessagingException {
+
         switch (type) {
             case Verification:
                 sendVerification(to);
@@ -50,11 +53,10 @@ public class SenderService {
         }
     }
 
-
     public void sendPasswordChange(List<MailQueue> to) throws MessagingException {
-        Session session = Auth.getSession();
+        Session session = Auth.getSession(env.getProperty("blog.mail.username"),env.getProperty("blog.mail.password"));
         Transport transport = session.getTransport("smtp");
-        transport.connect("smtp.yandex.com", "noreply@kayafirat.com", "bE99321605848");
+        transport.connect("smtp.yandex.com", env.getProperty("blog.mail.username"),env.getProperty("blog.mail.password"));
 
         for (int i = 0; i < to.size(); i++) {
             MimeMessage message = template.resetPasswordTemplate(to.get(i).getEmailAddress(), session);
@@ -67,9 +69,9 @@ public class SenderService {
     }
 
     public void sendPasswordChangeSuccess(List<MailQueue> to) throws MessagingException {
-        Session session = Auth.getSession();
+        Session session = Auth.getSession(env.getProperty("blog.mail.username"),env.getProperty("blog.mail.password"));
         Transport transport = session.getTransport("smtp");
-        transport.connect("smtp.yandex.com", "noreply@kayafirat.com", "bE99321605848");
+        transport.connect("smtp.yandex.com", env.getProperty("blog.mail.username"),env.getProperty("blog.mail.password"));
 
         for (int i = 0; i < to.size(); i++) {
             MimeMessage message = template.passwordChangedTemplate(to.get(i).getEmailAddress(), session);
@@ -83,9 +85,9 @@ public class SenderService {
     }
 
     public void sendVerification(List<MailQueue> to) throws MessagingException {
-        Session session = Auth.getSession();
+        Session session = Auth.getSession(env.getProperty("blog.mail.username"),env.getProperty("blog.mail.password"));
         Transport transport = session.getTransport("smtp");
-        transport.connect("smtp.yandex.com", "noreply@kayafirat.com", "bE99321605848");
+        transport.connect("smtp.yandex.com", env.getProperty("blog.mail.username"),env.getProperty("blog.mail.password"));
         for (int i = 0; i < to.size(); i++) {
             MimeMessage message = template.verificationEmailTemplate(to.get(i).getEmailAddress(), session);
             transport.sendMessage(message, message.getAllRecipients());
@@ -97,9 +99,9 @@ public class SenderService {
     }
 
     public void sendVerificationSuccess(List<MailQueue> to) throws MessagingException {
-        Session session = Auth.getSession();
+        Session session = Auth.getSession(env.getProperty("blog.mail.username"),env.getProperty("blog.mail.password"));
         Transport transport = session.getTransport("smtp");
-        transport.connect("smtp.yandex.com", "noreply@kayafirat.com", "bE99321605848");
+        transport.connect("smtp.yandex.com", env.getProperty("blog.mail.username"),env.getProperty("blog.mail.password"));
 
         for (int i = 0; i < to.size(); i++) {
             MimeMessage message = template.verificationSuccessTemplate(to.get(i).getEmailAddress(), session);
@@ -112,9 +114,9 @@ public class SenderService {
     }
 
     public void sendLoginSuccess(List<MailQueue> to) throws MessagingException {
-        Session session = Auth.getSession();
+        Session session = Auth.getSession(env.getProperty("blog.mail.username"),env.getProperty("blog.mail.password"));
         Transport transport = session.getTransport("smtp");
-        transport.connect("smtp.yandex.com", "noreply@kayafirat.com", "bE99321605848");
+        transport.connect("smtp.yandex.com", env.getProperty("blog.mail.username"),env.getProperty("blog.mail.password"));
         for (int i = 0; i < to.size(); i++) {
             MimeMessage message = template.loginSuccessTemplate(to.get(i).getEmailAddress(), session);
             transport.sendMessage(message, message.getAllRecipients());
@@ -127,9 +129,9 @@ public class SenderService {
     }
 
     public void sendLoginAttempt(List<MailQueue> to) throws MessagingException {
-        Session session = Auth.getSession();
+        Session session = Auth.getSession(env.getProperty("blog.mail.username"),env.getProperty("blog.mail.password"));
         Transport transport = session.getTransport("smtp");
-        transport.connect("smtp.yandex.com", "noreply@kayafirat.com", "bE99321605848");
+        transport.connect("smtp.yandex.com", env.getProperty("blog.mail.username"),env.getProperty("blog.mail.password"));
         for (int i = 0; i < to.size(); i++) {
             MimeMessage message = template.loginAttemptTemplate(to.get(i).getEmailAddress(), session);
             transport.sendMessage(message, message.getAllRecipients());
@@ -141,9 +143,9 @@ public class SenderService {
     }
 
     public void sendOther(List<MailQueue> to) throws  MessagingException {
-        Session session = Auth.getSession();
+        Session session = Auth.getSession(env.getProperty("blog.mail.username"),env.getProperty("blog.mail.password"));
         Transport transport = session.getTransport("smtp");
-        transport.connect("smtp.yandex.com", "noreply@kayafirat.com", "bE99321605848");
+        transport.connect("smtp.yandex.com", env.getProperty("blog.mail.username"),env.getProperty("blog.mail.password"));
         for (int i = 0; i < to.size(); i++) {
             MimeMessage message = template.other(to.get(i).getEmailAddress(), session,to.get(i).getMailTitle(),to.get(i).getMailSubtitle(),to.get(i).getBody());
             transport.sendMessage(message, message.getAllRecipients());
