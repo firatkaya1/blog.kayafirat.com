@@ -1,5 +1,4 @@
 # blog.kayafirat.com
 
 
-this is my personal blog.
-yakında güncellenecek
+Geliştirmiş olduğum kişisel bloğumun kaynak kodlarını temsil etmektedir.
