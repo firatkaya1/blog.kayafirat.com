@@ -1,7 +1,5 @@
 package com.kayafirat.blog.util;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 
 import javax.mail.Session;
 import java.util.Properties;

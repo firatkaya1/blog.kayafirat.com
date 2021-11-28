@@ -84,3 +84,9 @@ bootWar {
 	dependsOn setProductionConfig
 	archiveFileName = 'blog.war'
 }
+
+bootJar {
+	dependsOn setProductionConfig
+	archiveFileName = 'blog.jar'
+
+}
