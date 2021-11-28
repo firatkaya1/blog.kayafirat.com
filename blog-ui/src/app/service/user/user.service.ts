@@ -9,10 +9,10 @@ import {HttpClient} from '@angular/common/http';
 })
 export class UserService {
   
-  private BASE_URL:string = "http://localhost:8081/user";
-  private BASE_URL2:string = "http://localhost:8081";
-  //private BASE_URL:string = "https://api.kayafirat.com/blog/user";
-  //private BASE_URL2:string = "https://api.kayafirat.com/blog";
+  //private BASE_URL:string = "http://localhost:8081/user";
+  //private BASE_URL2:string = "http://localhost:8081";
+  private BASE_URL:string = "https://api.kayafirat.com/blog/user";
+  private BASE_URL2:string = "https://api.kayafirat.com/blog";
 
   constructor(private http:HttpClient) { }
 
